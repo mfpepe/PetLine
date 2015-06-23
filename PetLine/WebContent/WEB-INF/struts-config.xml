@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+    <form-beans>
+        <form-bean name="LoginForm" type="petline.form.LoginForm"/>
+    </form-beans>
+ 
+    <action-mappings>
+        <action path="/login" name="LoginForm" validate="true" input="/index.jsp" type="petline.action.LoginAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/menu.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/index.jsp" />
+        </action>
+        <action path="/logout" type="petline.action.LogoutAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/index.jsp"/>
+        </action>        
+    </action-mappings>
+ 
+</struts-config>
