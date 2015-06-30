@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html style="height:100%">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Bienvenido</title>
@@ -15,18 +15,23 @@
     %>    
  	<table width="100%" height="99%" cellspacing="0" cellpadding="0">
      <tr>
-         <td height="90px" width="210px" class="menufondo">
+         <td height="90px" width="210px" class="menufondo" align=center>
              <img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png">
          </td>
-         <td colspan=2 rowspan="3">
+         <td colspan=2 rowspan="4">
              <iframe width="100%" frameborder="0" height="100%" name="FRAMEGRAL" id="FRAMEGRAL" src="./empty.jsp?message=<%= message %>"></iframe>
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo">
-             <a style="cursor:hand;" class="menufondo"><img src="<%= PetLineUtils.getURL() %>img/botonConsulta.png"></a>
+         <td height="30px" class="menufondo" align=center>
+             <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./box.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonBox.png"></a>
          </td>
      </tr>
+     <tr>
+         <td height="30px" class="menufondo" align=center>
+             <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./tracker.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonTrackers.png"></a>
+         </td>
+     </tr>     
      <tr>
      	<td class="menufondo"><br></td>
     </tr>

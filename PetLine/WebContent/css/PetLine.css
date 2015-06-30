@@ -70,13 +70,24 @@ p {
     margin-right:auto;
 }
 
-.title {
+.header {
 	background-color: #006cff;
 	font-family: Segoe UI, sans-serif;
 	text-align: center;
 	color: #FFFFFF;
 	font-size: 40px;
 	font-weight: bold;
+}
+
+.title {
+	background-color: #555555;
+	font-family: Segoe UI, sans-serif;
+	text-align: left;
+	color: #FFFFFF;
+	font-size: 40px;
+	font-weight: bold;
+	height: 50px;
+	padding: 10px;
 }
 
 .subtitle {

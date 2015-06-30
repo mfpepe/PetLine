@@ -5,17 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Bienvenido</title>
+<title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-    <%
-        String message = request.getParameter("message");
-    %>    
-		<p class="title">Pantalla de Inicio</p>
-		<br>
-		<p class="subtitle">Bienvenido  <%= message %>.</p>
+		<p class="title">Box's</p>
 </body>
 </html>    
 

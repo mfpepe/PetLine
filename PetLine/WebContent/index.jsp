@@ -35,7 +35,7 @@ function ocultarMsg(){
 </head>
 <body onLoad="document.form.userName.focus();" style="background-image:url('<%= PetLineUtils.getURL() %>img/fondo.png');">
 <form method="post" name="form" id="form" action="login.do">
-	<p class="title"><img src="<%= PetLineUtils.getURL() %>img/petLineLogo.png"></p>
+	<p class="header"><img src="<%= PetLineUtils.getURL() %>img/petLineLogo.png"></p>
 	<br>
 	<p id="message" class="error"><%= (!StringUtils.isEmpty(msg)?msg:"&nbsp;") %></p>
 	<br>
