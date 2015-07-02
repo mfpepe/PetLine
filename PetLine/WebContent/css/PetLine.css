@@ -19,6 +19,31 @@ p {
 	line-height: 1em;
 }
 
+a{
+	font-size: 12px;
+	font-family: Segoe UI, sans-serif;
+	color:#000000;
+	text-decoration: underline;
+	padding-right:6px;
+	padding-left:6px;
+}
+
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0px 0;
+  padding: 2px 20px 2px 5px;
+  height: 25px;
+  outline: 0;
+  border: 1px solid #aaa;
+  line-height: normal;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 175px;
+}
+
+/*
 * input[type="text"] {
 	width: 150px;
 	border-left-width: 1px;
@@ -47,13 +72,57 @@ p {
 	border-top-color: black;
 	border-bottom-color: grey;
 }
+*/
+
+input[type="text"] {
+	width: 175px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0px 0;
+  padding: 2px 20px 2px 5px;
+  height: 25px;
+  outline: 0;
+  border: 1px solid #aaa;
+  line-height: normal;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+input[type="password"] {
+  width: 175px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0px 0;
+  padding: 2px 20px 2px 5px;
+  height: 25px;
+  outline: 0;
+  border: 1px solid #aaa;
+  line-height: normal;
+  border-radius: 5px;
+  font-size: 15px;
+}
 
 .etiqueta {
 	height:25px;
 	width: 150px;
 	background-color: #006cff;
+	font-family: Segoe UI, sans-serif;
+	text-align: left;
+	padding-left:5px;
 	color: #FFFFFF;
-	font-weight: bold;
+	font-size: 15px;
+	font-weight: bold;	
+}
+
+.textoLibre {
+	font-family: Segoe UI, sans-serif;
+	text-align: left;
+	padding-left:5px;
+	color: #000000;
+	font-size: 15px;
+	font-weight: bold;	
 }
 
 .table {
@@ -64,10 +133,21 @@ p {
 	background-image:url('../img/menuback.png');
 	background-position:center center; 
 	background-size: 100% 100%;
-	width:400px;
-	height:200px;
 	margin-left:auto; 
     margin-right:auto;
+}
+
+.table2 {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 1px;
+  border-color: grey;
+  border:0; 
+  cellspacing:0; 
+  cellpadding:0; 
+  width:95%; 
+  align:center;
+  padding-left: 5px;
 }
 
 .header {
@@ -124,4 +204,47 @@ p {
 	font-size: 10px;
 	font-weight: bold;
 	background-color: #006cff;
+}
+
+.tableTitle{
+	background-color: #006cff;
+	font-family: Segoe UI, sans-serif;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.tableImpar{
+	background-color: #cccccc;
+	font-family: Segoe UI, sans-serif;
+	text-align: left;
+	padding-left:5px;
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold;	
+}
+
+.tablePar{
+	background-color: #FFFFFF;
+	font-family: Segoe UI, sans-serif;
+	text-align: left;
+	padding-left:5px;
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.buttons
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #FFFFFF;
+	background:url('../img/button.png');
+	border: 0px;
+	width: 170px;
+	height:30px;
+	cursor: hand;
 }

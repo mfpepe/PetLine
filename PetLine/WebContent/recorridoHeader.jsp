@@ -9,22 +9,22 @@
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
-<body style="background-image:url('./img/fondo.png');">
-		<p class="title">Box's</p>
-		<br>
-		<a href="./boxAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
+<body  style="height: 100%; padding: 0px; margin: 0px;" >
+		<p class="title">Recorrido</p>
 		<br>
 		<table class=table2>
-			<tr class="tableTitle">
-				<td>Box</td>
-				<td>Actualizar</td>
-				<td>Eliminar</td>
 			<tr>
-			<tr class="tableImpar">
-				<td><a target="_blank" href="./boxView.jsp">Casa</a></td>
-				<td><a href="./boxModif.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
-				<td><a href="./boxElim.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
-			<tr>			
+				<td class=etiqueta>Mascota</td>
+				<td>&nbsp;
+					<select class="chosen-select" name="mascota" id="mascota" onchange="onChangeMascota();" >
+						<option value=""></option>
+						<option value="1">Donato</option>
+					</select>
+				</td>
+			</tr>
+			<tr height=700px>
+				<td colspan=2><iframe width="100%" frameborder="0" height="100%" name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message="></iframe></td>
+			</tr>			
 		</table>		
 </body>
 </html>    

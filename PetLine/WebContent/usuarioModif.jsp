@@ -10,22 +10,26 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-		<p class="title">Box's</p>
+
+		<p class="title">Actualizar Perfil de Usuario</p>
 		<br>
-		<a href="./boxAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
-		<br>
-		<table class=table2>
-			<tr class="tableTitle">
-				<td>Box</td>
-				<td>Actualizar</td>
-				<td>Eliminar</td>
+		<table class=table2 >
 			<tr>
-			<tr class="tableImpar">
-				<td><a target="_blank" href="./boxView.jsp">Casa</a></td>
-				<td><a href="./boxModif.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
-				<td><a href="./boxElim.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
-			<tr>			
-		</table>		
+				<td class=etiqueta>Nombre</td>
+				<td>&nbsp;<input type="text" name="nombre" id="nombre" value="Admin"/></td>
+			<tr>
+			<tr>
+				<td class=etiqueta>Apellido</td>
+				<td>&nbsp;<input type="text" name="apellido" id="apellido" value="Admin"/></td>
+			<tr>
+			<tr>
+				<td class=etiqueta>Correo Electronico</td>
+				<td>&nbsp;<input type="text" name="email" id="email" value="admin@admin.com"/></td>
+			<tr>
+		</table>
+		<br>
+		<input type="button" class="buttons" value="Modificar" onclick="alert('Se modifico exitosamente');">
+
 </body>
 </html>    
 

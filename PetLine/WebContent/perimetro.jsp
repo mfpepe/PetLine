@@ -10,22 +10,28 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-		<p class="title">Box's</p>
+		<p class="title">Perimetros</p>
 		<br>
-		<a href="./boxAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
+		<a href="./perimetroAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
 		<br>
 		<table class=table2>
 			<tr class="tableTitle">
-				<td>Box</td>
+				<td>Descripcion</td>
+				<td>Latitud</td>
+				<td>Longitud</td>
+				<td>Distancia</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>
 			<tr>
 			<tr class="tableImpar">
-				<td><a target="_blank" href="./boxView.jsp">Casa</a></td>
-				<td><a href="./boxModif.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
-				<td><a href="./boxElim.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
+				<td>Casa</td>
+				<td>-34.67613</td>
+				<td>-58.53500</td>
+				<td>20 mts</td>
+				<td><a href="./perimetroModif.jsp?descripcion=Casa&distancia=20"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
+				<td><a href="./perimetroElim.jsp?descripcion=Casa&distancia=20"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
 			<tr>			
-		</table>		
+		</table>
 </body>
 </html>    
 

@@ -10,7 +10,12 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-
+    <%
+        String message = request.getParameter("message");
+    %>    
+		<p class="title">Pantalla de Inicio</p>
+		<br>
+		<p class="subtitle">Bienvenido  <%= message %>.</p>
 </body>
 </html>    
 

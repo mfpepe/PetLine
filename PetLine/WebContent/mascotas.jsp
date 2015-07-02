@@ -10,22 +10,28 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-		<p class="title">Box's</p>
+		<p class="title">Mascotas</p>
 		<br>
-		<a href="./boxAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
+		<a href="./mascotasAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
 		<br>
 		<table class=table2>
 			<tr class="tableTitle">
-				<td>Box</td>
+				<td>Apodo</td>
+				<td>Edad</td>
+				<td>Peso</td>
+				<td>Objetivo Diario</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>
 			<tr>
 			<tr class="tableImpar">
-				<td><a target="_blank" href="./boxView.jsp">Casa</a></td>
-				<td><a href="./boxModif.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
-				<td><a href="./boxElim.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
+				<td>Donato</td>
+				<td>4 Años</td>
+				<td>5 Kg</td>
+				<td>2 Km</td>
+				<td><a href="./mascotasModif.jsp?apodo=Donato&edad=4&peso=5&objetivo=2"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
+				<td><a href="./mascotasElim.jsp?apodo=Donato&edad=4&peso=5&objetivo=2"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
 			<tr>			
-		</table>		
+		</table>
 </body>
 </html>    
 
