@@ -18,7 +18,7 @@
          <td height="90px" width="210px" class="menufondo" align=center>
              <img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png">
          </td>
-         <td colspan=2 rowspan="9">
+         <td colspan=2 rowspan="10">
              <iframe width="100%" frameborder="0" height="100%" name="FRAMEGRAL" id="FRAMEGRAL" src="./inicio.jsp?message=<%= message %>"></iframe>
          </td>
      </tr>
@@ -52,6 +52,16 @@
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./recorridoHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonRecorrido.png"></a>
          </td>
      </tr>     
+     <tr>
+         <td height="30px" class="menufondo" align=center>
+             <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./trackerMasc.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonTrackMasc.png"></a>
+         </td>
+     </tr>
+     <tr>
+         <td height="30px" class="menufondo" align=center>
+             <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./consejos.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonConsejos.png"></a>
+         </td>
+     </tr>                    
      <tr>
          <td height="30px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./tracker.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonTrackers.png"></a>
