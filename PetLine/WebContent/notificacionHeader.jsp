@@ -10,15 +10,15 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body  style="height: 100%; padding: 0px; margin: 0px;" >
-		<p class="title">Recorrido</p>
+		<p class="title">Notificacion</p>
 		<br>
 		<table class=table2>
 			<tr>
-				<td class=etiqueta>Mascota</td>
+				<td class=etiqueta>Tracker</td>
 				<td>&nbsp;
-					<select class="chosen-select" name="mascota" id="mascota" onchange="onChangeMascotaRecorrido();" >
+					<select name="tracker" id="tracker" onchange="onChangeTrackerNotificacion();" >
 						<option value=""></option>
-						<option value="1">Donato</option>
+						<option value="1">Tracker 1</option>
 					</select>
 				</td>
 			</tr>

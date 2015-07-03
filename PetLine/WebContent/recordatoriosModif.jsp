@@ -10,30 +10,21 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-<form method="post" name="form1" id="form1" action="./trackerMasc.jsp">
-		<p class="title">Modificacion de Tracker-Mascota</p>
+<form method="post" name="form1" id="form1" action="./recordatorios.jsp">
+		<p class="title">Modificar Recordatorio</p>
 		<br>
 		<table class=table2 >
 			<tr>
-				<td class=etiqueta>Mascota</td>
-				<td>
-					<select name="mascota" id="mascota" disabled>
-						<option value=""></option>
-						<option value="1" selected>Donato</option>
-					</select>
-				</td>
-			<tr>
-			<tr>
-				<td class=etiqueta>Descripcion Tracker</td>
+				<td class=etiqueta>Descripcion</td>
 				<td>&nbsp;<input type="text" name="descripcion" id="descripcion" value="<%= request.getParameter("descripcion") %>"/></td>
-			<tr>						
-			<tr>
-				<td class=etiqueta>Temperatura Minima</td>
-				<td>&nbsp;<input type="text" name="tempMin" id="tempMin" value="<%= request.getParameter("tempMin") %>"/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Temperatura Maxima</td>
-				<td>&nbsp;<input type="text" name="tempMax" id="tempMax" value="<%= request.getParameter("tempMax") %>"/></td>
+				<td class=etiqueta>Fecha</td>
+				<td>&nbsp;<input type="text" name="fecha" id="fecha" value="<%= request.getParameter("fecha") %>"/></td>
+			<tr>
+			<tr>
+				<td class=etiqueta>Hora</td>
+				<td>&nbsp;<input type="text" name="hora" id="hora" value="<%= request.getParameter("hora") %>"/></td>
 			<tr>			
 		</table>
 		<br>

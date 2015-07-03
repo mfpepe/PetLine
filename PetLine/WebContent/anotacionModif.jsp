@@ -5,11 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Trackers</title>
+<title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-		<p class="title">Trackers</p>
+<form method="post" name="form1" id="form1" action="./anotacion.jsp">
+		<p class="title">Modificar Anotación</p>
+		<br>
+		<table class=table2 >
+			<tr>
+				<td class=etiqueta>Descripcion</td>
+				<td>&nbsp;<input type="text" name="descripcion" id="descripcion" value="<%= request.getParameter("descripcion") %>"/></td>
+			<tr>
+		</table>
+		<br>
+		<input type="button" class="buttons" value="Modificar" onclick="document.form1.submit()">
+</form>
 </body>
 </html>    
+
+    

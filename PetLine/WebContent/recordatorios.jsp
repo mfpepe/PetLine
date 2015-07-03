@@ -10,30 +10,24 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-		<p class="title">Trackers-Mascotas</p>
-		<br>
-		<a href="./trackerMascAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
+		<a href="./recordatoriosAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
 		<br>
 		<table class=table2>
 			<tr class="tableTitle">
-				<td>Mascota</td>
-				<td>Tracker</td>
-				<td>Temperatura Minima</td>
-				<td>Temperatura Maxima</td>
-				<td>Temperatura Actual</td>
+				<td>Descripcion</td>
+				<td>Fecha</td>
+				<td>Hora</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>
 			<tr>
 			<tr class="tableImpar">
-				<td>Donato</td>				
-				<td>Tracker 1</td>
-				<td>5º</td>
-				<td>30º</td>
-				<td>20º</td>
-				<td><a href="./trackerMascModif.jsp?descripcion=Tracker 1&tempMin=5º&tempMax=30º"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
-				<td><a href="./trackerMascElim.jsp?descripcion=Tracker 1&tempMin=5º&tempMax=30º"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
+				<td>Darle las Vacunas</td>
+				<td>20/07/2015</td>
+				<td>19:00</td>
+				<td><a href="./recordatoriosModif.jsp?descripcion=Darle las Vacunas&fecha=20/07/2015&hora=19:00"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
+				<td><a href="./recordatoriosElim.jsp?descripcion=Darle las Vacunas&fecha=20/07/2015&hora=19:00"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
 			<tr>			
-		</table>
+		</table>		
 </body>
 </html>    
 

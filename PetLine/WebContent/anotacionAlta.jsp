@@ -9,23 +9,19 @@
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
-<body  style="height: 100%; padding: 0px; margin: 0px;" >
-		<p class="title">Recorrido</p>
+<body style="background-image:url('./img/fondo.png');">
+<form method="post" name="form1" id="form1" action="./anotacion.jsp">
+		<p class="title">Alta de Anotación</p>
 		<br>
-		<table class=table2>
+		<table class=table2 >
 			<tr>
-				<td class=etiqueta>Mascota</td>
-				<td>&nbsp;
-					<select class="chosen-select" name="mascota" id="mascota" onchange="onChangeMascotaRecorrido();" >
-						<option value=""></option>
-						<option value="1">Donato</option>
-					</select>
-				</td>
-			</tr>
-			<tr height=700px>
-				<td colspan=2><iframe width="100%" frameborder="0" height="100%" name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message="></iframe></td>
-			</tr>			
-		</table>		
+				<td class=etiqueta>Descripcion</td>
+				<td>&nbsp;<input type="text" name="descripcion" id="descripcion"/></td>
+			<tr>		
+		</table>
+		<br>
+		<input type="button" class="buttons" value="Agregar" onclick="document.form1.submit()">
+</form>
 </body>
 </html>    
 
