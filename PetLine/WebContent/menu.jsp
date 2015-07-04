@@ -18,7 +18,7 @@
          <td height="90px" width="210px" class="menufondo" align=center>
              <img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png">
          </td>
-         <td colspan=2 rowspan="13">
+         <td colspan=2 rowspan="14">
              <iframe width="100%" frameborder="0" height="100%" name="FRAMEGRAL" id="FRAMEGRAL" src="./inicio.jsp?message=<%= message %>"></iframe>
          </td>
      </tr>
@@ -77,6 +77,11 @@
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./anotacion.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonAnotacion.png"></a>
          </td>
      </tr>
+     <tr>
+         <td height="30px" class="menufondo" align=center>
+             <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./ubicacionHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonUbicacion.png"></a>
+         </td>
+     </tr>     
      <tr>
      	<td class="menufondo"><br></td>
     </tr>

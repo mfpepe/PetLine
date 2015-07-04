@@ -13,7 +13,7 @@
 
 		<p class="title">Actualizar Perfil de Usuario</p>
 		<br>
-		<table class=table2 >
+		<table id="userTable" name="userTable" class=table2 >
 			<tr>
 				<td class=etiqueta>Nombre</td>
 				<td>&nbsp;<input type="text" name="nombre" id="nombre" value="Admin"/></td>
@@ -26,6 +26,15 @@
 				<td class=etiqueta>Correo Electronico</td>
 				<td>&nbsp;<input type="text" name="email" id="email" value="admin@admin.com"/></td>
 			<tr>
+			<tr>
+				<td class=etiqueta>Telefono</td>
+				<td>&nbsp;<input type="text" name="tel1" id="tel1" value="15-6950-3645"/>
+				&nbsp;<img src="<%= PetLineUtils.getURL() %>img/alta.png" onclick="agregarTelefono();" style="cursor:hand;"></td>
+			<tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;<input type="text" name="tel2" id="tel2" value="15-3645-6950"/></td>
+			<tr>							
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="alert('Se modifico exitosamente');">

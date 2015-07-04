@@ -34,7 +34,7 @@ select {
   box-sizing: border-box;
   margin: 0px 0;
   padding: 2px 20px 2px 5px;
-  height: 25px;
+  
   outline: 0;
   border: 1px solid #aaa;
   line-height: normal;

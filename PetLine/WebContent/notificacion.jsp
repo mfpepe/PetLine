@@ -25,7 +25,12 @@
 						<option value="N">No</option>
 					</select>
 				</td>
-				<td><input type="text" value="15-6950-3645"/></td>
+				<td>
+					<select name="tel1" id="tel1" multiple>
+						<option value="15-6950-3645" selected>15-6950-3645</option>
+						<option value="15-3645-6950" selected>15-3645-6950</option>
+					</select>
+				</td>
 			<tr>
 			<tr class="tablePar">
 				<td>Variaciones de Temperatura</td>
@@ -35,37 +40,28 @@
 						<option value="N" selected>No</option>
 					</select>
 				</td>
-				<td><input type="text" value=""/></td>
-			<tr>
-			<tr class="tableImpar">
-				<td>Bateria Baja del Tracker</td>
 				<td>
-					<select name="opc1" id="opc1" >
-						<option value="S">Si</option>
-						<option value="N" selected>No</option>
+					<select name="tel2" id="tel2" multiple>
+						<option value="15-6950-3645">15-6950-3645</option>
+						<option value="15-3645-6950">15-3645-6950</option>
 					</select>
 				</td>
-				<td><input type="text" value=""/></td>
 			<tr>
-			<tr class="tablePar">
+			<tr class="tableImpar">
 				<td>Objetivos Cumplidos</td>
 				<td>
 					<select name="opc1" id="opc1" >
+					
 						<option value="S">Si</option>
 						<option value="N" selected>No</option>
 					</select>
 				</td>
-				<td><input type="text" value=""/></td>
-			<tr>
-			<tr class="tableImpar">
-				<td>Recordatorios</td>
 				<td>
-					<select name="opc1" id="opc1" >
-						<option value="S">Si</option>
-						<option value="N" selected>No</option>
+					<select name="tel3" id="tel3" multiple>
+						<option value="15-6950-3645">15-6950-3645</option>
+						<option value="15-3645-6950">15-3645-6950</option>
 					</select>
 				</td>
-				<td><input type="text" value=""/></td>
 			<tr>									
 		</table>	
 		<br>
