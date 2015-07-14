@@ -23,62 +23,62 @@
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./mascotas.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonMascotas.png"></a>
          </td>
      </tr>    
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./usuarioModif.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonUsuario.png"></a>
          </td>
      </tr>   
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./box.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonBox.png"></a>
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./perimetro.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonPerimetro.png"></a>
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./mascPeri.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonMascPeri.png"></a>
          </td>
      </tr>    
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./recorridoHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonRecorrido.png"></a>
          </td>
      </tr>     
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./trackerMasc.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonTrackMasc.png"></a>
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./consejosHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonConsejos.png"></a>
          </td>
      </tr>
 	 <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./notificacionHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonNotificacion.png"></a>
          </td>
      </tr>     
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./recordatoriosHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonRecordatorio.png"></a>
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./anotacion.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonAnotacion.png"></a>
          </td>
      </tr>
      <tr>
-         <td height="30px" class="menufondo" align=center>
+         <td height="40px" class="menufondo" align=center>
              <a style="cursor:hand;" class="menufondo" target="FRAMEGRAL" href="./ubicacionHeader.jsp"><img src="<%= PetLineUtils.getURL() %>img/botonUbicacion.png"></a>
          </td>
      </tr>     
