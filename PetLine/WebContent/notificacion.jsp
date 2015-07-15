@@ -62,6 +62,21 @@
 						<option value="15-3645-6950">15-3645-6950</option>
 					</select>
 				</td>
+			<tr>	
+			<tr class="tablePar">
+				<td>Bateria Baja</td>
+				<td>
+					<select name="opc4" id="opc4" disabled>
+						<option value="S" selected>Si</option>
+						<option value="N">No</option>
+					</select>
+				</td>
+				<td>
+					<select name="tel4" id="tel4" multiple>
+						<option value="15-6950-3645" selected>15-6950-3645</option>
+						<option value="15-3645-6950">15-3645-6950</option>
+					</select>
+				</td>
 			<tr>									
 		</table>	
 		<br>
