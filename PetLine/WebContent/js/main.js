@@ -5,6 +5,37 @@
 	return myString.replace(/^\s+/g,'').replace(/\s+$/g,'');
 }
 
+function registrarUsuario(){
+	
+	var box = document.getElementById("box").value;
+	var nombre = document.getElementById("nombre").value;
+	var apellido = document.getElementById("apellido").value;
+	var email = document.getElementById("email").value;
+	
+	if( trim(box) == "" ){
+		alert("Código de Box es obligatorio.");
+		return;
+	}
+
+	if( trim(nombre) == "" ){
+		alert("Nombre es obligatorio.");
+		return;
+	}
+	
+	if( trim(apellido) == "" ){
+		alert("Apellido es obligatorio.");
+		return;
+	}
+	
+	if( trim(email) == "" ){
+		alert("Correo Electronico es obligatorio.");
+		return;
+	}	
+
+	document.form.action = document.form.action + "?message=Usuario Registrado Correctamente.";
+	document.form.submit();
+}
+
 function onChangeMascotaRecorrido(){
 	
 	var mascota = document.getElementById("mascota").value;
