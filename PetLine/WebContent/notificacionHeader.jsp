@@ -14,14 +14,14 @@
 		<br>
 		<table class=table2>
 			<tr>
-				<td class=etiqueta>Tracker</td>
+				<td class=etiqueta>Mascota</td>
 				<td>&nbsp;
-					<select name="tracker" id="tracker" onchange="onChangeTrackerNotificacion();" >
+					<select class="chosen-select" name="mascota" id="mascota" onchange="onChangeMascotaNotificacion();" >
 						<option value=""></option>
-						<option value="1">Tracker 1</option>
+						<option value="1">Donato</option>
 					</select>
 				</td>
-			</tr>
+			</tr>			
 			<tr height=700px>
 				<td colspan=2><iframe width="100%" frameborder="0" height="100%" name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message="></iframe></td>
 			</tr>			

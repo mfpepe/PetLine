@@ -41,9 +41,9 @@ function onChangeMascotaRecordatorio(){
 	}
 }
 
-function onChangeTrackerNotificacion(){
+function onChangeMascotaNotificacion(){
 	
-	var mascota = document.getElementById("tracker").value;
+	var mascota = document.getElementById("mascota").value;
 	
 	if( trim(mascota) == "" ){
 		document.getElementById("FRAMESEC").src="./empty.jsp"
@@ -67,17 +67,40 @@ function onChangeMascotaUbicacion(){
 
 function agregarTelefono(){
 
-	var tableID = 'userTable';
+	var tableID = 'telefonos';
     var table = document.getElementById(tableID);
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
-    var cell1 = row.insertCell(0);
-    
-    var cellText = document.createTextNode("");
-    cell1.appendChild(cellText);
-    
-    var cell2 = row.insertCell(1);
-    var element2 = document.createElement("input");
-    element2.type = "text";
-    cell2.appendChild(element2);
+
+    var cell = row.insertCell(0);
+    var element = document.createElement("input");
+    element.type = "text";
+    cell.appendChild(element);
+}
+
+function eliminarTelefono(){
+	
+	var tableID = 'telefonos';
+    var table = document.getElementById(tableID);
+    var rowCount = table.rows.length;
+
+    table.deleteRow(rowCount-1);
+}
+
+function getCurrentDate(){
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+
+	if(dd<10) {
+	    dd='0'+dd
+	} 
+
+	if(mm<10) {
+	    mm='0'+mm
+	} 
+
+	today = mm+'/'+dd+'/'+yyyy;
+	return today;
 }

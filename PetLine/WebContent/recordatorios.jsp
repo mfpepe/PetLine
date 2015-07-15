@@ -17,6 +17,7 @@
 				<td>Descripcion</td>
 				<td>Fecha</td>
 				<td>Hora</td>
+				<td>Frecuencia</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>
 			<tr>
@@ -24,6 +25,7 @@
 				<td>Darle las Vacunas</td>
 				<td>20/07/2015</td>
 				<td>19:00</td>
+				<td>Semanal</td>
 				<td><a href="./recordatoriosModif.jsp?descripcion=Darle las Vacunas&fecha=20/07/2015&hora=19:00"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
 				<td><a href="./recordatoriosElim.jsp?descripcion=Darle las Vacunas&fecha=20/07/2015&hora=19:00"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
 			<tr>			

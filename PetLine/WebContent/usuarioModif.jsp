@@ -16,25 +16,32 @@
 		<table id="userTable" name="userTable" class=table2 >
 			<tr>
 				<td class=etiqueta>Nombre</td>
-				<td>&nbsp;<input type="text" name="nombre" id="nombre" value="Admin"/></td>
+				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre" value="Admin"/></td>
+				<td>&nbsp;</td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Apellido</td>
 				<td>&nbsp;<input type="text" name="apellido" id="apellido" value="Admin"/></td>
+				<td>&nbsp;</td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Correo Electronico</td>
 				<td>&nbsp;<input type="text" name="email" id="email" value="admin@admin.com"/></td>
+				<td>&nbsp;</td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Telefono</td>
-				<td>&nbsp;<input type="text" name="tel1" id="tel1" value="15-6950-3645"/>
-				&nbsp;<img src="<%= PetLineUtils.getURL() %>img/alta.png" onclick="agregarTelefono();" style="cursor:hand;"></td>
-			<tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;<input type="text" name="tel2" id="tel2" value="15-3645-6950"/></td>
-			<tr>							
+				<td valign=top>
+				<table id="telefonos" name="telefonos" class="table2">
+					<tr><td height=25px>&nbsp;<input type="text" name="tel1" id="tel1" value="15-6950-3645"/></td></tr>
+					<tr><td height=25px>&nbsp;<input type="text" name="tel2" id="tel2" value="15-3645-6950"/></td></tr>
+				</table>
+				</td>		
+				<td>
+					<img width=25px height=25px src="<%= PetLineUtils.getURL() %>img/alta.png" onclick="agregarTelefono();" style="cursor:hand;">
+				    <img width=25px height=25px src="<%= PetLineUtils.getURL() %>img/del.png" onclick="eliminarTelefono();" style="cursor:hand;">
+				</td>		
+			</tr>				
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="alert('Se modifico exitosamente');">

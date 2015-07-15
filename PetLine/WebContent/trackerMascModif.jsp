@@ -24,8 +24,8 @@
 				</td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Descripcion Tracker</td>
-				<td>&nbsp;<input type="text" name="descripcion" id="descripcion" value="<%= request.getParameter("descripcion") %>"/></td>
+				<td class=etiqueta>Código Tracker</td>
+				<td>&nbsp;<input type="text" name="tracker" id="tracker" value="<%= request.getParameter("tracker") %>"/></td>
 			<tr>						
 			<tr>
 				<td class=etiqueta>Temperatura Minima</td>

@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="petline.util.PetLineUtils"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -20,6 +22,12 @@
 						<option value=""></option>
 						<option value="1">Donato</option>
 					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class=etiqueta>Fecha</td>
+				<td>&nbsp;
+					<input type="text" name="fecha" id="fecha" value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
 				</td>
 			</tr>
 			<tr height=700px>
