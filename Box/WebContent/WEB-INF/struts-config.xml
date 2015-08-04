@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+ 
+    <action-mappings>
+        <action path="/login" type="box.action.LoginAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/index.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>        
+    </action-mappings>
+ 
+</struts-config>
