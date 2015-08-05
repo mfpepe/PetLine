@@ -7,15 +7,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+
+import box.utils.AudioPlayer;
 
 @ServerEndpoint(value = "/websocket")
 public class WebSocketBox {
@@ -42,19 +43,31 @@ public class WebSocketBox {
 			if(last){
 				try {
 					archivos.add(data);
-					
+					System.out.println(1);
 					ByteArrayOutputStream outputStream = new ByteArrayOutputStream( );
-					
+					System.out.println(2);
 					for (byte[] archivo : archivos) {
 						outputStream.write( archivo );
 					}
-									
+					System.out.println(3);
 					PropertiesConfiguration config = new PropertiesConfiguration("box/config.properties");					
+					System.out.println(4);
+					File fDir = new File(config.getString("PATHAUDIOFILE"));
+					System.out.println(4.1);
+					if(!fDir.exists()){
+						System.out.println(4.2);
+						fDir.mkdir();
+					}
+					System.out.println(4.3);
 					
 					FileOutputStream fOut = new FileOutputStream(config.getString("PATHAUDIOFILE") + "out.wav");
+					System.out.println(5);
 					fOut.write(outputStream.toByteArray());
+					System.out.println(6);
 					fOut.flush();
-					fOut.close();							
+					System.out.println(7);
+					fOut.close();		
+					System.out.println(8);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}		
@@ -85,13 +98,11 @@ public class WebSocketBox {
 	private static void play() {
 		try {
 			PropertiesConfiguration config = new PropertiesConfiguration("box/config.properties");
-			File f = new File(config.getString("PATHAUDIOFILE") + "out.wav");
-			Clip clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(f));
-			clip.start();
-			clip.close();
-		} catch (Exception exc) {
-			exc.printStackTrace();
+			String audioFilePath = config.getString("PATHAUDIOFILE") + "out.wav";
+			AudioPlayer player = new AudioPlayer();
+	        player.play(audioFilePath);		
+		} catch (ConfigurationException e) {
+			e.printStackTrace();
 		}
 	}
 	
