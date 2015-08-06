@@ -98,10 +98,13 @@ public class WebSocketBox {
 	private static void play() {
 		try {
 			PropertiesConfiguration config = new PropertiesConfiguration("box/config.properties");
-			String audioFilePath = config.getString("PATHAUDIOFILE") + "out.wav";
-			AudioPlayer player = new AudioPlayer();
-	        player.play(audioFilePath);		
-		} catch (ConfigurationException e) {
+//			String audioFilePath = config.getString("PATHAUDIOFILE") + "out.wav";
+//			AudioPlayer player = new AudioPlayer();
+//	        player.play(audioFilePath);
+			//TODO:
+			Process p = Runtime.getRuntime().exec("omxplayer " + config.getString("PATHAUDIOFILE") + "out.wav");
+			p.waitFor();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
