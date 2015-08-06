@@ -25,7 +25,19 @@
 			<tr>
 				<td class=etiqueta>Hora</td>
 				<td>&nbsp;<input type="text" name="hora" id="hora" value="<%= request.getParameter("hora") %>" disabled/></td>
-			<tr>			
+			<tr>		
+			<tr>
+				<td class=etiqueta>Frecuencia</td>
+				<td>&nbsp;
+					<select name="frecuencia" id="frecuencia" disabled>
+						<option value=""></option>
+						<option value="1">Diario</option>
+						<option value="7" selected>Semanal</option>
+						<option value="30">Mensual</option>
+						<option value="365">Anual</option>
+					</select>
+				</td>
+			<tr>				
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Eliminar" onclick="document.form1.submit()">

@@ -17,7 +17,7 @@
 		<table class=table2>
 			<tr class="tableTitle">
 				<td>Mascota</td>
-				<td>Tracker</td>
+				<td>Codigo Tracker</td>
 				<td>Temperatura Minima</td>
 				<td>Temperatura Maxima</td>
 				<td>Temperatura Actual</td>
@@ -26,12 +26,12 @@
 			<tr>
 			<tr class="tableImpar">
 				<td>Donato</td>				
-				<td>Tracker 1</td>
+				<td>12345</td>
 				<td>5º</td>
 				<td>30º</td>
 				<td>20º</td>
-				<td><a href="./trackerMascModif.jsp?descripcion=Tracker 1&tempMin=5º&tempMax=30º"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
-				<td><a href="./trackerMascElim.jsp?descripcion=Tracker 1&tempMin=5º&tempMax=30º"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
+				<td><a href="./trackerMascModif.jsp?tracker=12345&tempMin=5º&tempMax=30º"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
+				<td><a href="./trackerMascElim.jsp?tracker=12345&tempMin=5º&tempMax=30º"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
 			<tr>			
 		</table>
 </body>

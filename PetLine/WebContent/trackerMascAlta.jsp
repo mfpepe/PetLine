@@ -26,10 +26,6 @@
 			<tr>
 				<td class=etiqueta>Código de Tracker</td>
 				<td>&nbsp;<input type="text" name="tracker" id="tracker"/></td>
-			<tr>
-			<tr>
-				<td class=etiqueta>Descripcion Tracker</td>
-				<td>&nbsp;<input type="text" name="descripcion" id="descripcion"/></td>
 			<tr>				
 			<tr>
 				<td class=etiqueta>Temperatura Minima</td>

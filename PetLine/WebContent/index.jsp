@@ -67,6 +67,8 @@ function ocultarMsg(){
 			<td colspan="4"><br><br></td>
 		</tr>
 	</table>
+	<br>
+	<p align=center ><a href="./registrarUsuario.jsp">Registrarse</a></p>
 </form>
 </body>
 </html>

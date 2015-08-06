@@ -12,12 +12,15 @@
 <body style="background-image:url('./img/fondo.png');">
 		<table class=table2>
 			<tr>
-				<td rowspan=3 width=300px><img src="<%= PetLineUtils.getURL() %>img/recorrido.png"></td>
+				<td rowspan=5 width=200px><img src="<%= PetLineUtils.getURL() %>img/recorrido.png"></td>
 				<td valign=top height=30px class="textoLibre">Kms Recorridos: 1,5km</td>
 			<tr>
 			<tr>
+				<td  valign=top height=30px class="textoLibre">Kms Faltantes para Cumplir Objetivo Diario: 0,5km</td>
+			<tr>								
+			<tr>
 				<td  valign=top class="textoLibre">Calorias Consumidas: 500 cal</td>
-			<tr>			
+			<tr>	
 		</table>			
 </body>
 </html>    

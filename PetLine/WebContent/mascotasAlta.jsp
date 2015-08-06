@@ -19,7 +19,7 @@
 				<td>&nbsp;<input type="text" name="apodo" id="apodo"/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Edad</td>
+				<td class=etiqueta>Fecha de Nacimiento</td>
 				<td>&nbsp;<input type="text" name="edad" id="edad"/></td>
 			<tr>
 			<tr>
