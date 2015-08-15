@@ -131,12 +131,12 @@
 			<tr>
 				<td rowspan=3 width=640px>
 					<OBJECT ID="MediaPlayer" WIDTH="640" HEIGHT="480" TYPE="application/x-oleobject">
-						<param name="movie" value="http://192.168.0.135:8090/camara1.flv">
+						<param name="movie" value="<%= BoxUtils.getURLCamera() %>">
 						<PARAM name="autostart" VALUE="true">
 						<PARAM name="ShowControls" VALUE="true">
 						<param name="ShowStatusBar" value="true">
 						<PARAM name="ShowDisplay" VALUE="true">
-						<EMBED TYPE="application/x-mplayer2" src="http://192.168.0.135:8090/camara1.flv" NAME="MediaPlayer"
+						<EMBED TYPE="application/x-mplayer2" src="<%= BoxUtils.getURLCamera() %>" NAME="MediaPlayer"
 								WIDTH="640" HEIGHT="480" ShowControls="1" ShowStatusBar="1" ShowDisplay="1" autostart="1"> 
 						</EMBED>
 					</OBJECT>				

@@ -30,4 +30,16 @@ public class BoxUtils {
 		return url;
 	}	
 	
+	public static String getURLCamera() {
+		String url = "";
+		try {
+			Configuration config = new PropertiesConfiguration("box/config.properties");
+			url = config.getString("URLCAMERA");
+		} catch (ConfigurationException e) {
+			e.printStackTrace();
+		}
+
+		return url;
+	}		
+	
 }
