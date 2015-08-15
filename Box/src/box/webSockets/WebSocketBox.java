@@ -102,8 +102,10 @@ public class WebSocketBox {
 //			AudioPlayer player = new AudioPlayer();
 //	        player.play(audioFilePath);
 			//TODO:
-			Process p = Runtime.getRuntime().exec("omxplayer " + config.getString("PATHAUDIOFILE") + "out.wav");
-			p.waitFor();
+//			Process p = Runtime.getRuntime().exec("omxplayer " + config.getString("PATHAUDIOFILE") + "out.wav");
+//			p.waitFor();
+			Process p = Runtime.getRuntime().exec("sudo aplay " + config.getString("PATHAUDIOFILE") + "out.wav");
+			p.waitFor();			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
