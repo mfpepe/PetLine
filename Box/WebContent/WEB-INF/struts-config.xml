@@ -6,7 +6,9 @@
         <action path="/login" type="box.action.LoginAction">
             <forward name="success" contextRelative="true" redirect="true" path="/index.jsp"/>
             <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
-        </action>        
+        </action>
+		<action path="/TakePictureAction" type="box.action.TakePictureAction">
+        </action>
     </action-mappings>
  
 </struts-config>

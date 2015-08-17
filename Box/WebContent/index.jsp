@@ -121,6 +121,12 @@
 		function onErrorWS(event) {
 			__log('Error');
 		}  
+		
+		function downloadFile(){
+			myWindow = window.open("TakePictureAction.do","ventana1","width=120,height=300,scrollbars=NO");
+			setTimeout(function(){ myWindow.close(); }, 3000);
+		}
+		  
   </script>
   <script src="<%= BoxUtils.getURL() %>js/recorder.js"></script>
 </head>
@@ -131,12 +137,12 @@
 			<tr>
 				<td rowspan=3 width=640px>
 					<OBJECT ID="MediaPlayer" WIDTH="640" HEIGHT="480" TYPE="application/x-oleobject">
-						<param name="movie" value="<%= BoxUtils.getURLCamera() %>">
+						<param name="movie" value="http://<%= BoxUtils.getURLCamera() %>">
 						<PARAM name="autostart" VALUE="true">
 						<PARAM name="ShowControls" VALUE="true">
 						<param name="ShowStatusBar" value="true">
 						<PARAM name="ShowDisplay" VALUE="true">
-						<EMBED TYPE="application/x-mplayer2" src="<%= BoxUtils.getURLCamera() %>" NAME="MediaPlayer"
+						<EMBED TYPE="application/x-mplayer2" src="http://<%= BoxUtils.getURLCamera() %>" NAME="MediaPlayer"
 								WIDTH="640" HEIGHT="480" ShowControls="1" ShowStatusBar="1" ShowDisplay="1" autostart="1"> 
 						</EMBED>
 					</OBJECT>				
@@ -144,7 +150,7 @@
 				<td valign=top height=30px><button id=start name=start class="buttons" onclick="startRecording();">record</button>&nbsp;<button id=stop name=stop class="buttons" onclick="stopRecording();" disabled>stop</button></td>
 			<tr>
 			<tr>
-				<td  valign=top ><input type="button" class="buttons" value="Tomar Foto" onclick="alert('Se tomo la fortografia exitosamente');"></td>
+				<td  valign=top ><input type="button" class="buttons" value="Tomar Foto" onclick="downloadFile();"></td>
 			<tr>			
 		</table>
 </body>

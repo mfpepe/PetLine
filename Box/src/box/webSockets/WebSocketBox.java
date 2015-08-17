@@ -13,10 +13,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
-
-import box.utils.AudioPlayer;
 
 @ServerEndpoint(value = "/websocket")
 public class WebSocketBox {
@@ -101,9 +98,8 @@ public class WebSocketBox {
 //			String audioFilePath = config.getString("PATHAUDIOFILE") + "out.wav";
 //			AudioPlayer player = new AudioPlayer();
 //	        player.play(audioFilePath);
+			
 			//TODO:
-//			Process p = Runtime.getRuntime().exec("omxplayer " + config.getString("PATHAUDIOFILE") + "out.wav");
-//			p.waitFor();
 			Process p = Runtime.getRuntime().exec("sudo aplay " + config.getString("PATHAUDIOFILE") + "out.wav");
 			p.waitFor();			
 		} catch (Exception e) {
