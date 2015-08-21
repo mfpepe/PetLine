@@ -21,7 +21,7 @@
 				<td>Eliminar</td>
 			<tr>
 			<tr class="tableImpar">
-				<td><a target="_blank" href="./boxView.jsp">Casa</a></td>
+				<td><a target="_blank" href="BoxView.do">Casa</a></td>
 				<td><a href="./boxModif.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/upd.png"></a></td>
 				<td><a href="./boxElim.jsp?box=Casa"><img src="<%= PetLineUtils.getURL() %>img/del.png"></a></td>
 			<tr>			

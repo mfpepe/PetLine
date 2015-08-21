@@ -12,7 +12,10 @@
         </action>
         <action path="/logout" type="petline.action.LogoutAction">
             <forward name="success" contextRelative="true" redirect="true" path="/index.jsp"/>
-        </action>        
+        </action>
+        <action path="/BoxView" type="petline.action.BoxViewAction">
+            <forward name="success" contextRelative="true" redirect="true" path="http://192.168.0.12:8080/Box"/>
+        </action>       
     </action-mappings>
  
 </struts-config>
