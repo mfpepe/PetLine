@@ -32,4 +32,8 @@ public class HashGenerator {
 			throw new RuntimeException(ex);
 		}
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(HashGenerator.convert("admin"));
+	}
 }
