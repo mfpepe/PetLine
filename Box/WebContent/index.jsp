@@ -162,6 +162,7 @@
 		<table class=table2>
 			<tr>
 				<td rowspan=3 width=640px>
+				<!-- 
 					<OBJECT ID="MediaPlayer" WIDTH="640" HEIGHT="480" TYPE="application/x-oleobject">
 						<param name="movie" value="<%= BoxUtils.getURLCamera() %>">
 						<PARAM name="autostart" VALUE="true">
@@ -171,7 +172,11 @@
 						<EMBED TYPE="application/x-mplayer2" src="<%= BoxUtils.getURLCamera() %>" NAME="MediaPlayer"
 								WIDTH="640" HEIGHT="480" ShowControls="1" ShowStatusBar="1" ShowDisplay="1" autostart="1"> 
 						</EMBED>
-					</OBJECT>				
+					</OBJECT>
+					 -->		
+					 <video id="sampleMovie" width="640" height="360" preload controls>
+						<source src="<%= BoxUtils.getURLCamera() %>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+					</video>		
 				</td>
 				<!-- <td valign=top height=30px><button id=start name=start class="buttons" onclick="startRecording();">record</button>&nbsp;<button id=stop name=stop class="buttons" onclick="stopRecording();" disabled>stop</button></td> -->
 				<td  valign=top height=30px><img id="audioRecord" src="<%= BoxUtils.getURL() %>img/norecord.png" onclick="javascript:recordAudio();"></td>
