@@ -22,7 +22,7 @@ public class TakePictureAction extends Action {
 
 		PropertiesConfiguration config = new PropertiesConfiguration("box/config.properties");
 
-		Process p = Runtime.getRuntime().exec("sudo ffmpeg -i " + config.getString("URLCAMERA") + " -f image2 " + config.getString("PATHAUDIOFILE") + "img.jpg");
+		Process p = Runtime.getRuntime().exec("sudo ffmpeg -i " + config.getString("URLCAMERA") + " -vframes 1 -an -ss 1 " + config.getString("PATHAUDIOFILE") + "img.jpg");
 		p.waitFor();
 
 		// return an application file instead of html page

@@ -90,7 +90,12 @@
 			try {
 				// webkit shim
 			    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-			    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+			    //navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+			    navigator.getUserMedia = ( navigator.getUserMedia ||
+	                       navigator.webkitGetUserMedia ||
+	                       navigator.mozGetUserMedia ||
+	                       navigator.msGetUserMedia);			    
+			    
 			    window.URL = window.URL || window.webkitURL;
 			     
 			    audio_context = new AudioContext;
@@ -162,8 +167,8 @@
 		<table class=table2>
 			<tr>
 				<td rowspan=3 width=640px>
-				<!-- 
-					<OBJECT ID="MediaPlayer" WIDTH="640" HEIGHT="480" TYPE="application/x-oleobject">
+
+ 					<OBJECT ID="MediaPlayer" WIDTH="640" HEIGHT="480" TYPE="application/x-oleobject">
 						<param name="movie" value="<%= BoxUtils.getURLCamera() %>">
 						<PARAM name="autostart" VALUE="true">
 						<PARAM name="ShowControls" VALUE="true">
@@ -172,17 +177,19 @@
 						<EMBED TYPE="application/x-mplayer2" src="<%= BoxUtils.getURLCamera() %>" NAME="MediaPlayer"
 								WIDTH="640" HEIGHT="480" ShowControls="1" ShowStatusBar="1" ShowDisplay="1" autostart="1"> 
 						</EMBED>
-					</OBJECT>
-					 -->		
-					 <video id="sampleMovie" width="640" height="360" preload controls>
-						<source src="<%= BoxUtils.getURLCamera() %>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-					</video>		
+					</OBJECT>		
+<%-- 					<video id="sampleMovie" width="640" height="360" controls>
+						<source src="<%= BoxUtils.getURLCamera() %>" type="video/mp4" />
+					</video> --%>	
+<%-- 					<video id="sampleMovie" width="640" height="480" controls>
+						<source src="<%= BoxUtils.getURLCamera() %>" type="video/webm" />
+					</video>	 --%>				
 				</td>
 				<!-- <td valign=top height=30px><button id=start name=start class="buttons" onclick="startRecording();">record</button>&nbsp;<button id=stop name=stop class="buttons" onclick="stopRecording();" disabled>stop</button></td> -->
-				<td  valign=top height=30px><img id="audioRecord" src="<%= BoxUtils.getURL() %>img/norecord.png" onclick="javascript:recordAudio();"></td>
+				<td  valign=top height=30px><img id="audioRecord" src="<%= BoxUtils.getURL() %>img/norecord.png" onclick="javascript:recordAudio();" style="cursor: pointer;"></td>
 			<tr>
 			<tr>
-				<td  valign=top ><img src="<%= BoxUtils.getURL() %>img/picture.png" onclick="document.form.submit();"></td>
+				<td  valign=top ><img src="<%= BoxUtils.getURL() %>img/picture.png" onclick="document.form.submit();" style="cursor: pointer;"></td>
 			<tr>			
 		</table>
 	</form>
