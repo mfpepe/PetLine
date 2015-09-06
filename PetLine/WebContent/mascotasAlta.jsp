@@ -1,3 +1,8 @@
+<%@page import="petline.sessLayer.SessTamanio"%>
+<%@page import="petline.valueObject.Perimetro"%>
+<%@page import="petline.valueObject.Tamanio"%>
+<%@page import="java.util.Collection"%>
+<%@page import="petline.sessLayer.SessPerimetro"%>
 <%@page import="petline.util.PetLineUtils"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -10,7 +15,7 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-<form method="post" name="form1" id="form1" action="./mascotas.jsp">
+<form method="post" name="form1" id="form1" action="AltaMascota.do">
 		<p class="title">Alta de Mascotas</p>
 		<br>
 		<table class=table2 >
@@ -19,7 +24,7 @@
 				<td>&nbsp;<input type="text" name="apodo" id="apodo"/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Fecha de Nacimiento</td>
+				<td class=etiqueta>Fecha de Nacimiento (dd/mm/yyyy)</td>
 				<td>&nbsp;<input type="text" name="edad" id="edad"/></td>
 			<tr>
 			<tr>
@@ -29,10 +34,34 @@
 			<tr>
 				<td class=etiqueta>Objetivo Diario</td>
 				<td>&nbsp;<input type="text" name="objetivo" id="objetivo"/></td>
-			<tr>			
+			<tr>
+			<tr>
+				<td class=etiqueta>Perímetro</td>
+				<td>&nbsp;<% 
+					SessPerimetro sessPerimetro = new SessPerimetro();
+					Collection<Perimetro> perimetros = sessPerimetro.obtenerPerimetrosPorUsuario(Integer.parseInt((String) session.getAttribute("SESSION_IDUSER")));
+					out.print("<select name='perimetro' id='perimetro' ><option value=''></option>");
+					for( Perimetro perimetro : perimetros ){
+						out.print("<option value='" + perimetro.getIdPerimetro() + "'>" + perimetro.getDescripcion() + "</option>");
+					}
+					out.print("</select>");
+				%></td>
+			<tr>		
+			<tr>
+				<td class=etiqueta>Tamaño</td>
+				<td>&nbsp;<% 
+					SessTamanio sessTamanio = new SessTamanio();
+					Collection<Tamanio> tamaños = sessTamanio.obtenerTamaños();
+					out.print("<select name='tamanio' id='tamanio' ><option value=''></option>");
+					for( Tamanio tamaño : tamaños ){
+						out.print("<option value='" + tamaño.getIdTamanio() + "'>" + tamaño.getDescripcion() + "</option>");
+					}
+					out.print("</select>");
+				%></td>
+			<tr>					
 		</table>
 		<br>
-		<input type="button" class="buttons" value="Agregar" onclick="document.form1.submit()">
+		<input type="button" class="buttons" value="Agregar" onclick="validarAltaMascota();">
 </form>
 </body>
 </html>    

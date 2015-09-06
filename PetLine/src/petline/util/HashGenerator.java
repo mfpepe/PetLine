@@ -34,6 +34,6 @@ public class HashGenerator {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(HashGenerator.convert("admin"));
+		System.out.println(HashGenerator.convert("mpepe"));
 	}
 }

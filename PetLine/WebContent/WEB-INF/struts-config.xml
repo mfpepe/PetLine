@@ -14,8 +14,55 @@
             <forward name="success" contextRelative="true" redirect="true" path="/index.jsp"/>
         </action>
         <action path="/BoxView" type="petline.action.BoxViewAction">
-            <forward name="success" contextRelative="true" redirect="true" path="http://192.168.0.12:8080/Box"/>
         </action>       
+        <action path="/AltaMascota" type="petline.action.AltaMascotaAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/mascotas.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>     
+        <action path="/BajaMascota" type="petline.action.BajaMascotaAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/mascotas.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>  
+        <action path="/ModificacionMascota" type="petline.action.ModificacionMascotaAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/mascotas.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>  
+        <action path="/ModificacionUsuario" type="petline.action.ModificacionUsuarioAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/usuarioModif.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action> 
+        <action path="/AltaBox" type="petline.action.AltaBoxAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/box.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>
+        <action path="/ModificacionBox" type="petline.action.ModificacionBoxAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/box.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>  
+        <action path="/BajaBox" type="petline.action.BajaBoxAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/box.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>    
+        <action path="/AltaPerimetro" type="petline.action.AltaPerimetroAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/perimetro.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>  
+        <action path="/ModificacionPerimetro" type="petline.action.ModificacionPerimetroAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/perimetro.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>          
+        <action path="/BajaPerimetro" type="petline.action.BajaPerimetroAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/perimetro.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>     
+        <action path="/AltaMascotaPerimetro" type="petline.action.AltaMascotaPerimetroAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/mascPeri.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>    
+        <action path="/BajaMascotaPerimetro" type="petline.action.BajaMascotaPerimetroAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/mascPeri.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>                         
     </action-mappings>
  
 </struts-config>

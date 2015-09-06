@@ -199,6 +199,14 @@ input[type="password"] {
 	font-weight: bold;
 }
 
+.msgExitoso {
+	font-family: Segoe UI, sans-serif;
+	text-align: center;
+	color: #00C600;
+	font-size: 20px;
+	font-weight: bold;
+}
+
 .menufondo{
 	background-color: #006cff;
 	background-position:left top;

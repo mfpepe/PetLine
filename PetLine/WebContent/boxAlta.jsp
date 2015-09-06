@@ -10,21 +10,21 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-<form method="post" name="form1" id="form1" action="./box.jsp">
+<form method="post" name="form1" id="form1" action="AltaBox.do">
 		<p class="title">Alta de Box</p>
 		<br>
 		<table class=table2 >
 			<tr>
 				<td class=etiqueta>Código de Box</td>
-				<td>&nbsp;<input type="text" name="cod" id="cod"/></td>
+				<td>&nbsp;<input type="text" name="codigo" id="codigo"/></td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Descripción</td>
-				<td>&nbsp;<input type="text" name="box" id="box"/></td>
+				<td>&nbsp;<input type="text" name="descripcion" id="descripcion"/></td>
 			<tr>
 		</table>
 		<br>
-		<input type="button" class="buttons" value="Agregar" onclick="document.form1.submit()">
+		<input type="button" class="buttons" value="Agregar" onclick="validarAltaBox();">
 </form>
 </body>
 </html>    

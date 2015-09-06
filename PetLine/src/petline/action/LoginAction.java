@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 
 import petline.form.LoginForm;
 import petline.sessLayer.SessUsuario;
+import petline.valueObject.Usuario;
 
 public class LoginAction extends Action{
 	
@@ -21,10 +22,13 @@ public class LoginAction extends Action{
 	        
 	        SessUsuario sessUsuario = new SessUsuario();
 	        
-	        if(sessUsuario.esUsuarioValido(loginForm.getUserName(), loginForm.getPassword())) {
+	        Usuario usuario = sessUsuario.obtenerUsuario(loginForm.getUserName(), loginForm.getPassword());
+	        
+	        if(usuario != null) {
 	            target = "success";
 	            message = loginForm.getUserName();
 	            request.getSession().setAttribute("SESSION_USER", loginForm.getUserName());
+	            request.getSession().setAttribute("SESSION_IDUSER", usuario.getIdUsuario() + "");
 	        }
 	        else {
 	            target = "failure";

@@ -16,6 +16,7 @@ public class LogoutAction extends Action{
 	        String target = "success";
 			HttpSession session = request.getSession();
 			session.removeAttribute("SESSION_USER");
+			session.removeAttribute("SESSION_IDUSER");
 				
 	        StringBuffer path = new StringBuffer();
 	        path.append(mapping.findForward(target).getPath());
