@@ -38,13 +38,14 @@ function registrarUsuario(){
 
 function onChangeMascotaRecorrido(){
 	
-	var mascota = document.getElementById("mascota").value;
+	var tracker = document.getElementById("tracker").value;
+	var fecha = document.getElementById("fecha").value;
 	
-	if( trim(mascota) == "" ){
-		document.getElementById("FRAMESEC").src="./empty.jsp"
+	if( trim(tracker) == "" || trim(fecha) == "" || !esFechaValida(fecha) ){
+		document.getElementById("FRAMESEC").src="./empty.jsp";
 	}
 	else{
-		document.getElementById("FRAMESEC").src="./recorridoCons.jsp"	
+		document.getElementById("FRAMESEC").src="./recorridoCons.jsp?idTracker=" + tracker + "&fecha=" + fecha; 	
 	}
 }
 
@@ -86,13 +87,13 @@ function onChangeMascotaNotificacion(){
 
 function onChangeMascotaUbicacion(){
 	
-	var mascota = document.getElementById("mascota").value;
+	var idTracker = document.getElementById("tracker").value;
 	
-	if( trim(mascota) == "" ){
-		document.getElementById("FRAMESEC").src="./empty.jsp"
+	if( trim(idTracker) == "" ){
+		document.getElementById("FRAMESEC").src="./empty.jsp";
 	}
 	else{
-		document.getElementById("FRAMESEC").src="./ubicacion.jsp"	
+		document.getElementById("FRAMESEC").src="./ubicacion.jsp?idTracker=" + idTracker;	
 	}
 }
 
@@ -430,6 +431,94 @@ function validarAltaMascotaPerimetro(){
 	
 	if(trim(document.getElementById("perimetro").value) == ""){
 		alert("El perímetro es obligatorio.");
+		return false;
+	}	
+	
+	document.form1.submit();
+	
+}
+
+function validarAltaTrackerMascota(){
+
+	if(trim(document.getElementById("mascota").value) == ""){
+		alert("La Mascota es obligatoria.");
+		return false;
+	}
+
+	if(trim(document.getElementById("tracker").value) == ""){
+		alert("Tracker es obligatorio.");
+		return false;
+	}	
+	
+	var tempMin = document.getElementById("tempMin").value;
+	if(trim(tempMin) == ""){
+		alert("Temperatura Minima es obligatoria.");
+		return false;	
+	} else if( !esEntero(tempMin) ){
+		alert("Temperatura Minima debe ser un numero entero.");
+		return false;
+	} 
+	
+	var tempMax = document.getElementById("tempMax").value;
+	if(trim(tempMax) == ""){
+		alert("Temperatura Maxima es obligatoria.");
+		return false;	
+	} else if( !esEntero(tempMax) ){
+		alert("Temperatura Maxima debe ser un numero entero.");
+		return false;
+	} 	
+	
+	if( tempMin >= tempMax ){
+		alert("Temperatura Maxima debe ser mayor a Temperatura Minima.");
+		return false;
+	}
+	
+	if( tempMin < -99 ){
+		alert("Temperatura Minima debe ser mayor a -99.");
+		return false;
+	}	
+
+	if( tempMax > 99 ){
+		alert("Temperatura Maxima debe ser menor a 99.");
+		return false;
+	}	
+	
+	document.form1.submit();
+	
+}
+
+function validarModificacionTrackerMascota(){
+		
+	var tempMin = document.getElementById("tempMin").value;
+	if(trim(tempMin) == ""){
+		alert("Temperatura Minima es obligatoria.");
+		return false;	
+	} else if( !esEntero(tempMin) ){
+		alert("Temperatura Minima debe ser un numero entero.");
+		return false;
+	} 
+	
+	var tempMax = document.getElementById("tempMax").value;
+	if(trim(tempMax) == ""){
+		alert("Temperatura Maxima es obligatoria.");
+		return false;	
+	} else if( !esEntero(tempMax) ){
+		alert("Temperatura Maxima debe ser un numero entero.");
+		return false;
+	} 	
+	
+	if( tempMin >= tempMax ){
+		alert("Temperatura Maxima debe ser mayor a Temperatura Minima.");
+		return false;
+	}
+	
+	if( tempMin < -99 ){
+		alert("Temperatura Minima debe ser mayor a -99.");
+		return false;
+	}	
+
+	if( tempMax > 99 ){
+		alert("Temperatura Maxima debe ser menor a 99.");
 		return false;
 	}	
 	

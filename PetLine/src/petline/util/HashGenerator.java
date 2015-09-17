@@ -34,6 +34,9 @@ public class HashGenerator {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(HashGenerator.convert("mpepe"));
+		System.out.println("mciadamidaro " + HashGenerator.convert("mciadamidaro"));
+		System.out.println("nmontero " + HashGenerator.convert("nmontero"));
+		System.out.println("kblanco " + HashGenerator.convert("kblanco"));
+		System.out.println("ffederico " + HashGenerator.convert("ffederico"));
 	}
 }

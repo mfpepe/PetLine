@@ -1,9 +1,19 @@
+<%@page import="java.util.Collection"%>
+<%@page import="petline.valueObject.TrackerMascota"%>
+<%@page import="petline.sessLayer.SessTrackerMascota"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="petline.util.PetLineUtils"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	int idUsuario = Integer.parseInt((String) session.getAttribute("SESSION_IDUSER"));
+
+	SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
+	Collection<TrackerMascota> trackerMascotas = sessTrackerMascota.obtenerTrackerMascotaPorUsuario(idUsuario);
+	
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,16 +28,21 @@
 			<tr>
 				<td class=etiqueta>Mascota</td>
 				<td>&nbsp;
-					<select class="chosen-select" name="mascota" id="mascota" onchange="onChangeMascotaRecorrido();" >
+					<select class="chosen-select" name="tracker" id="tracker" onchange="onChangeMascotaRecorrido();" >
 						<option value=""></option>
-						<option value="1">Donato</option>
+						<%
+
+						for (TrackerMascota trackerMascota : trackerMascotas) {
+							out.print("<option value='" + trackerMascota.getTracker().getIdTracker() + "'>" + trackerMascota.getMascota().getApodo() + "</option>");
+						}
+						%>
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td class=etiqueta>Fecha</td>
 				<td>&nbsp;
-					<input type="text" name="fecha" id="fecha" value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
+					<input type="text" name="fecha" id="fecha" onBlur="onChangeMascotaRecorrido();" value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
 				</td>
 			</tr>
 			<tr height=700px>
