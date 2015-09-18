@@ -10,17 +10,17 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
-<form method="post" name="form1" id="form1" action="./anotacion.jsp">
+<form method="post" name="form1" id="form1" action="AltaAnotacion.do">
 		<p class="title">Alta de Anotación</p>
 		<br>
 		<table class=table2 >
 			<tr>
-				<td class=etiqueta>Descripcion</td>
-				<td>&nbsp;<input type="text" name="descripcion" id="descripcion"/></td>
+				<td class=etiqueta>Anotación</td>
+				<td>&nbsp;<input type="text" name="anotacion" id="anotacion"/></td>
 			<tr>		
 		</table>
 		<br>
-		<input type="button" class="buttons" value="Agregar" onclick="document.form1.submit()">
+		<input type="button" class="buttons" value="Agregar" onclick="validarAltaAnotacion();">
 </form>
 </body>
 </html>    

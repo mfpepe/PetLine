@@ -74,7 +74,19 @@
         <action path="/BajaTrackerMascota" type="petline.action.BajaTrackerMascotaAction">
             <forward name="success" contextRelative="true" redirect="true" path="/trackerMasc.jsp"/>
             <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
-        </action>                                                
+        </action>              
+        <action path="/AltaAnotacion" type="petline.action.AltaAnotacionAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/anotacion.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>  
+        <action path="/ModificacionAnotacion" type="petline.action.ModificacionAnotacionAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/anotacion.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>          
+        <action path="/BajaAnotacion" type="petline.action.BajaAnotacionAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/anotacion.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>                                          
     </action-mappings>
  
 </struts-config>

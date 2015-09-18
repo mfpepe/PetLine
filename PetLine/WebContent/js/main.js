@@ -525,3 +525,21 @@ function validarModificacionTrackerMascota(){
 	document.form1.submit();
 	
 }
+
+function validarAltaAnotacion(){
+	if(trim(document.getElementById("anotacion").value) == ""){
+		alert("Anotación es obligatorio.");
+		return false;
+	}	
+	
+	document.form1.submit();
+}
+
+function validarModificacionAnotacion(){
+	if(trim(document.getElementById("anotacion").value) == ""){
+		alert("Anotación es obligatorio.");
+		return false;
+	}	
+	
+	document.form1.submit();
+}
