@@ -1,7 +1,17 @@
+<%@page import="petline.valueObject.Mascota"%>
+<%@page import="java.util.Collection"%>
+<%@page import="petline.sessLayer.SessMascota"%>
 <%@page import="petline.util.PetLineUtils"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	int idUsuario = Integer.parseInt((String) session.getAttribute("SESSION_IDUSER"));
+
+	SessMascota sessMascota = new SessMascota();
+	Collection<Mascota> mascotas = sessMascota.obtenerMascotasPorUsuario(idUsuario);
+	
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -18,7 +28,11 @@
 				<td>&nbsp;
 					<select name="mascota" id="mascota" onchange="onChangeMascotaRecordatorio();" >
 						<option value=""></option>
-						<option value="1">Donato</option>
+						<%
+							for (Mascota mascota : mascotas) {
+								out.print("<option value='" + mascota.getIdMascota() + "'>" + mascota.getApodo() + "</option>");
+							}
+						%>
 					</select>
 				</td>
 			</tr>

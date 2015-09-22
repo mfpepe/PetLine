@@ -86,7 +86,23 @@
         <action path="/BajaAnotacion" type="petline.action.BajaAnotacionAction">
             <forward name="success" contextRelative="true" redirect="true" path="/anotacion.jsp"/>
             <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
-        </action>                                          
+        </action>    
+        <action path="/AltaRecordatorio" type="petline.action.AltaRecordatorioAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/recordatorios.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>  
+        <action path="/ModificacionRecordatorio" type="petline.action.ModificacionRecordatorioAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/recordatorios.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>          
+        <action path="/BajaRecordatorio" type="petline.action.BajaRecordatorioAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/recordatorios.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>   
+        <action path="/AltaNotificacion" type="petline.action.AltaNotificacionAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/notificacion.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>                                                     
     </action-mappings>
  
 </struts-config>

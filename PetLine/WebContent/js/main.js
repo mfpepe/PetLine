@@ -54,10 +54,10 @@ function onChangeMascotaConsejo(){
 	var mascota = document.getElementById("mascota").value;
 	
 	if( trim(mascota) == "" ){
-		document.getElementById("FRAMESEC").src="./empty.jsp"
+		document.getElementById("FRAMESEC").src="./empty.jsp";
 	}
 	else{
-		document.getElementById("FRAMESEC").src="./consejos.jsp"	
+		document.getElementById("FRAMESEC").src="./consejos.jsp?idMascota=" + mascota; 	
 	}
 }
 
@@ -66,22 +66,22 @@ function onChangeMascotaRecordatorio(){
 	var mascota = document.getElementById("mascota").value;
 	
 	if( trim(mascota) == "" ){
-		document.getElementById("FRAMESEC").src="./empty.jsp"
+		document.getElementById("FRAMESEC").src="./empty.jsp";
 	}
 	else{
-		document.getElementById("FRAMESEC").src="./recordatorios.jsp"	
+		document.getElementById("FRAMESEC").src="./recordatorios.jsp?idMascota=" + mascota; 		
 	}
 }
 
 function onChangeMascotaNotificacion(){
 	
-	var mascota = document.getElementById("mascota").value;
+	var tracker = document.getElementById("tracker").value;
 	
-	if( trim(mascota) == "" ){
+	if( trim(tracker) == "" ){
 		document.getElementById("FRAMESEC").src="./empty.jsp"
 	}
 	else{
-		document.getElementById("FRAMESEC").src="./notificacion.jsp"	
+		document.getElementById("FRAMESEC").src="./notificacion.jsp?idTracker=" + tracker;	
 	}
 }
 
@@ -228,6 +228,22 @@ function esEntero(numero){
         }
     }
 }
+
+function esHoraValida(hora) 
+{ 
+	if (hora=='') {return false;} 
+	if (hora.length>5) {return false;} 
+	if (hora.length!=5) {return false;} 
+	a=hora.charAt(0) //<=2 
+	b=hora.charAt(1) //<4 
+	c=hora.charAt(2) //: 
+	d=hora.charAt(3) //<=5 
+	if ((a==2 && b>3) || (a>2)) {return false;} 
+	if (d>5) {return false;}  
+	if (c!=':') {return false;} 
+	
+	return true;
+} 
 
 function validarAltaMascota(){
 
@@ -538,6 +554,103 @@ function validarAltaAnotacion(){
 function validarModificacionAnotacion(){
 	if(trim(document.getElementById("anotacion").value) == ""){
 		alert("Anotación es obligatorio.");
+		return false;
+	}	
+	
+	document.form1.submit();
+}
+
+function validarAltaRecordatorio(){
+
+	if(trim(document.getElementById("descripcion").value) == ""){
+		alert("Descripcion es obligatorio.");
+		return false;
+	}
+	
+	var fechaNac = document.getElementById("fecha").value;
+	
+	if(trim(fechaNac) == ""){
+		alert("La Fecha es obligatoria.");
+		return false;
+	}		
+	else if( !esFechaValida(fechaNac) ){
+		alert("La Fecha es inválida.");
+		return false;		
+	}
+	
+	var hora = document.getElementById("hora").value; 
+	
+	if(trim(hora) == ""){
+		alert("Hora es obligatorio.");
+		return false;
+	} else if( !esHoraValida(hora) ){
+		alert("Hora es inválida.");
+		return false;
+	} 
+
+	if(trim(document.getElementById("frecuencia").value) == ""){
+		alert("Frecuencia es obligatorio.");
+		return false;
+	}
+	
+	document.form1.submit();
+}
+
+function validarModificacionRecordatorio(){
+
+	if(trim(document.getElementById("descripcion").value) == ""){
+		alert("Descripcion es obligatorio.");
+		return false;
+	}
+	
+	var fechaNac = document.getElementById("fecha").value;
+	
+	if(trim(fechaNac) == ""){
+		alert("La Fecha es obligatoria.");
+		return false;
+	}		
+	else if( !esFechaValida(fechaNac) ){
+		alert("La Fecha es inválida.");
+		return false;		
+	}
+	
+	var hora = document.getElementById("hora").value; 
+	
+	if(trim(hora) == ""){
+		alert("Hora es obligatorio.");
+		return false;
+	} else if( !esHoraValida(hora) ){
+		alert("Hora es inválida.");
+		return false;
+	} 
+
+	if(trim(document.getElementById("frecuencia").value) == ""){
+		alert("Frecuencia es obligatorio.");
+		return false;
+	}
+	
+	document.form1.submit();
+}
+
+function validarAltaNotificacion(){
+	
+	if(trim(document.getElementById("opc1").value)=="S" && document.getElementById("tel1").selectedIndex == -1){
+		alert("Si desea recibir notificaciones de " + document.getElementById("tit1").innerHTML +  " seleccione al menos un Nro de Teléfono.");
+		return false;
+	}
+	
+	if(trim(document.getElementById("opc2").value)=="S" && document.getElementById("tel2").selectedIndex == -1){
+		alert("Si desea recibir notificaciones de " + document.getElementById("tit2").innerHTML +  " seleccione al menos un Nro de Teléfono.");
+		return false;
+	}
+	
+	if(trim(document.getElementById("opc3").value)=="S" && document.getElementById("tel3").selectedIndex == -1){
+		alert("Si desea recibir notificaciones de " + document.getElementById("tit3").innerHTML +  " seleccione al menos un Nro de Teléfono.");
+		return false;
+	}
+	
+	if(trim(document.getElementById("opc4").value)=="S" && document.getElementById("tel4").selectedIndex == -1){
+		alert("Si desea recibir notificaciones de " + document.getElementById("tit4").innerHTML +  " seleccione al menos un Nro de Teléfono.");
 		return false;
 	}	
 	

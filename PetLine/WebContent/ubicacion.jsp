@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="petline.valueObject.Coordenada"%>
 <%@page import="petline.sessLayer.SessCoordenada"%>
 <%@page import="petline.util.PetLineUtils"%>
@@ -51,7 +52,12 @@
     </script>
 </head>
 <body style="background-image:url('./img/fondo.png');" onload="localizame();setTimeout(function(){ location.reload(); }, 60000);">
-	<div id="mapa"><br></div>
+		<table class=table2>
+			<tr>
+				<td width=200px><div id="mapa"><br></div></td>
+				<td valign=top height=30px class="textoLibre">Ubicación al <%= (new SimpleDateFormat("dd/MM/yyyy hh:mm")).format(coordenada.getFechaHora().getTime()) %></td>
+			<tr>	
+		</table>		
 </body>
 </html>    
 
