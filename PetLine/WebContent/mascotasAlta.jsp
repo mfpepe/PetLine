@@ -1,3 +1,5 @@
+<%@page import="petline.valueObject.Raza"%>
+<%@page import="petline.sessLayer.SessRaza"%>
 <%@page import="petline.sessLayer.SessTamanio"%>
 <%@page import="petline.valueObject.Perimetro"%>
 <%@page import="petline.valueObject.Tamanio"%>
@@ -22,19 +24,19 @@
 			<tr>
 				<td class=etiqueta>Apodo</td>
 				<td>&nbsp;<input type="text" name="apodo" id="apodo"/></td>
-			<tr>
+			</tr>
 			<tr>
 				<td class=etiqueta>Fecha de Nacimiento (dd/mm/yyyy)</td>
 				<td>&nbsp;<input type="text" name="edad" id="edad"/></td>
-			<tr>
+			</tr>
 			<tr>
 				<td class=etiqueta>Peso</td>
 				<td>&nbsp;<input type="text" name="peso" id="peso"/></td>
-			<tr>
+			</tr>
 			<tr>
 				<td class=etiqueta>Objetivo Diario</td>
 				<td>&nbsp;<input type="text" name="objetivo" id="objetivo"/></td>
-			<tr>
+			</tr>
 			<tr>
 				<td class=etiqueta>Perímetro</td>
 				<td>&nbsp;<% 
@@ -46,7 +48,19 @@
 					}
 					out.print("</select>");
 				%></td>
-			<tr>		
+			</tr>
+			<tr>
+				<td class=etiqueta>Raza</td>
+				<td>&nbsp;<% 
+					SessRaza sessRaza = new SessRaza();
+					Collection<Raza> razas = sessRaza.obtenerRazas();
+					out.print("<select name='raza' id='raza' ><option value=''></option>");
+					for( Raza raza : razas ){
+						out.print("<option value='" + raza.getIdRaza() + "'>" + raza.getDescripcion() + "</option>");
+					}
+					out.print("</select>");
+				%></td>
+			</tr>						
 			<tr>
 				<td class=etiqueta>Tamaño</td>
 				<td>&nbsp;<% 
@@ -58,7 +72,7 @@
 					}
 					out.print("</select>");
 				%></td>
-			<tr>					
+			</tr>					
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Agregar" onclick="validarAltaMascota();">

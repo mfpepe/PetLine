@@ -12,6 +12,15 @@ public class Mascota {
 	private int idTamaño;
 	private int idUsuario;
 	private int idPerimetro;
+	private int idRaza;
+
+	public int getIdRaza() {
+		return idRaza;
+	}
+
+	public void setIdRaza(int idRaza) {
+		this.idRaza = idRaza;
+	}
 
 	public int getIdMascota() {
 		return idMascota;

@@ -26,6 +26,7 @@ public class ModificacionMascotaAction extends Action {
 		String objetivo = request.getParameter("objetivo");
 		String perimetro = request.getParameter("perimetro");
 		String tamanio = request.getParameter("tamanio");
+		String raza = request.getParameter("raza");
 
 		Mascota mascota = new Mascota();
 		mascota.setIdMascota(Integer.parseInt(idMascota));
@@ -42,6 +43,7 @@ public class ModificacionMascotaAction extends Action {
 
 		mascota.setIdPerimetro((StringUtils.isEmpty(perimetro)) ? 0 : Integer.parseInt(perimetro));
 		mascota.setIdTamaño(Integer.parseInt(tamanio));
+		mascota.setIdRaza(Integer.parseInt(raza));
 
 		String target = null;
 		String message = null;

@@ -11,6 +11,10 @@ function registrarUsuario(){
 	var nombre = document.getElementById("nombre").value;
 	var apellido = document.getElementById("apellido").value;
 	var email = document.getElementById("email").value;
+	var telefono = document.getElementById("telefono").value;
+	var alias = document.getElementById("alias").value;
+	var clave = document.getElementById("clave").value;
+	var clave2 = document.getElementById("clave2").value;
 	
 	if( trim(box) == "" ){
 		alert("Código de Box es obligatorio.");
@@ -32,8 +36,32 @@ function registrarUsuario(){
 		return;
 	}	
 
-	document.form.action = document.form.action + "?message=Usuario Registrado Correctamente.";
-	document.form.submit();
+	if( trim(telefono) == "" ){
+		alert("Teléfono es obligatorio.");
+		return;
+	}	
+
+	if( trim(alias) == "" ){
+		alert("Alias es obligatorio.");
+		return;
+	}		
+	
+	if( trim(clave) == "" ){
+		alert("Clave es obligatorio.");
+		return;
+	}	
+	
+	if( trim(clave2) == "" ){
+		alert("Repetir la clave es obligatorio.");
+		return;
+	}		
+	
+	if(trim(clave) != trim(clave2)){
+		alert("Las claves no coinciden.");
+		return;		
+	}
+	
+	document.form1.submit();
 }
 
 function onChangeMascotaRecorrido(){
@@ -279,6 +307,11 @@ function validarAltaMascota(){
 		return false;	
 	}
 	
+	if(trim(document.getElementById("raza").value) == ""){
+		alert("Raza de la Mascota es obligatorio.");
+		return false;
+	}	
+	
 	if(trim(document.getElementById("tamanio").value) == ""){
 		alert("El Tamaño de la Mascota es obligatorio.");
 		return false;
@@ -321,6 +354,11 @@ function validarModificacionMascota(){
 		alert("El Objetivo diario de la Mascota debe ser un numero entero.");
 		return false;	
 	}
+	
+	if(trim(document.getElementById("raza").value) == ""){
+		alert("Raza de la Mascota es obligatorio.");
+		return false;
+	}	
 	
 	if(trim(document.getElementById("tamanio").value) == ""){
 		alert("El Tamaño de la Mascota es obligatorio.");

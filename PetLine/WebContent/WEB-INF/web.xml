@@ -14,7 +14,7 @@
     </init-param>
     <init-param>
       <param-name>EXCEPTIONS</param-name>
-      <param-value>index.jsp,registrarUsuario.jsp,login.do</param-value>
+      <param-value>index.jsp,registrarUsuario.jsp,login.do,RegistrarUsuario.do</param-value>
     </init-param>
   </filter>
   <filter-mapping>

@@ -22,9 +22,19 @@ public class SessUsuario {
 		return entUsuario.getUsuarioPorId(idUsuario);
 	}	
 	
+	public Usuario obtenerUsuarioPorAlias( String userId ){
+		EntUsuario entUsuario = new EntUsuario();
+		return entUsuario.getUsuarioPorAlias(userId);
+	}		
+	
 	public void actualizarUsuario( Usuario usuario ) throws SQLException{
 		EntUsuario entUsuario = new EntUsuario();
 		entUsuario.updateUsuario(usuario);
 	}		
+	
+	public void registrarUsuario( Usuario usuario, String telefono, int idBox ) throws SQLException{
+		EntUsuario entUsuario = new EntUsuario();
+		entUsuario.registerUsuario(usuario, telefono, idBox);
+	}	
 	
 }

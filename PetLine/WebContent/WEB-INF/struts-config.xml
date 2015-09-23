@@ -102,7 +102,11 @@
         <action path="/AltaNotificacion" type="petline.action.AltaNotificacionAction">
             <forward name="success" contextRelative="true" redirect="true" path="/notificacion.jsp"/>
             <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
-        </action>                                                     
+        </action>  
+        <action path="/RegistrarUsuario" type="petline.action.RegistrarUsuarioAction">
+            <forward name="success" contextRelative="true" redirect="true" path="/index.jsp"/>
+            <forward name="failure" contextRelative="true" redirect="true" path="/error.jsp" />
+        </action>                                                             
     </action-mappings>
  
 </struts-config>

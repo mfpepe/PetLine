@@ -27,7 +27,7 @@ public class EntMascota {
 			con = ConnectionManager.getConnection();
 
 			StringBuffer query = new StringBuffer();
-			query.append( 	"	select IdMascota, Apodo, Fecha_nac, Peso, KmDiarios, IdTamaño, IdUsuario, IdPerimetro" +
+			query.append( 	"	select IdMascota, Apodo, Fecha_nac, Peso, KmDiarios, IdTamaño, IdUsuario, IdPerimetro, IdRaza" +
 							"	from mascota" +
 							"	where IdUsuario=?" +
 							"	order by 1" );
@@ -51,6 +51,7 @@ public class EntMascota {
 				mascota.setIdTamaño(rs.getInt(6));
 				mascota.setIdUsuario(rs.getInt(7));
 				mascota.setIdPerimetro(rs.getInt(8));
+				mascota.setIdRaza(rs.getInt(9));
 				
 				mascotas.add(mascota);
 			}
@@ -87,7 +88,7 @@ public class EntMascota {
 			con = ConnectionManager.getConnection();
 
 			StringBuffer query = new StringBuffer();
-			query.append( 	"	select IdMascota, Apodo, Fecha_nac, Peso, KmDiarios, IdTamaño, IdUsuario, IdPerimetro" +
+			query.append( 	"	select IdMascota, Apodo, Fecha_nac, Peso, KmDiarios, IdTamaño, IdUsuario, IdPerimetro, IdRaza" +
 							"	from mascota" +
 							"	where IdMascota=?" );
 
@@ -110,6 +111,7 @@ public class EntMascota {
 				mascota.setIdTamaño(rs.getInt(6));
 				mascota.setIdUsuario(rs.getInt(7));
 				mascota.setIdPerimetro(rs.getInt(8));
+				mascota.setIdRaza(rs.getInt(9));
 			}
 			
 		} catch (SQLException e) {
@@ -143,8 +145,8 @@ public class EntMascota {
 
 			StringBuffer query = new StringBuffer();
 
-			query.append( 	"	insert into mascota(IdMascota, Apodo, Fecha_nac, Peso, KmDiarios, IdTamaño, IdUsuario, IdPerimetro)" +
-							"	select IFNULL(max(IdMascota),0)+1 , ?, ?, ?, ?, ?, ?, ? from mascota" );
+			query.append( 	"	insert into mascota(IdMascota, Apodo, Fecha_nac, Peso, KmDiarios, IdTamaño, IdUsuario, IdPerimetro, IdRaza)" +
+							"	select IFNULL(max(IdMascota),0)+1 , ?, ?, ?, ?, ?, ?, ?, ? from mascota" );
 
 			stmt = con.prepareStatement(query.toString());
 
@@ -160,7 +162,7 @@ public class EntMascota {
 			else{
 				stmt.setInt(7, mascota.getIdPerimetro());	
 			}
-			
+			stmt.setInt(8, mascota.getIdRaza());
 			
 			stmt.execute();
 			
@@ -189,7 +191,7 @@ public class EntMascota {
 			con = ConnectionManager.getConnection();
 
 			StringBuffer query = new StringBuffer();
-			query.append( 	"	update mascota set Apodo = ?, Fecha_nac = ?, Peso = ?, KmDiarios = ?, IdTamaño = ?, IdUsuario = ?, IdPerimetro = ?" +
+			query.append( 	"	update mascota set Apodo = ?, Fecha_nac = ?, Peso = ?, KmDiarios = ?, IdTamaño = ?, IdUsuario = ?, IdPerimetro = ?, IdRaza = ?" +
 							"	where IdMascota = ?" );
 
 			stmt = con.prepareStatement(query.toString());
@@ -206,7 +208,8 @@ public class EntMascota {
 			else{
 				stmt.setInt(7, mascota.getIdPerimetro());	
 			}
-			stmt.setInt(8, mascota.getIdMascota());
+			stmt.setInt(8, mascota.getIdRaza());
+			stmt.setInt(9, mascota.getIdMascota());
 			
 			stmt.execute();
 			

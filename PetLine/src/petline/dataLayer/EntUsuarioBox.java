@@ -98,7 +98,7 @@ public class EntUsuarioBox {
 			
 			stmt.execute();
 			
-			stmt.clearParameters();
+			stmt.close();
 			
 			stmt = con.prepareStatement("	update box set descripcion=? where idBox=?");
 

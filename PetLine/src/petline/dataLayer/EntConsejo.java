@@ -23,16 +23,75 @@ public class EntConsejo {
 		Collection<Consejo> consejos = new ArrayList<Consejo>();
 		try {
 			con = ConnectionManager.getConnection();
-				//TODO revisar query para que contemple todos los filtros
+
 			StringBuffer query = new StringBuffer();
-			query.append( 	"	select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " + 
-							"	from consejo c " +
-							"	inner join mascota m on m.IdRaza=m.IdRaza " +
-							"	where m.idmascota=?" );
+			query.append( 	
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" from consejo c " +
+							" inner join mascota m on m.IdRaza=m.IdRaza " +
+							" where m.idmascota=? " +
+							" and m.IdRaza = c.IdRaza " +
+							" and m.IdTamaño = c.IdTamaño " +
+							" and m.Peso>c.PesoDesde " +
+							" and m.Peso<=c.PesoHasta " +
+							" union " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" from consejo c " +
+							" inner join mascota m on m.IdRaza=m.IdRaza " +
+							" where m.idmascota=? " +
+							" and m.IdRaza = c.IdRaza " +
+							" and c.IdTamaño is null " +
+							" and m.Peso>c.PesoDesde " +
+							" and m.Peso<=c.PesoHasta " +
+							" union " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" from consejo c " +
+							" inner join mascota m on m.IdRaza=m.IdRaza " +
+							" where m.idmascota=? " +
+							" and m.IdRaza = c.IdRaza " +
+							" and m.IdTamaño = c.IdTamaño " +
+							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)>c.EdadDesde " +
+							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)<=c.EdadHasta " +
+							" union " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" from consejo c " +
+							" inner join mascota m on m.IdRaza=m.IdRaza " +
+							" where m.idmascota=? " +
+							" and m.IdRaza = c.IdRaza " +
+							" and c.IdTamaño is null " +
+							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)>c.EdadDesde " +
+							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)<=c.EdadHasta " +
+							" union " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" from consejo c " +
+							" inner join mascota m on m.IdRaza=m.IdRaza " +
+							" where m.idmascota=? " +
+							" and m.IdRaza = c.IdRaza " +
+							" and c.IdTamaño is null " +
+							" and c.EdadDesde is null " +
+							" and c.EdadHasta is null " +
+							" and c.PesoDesde is null " +
+							" and c.PesoHasta is null " +
+							" union " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" from consejo c " +
+							" inner join mascota m on m.IdRaza=m.IdRaza " +
+							" where m.idmascota=? " +
+							" and c.IdRaza is null " +
+							" and c.IdTamaño is null " +
+							" and c.EdadDesde is null " +
+							" and c.EdadHasta is null " +
+							" and c.PesoDesde is null " +
+							" and c.PesoHasta is null " );
 
 			stmt = con.prepareStatement(query.toString());
 
 			stmt.setInt(1, idMascota);
+			stmt.setInt(2, idMascota);
+			stmt.setInt(3, idMascota);
+			stmt.setInt(4, idMascota);
+			stmt.setInt(5, idMascota);
+			stmt.setInt(6, idMascota);
 			
 			rs = stmt.executeQuery();
 
