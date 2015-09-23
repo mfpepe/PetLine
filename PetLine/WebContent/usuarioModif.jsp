@@ -32,7 +32,7 @@
 		<p class="title">Actualizar Perfil de Usuario</p>
 		<p id=message class="msgExitoso"><%= (StringUtils.isEmpty(message)?"":message) %></p>
 		<br>
-		<table id="userTable" name="userTable" class=table2 >
+		<table class=table2 >
 			<tr>
 				<td class=etiqueta>Nombre</td>
 				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre" value="<%= usuario.getNombre() %>"/></td>
@@ -51,7 +51,7 @@
 			<tr>
 				<td class=etiqueta>Telefono</td>
 				<td valign=top>
-				<table id="telefonos" name="telefonos" class="table2">
+				<table id="telefonos" class="table2">
 					<%
 						int cont = 0;
 						for(Telefono telefono : telefonos){
