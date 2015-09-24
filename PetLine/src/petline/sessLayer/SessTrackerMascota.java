@@ -38,6 +38,11 @@ public class SessTrackerMascota {
 		entTrackerMascota.updateTrackerMascota(trackerMascota);
 	}		
 	
+	public void modificarTemperaturaActualTrackerMascota( int idTrackerMascota, int tempActual ) throws SQLException{
+		EntTrackerMascota entTrackerMascota = new EntTrackerMascota();
+		entTrackerMascota.updateTemperaturaActualTrackerMascota(idTrackerMascota, tempActual);
+	}		
+	
 	public void eliminarTrackerMascota( int idTrackerMascota ) throws SQLException{
 		EntTrackerMascota entTrackerMascota = new EntTrackerMascota();
 		entTrackerMascota.deleteTrackerMascota(idTrackerMascota);

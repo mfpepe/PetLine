@@ -113,8 +113,8 @@ function initialize() {
 			<tr>
 				<td  valign=top height=30px class="textoLibre">Kms Faltantes para Cumplir Objetivo Diario: <%
 					if( trackerMascota.getMascota().getKmDiarios()>0 ){
-						if( trackerMascota.getMascota().getKmDiarios()>totalMtsRecorridos ){
-							out.print( (trackerMascota.getMascota().getKmDiarios() - totalMtsRecorridos) + " Kms" );	
+						if( trackerMascota.getMascota().getKmDiarios()>(totalMtsRecorridos/1000) ){
+							out.print( (trackerMascota.getMascota().getKmDiarios() - (totalMtsRecorridos/1000)) + " Kms" );	
 						}
 						else{
 							out.print("<font color=#00C600>Objetivo cumplido</font>");	

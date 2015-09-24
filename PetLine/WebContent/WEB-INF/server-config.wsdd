@@ -20,24 +20,8 @@
   </ns1:requestFlow>
  </ns1:globalConfiguration>
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
- <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
- <ns1:service name="WebServiceTrackerImpl" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="trackerService" qname="ns1:trackerService" returnQName="ns1:trackerServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://service.petline" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:idTracker" type="xsd:string"/>
-   <ns2:parameter qname="ns1:latitud" type="xsd:string"/>
-   <ns2:parameter qname="ns1:longitud" type="xsd:string"/>
-   <ns2:parameter qname="ns1:temperatura" type="xsd:string"/>
-  </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="trackerService"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="WebServiceTrackerImpl"/>
-  <ns1:parameter name="className" value="petline.service.WebServiceTrackerImpl"/>
-  <ns1:parameter name="wsdlServicePort" value="WebServiceTrackerImpl"/>
-  <ns1:parameter name="schemaQualified" value="http://service.petline"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://service.petline"/>
-  <ns1:parameter name="wsdlServiceElement" value="WebServiceTrackerImplService"/>
- </ns1:service>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
   <ns1:parameter name="enableRemoteAdmin" value="false"/>
@@ -47,6 +31,23 @@
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="WebServiceTrackerImpl" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="trackerService" qname="ns1:trackerService" returnQName="ns1:trackerServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://service.petline" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:codigoTracker" type="xsd:string"/>
+   <ns2:parameter qname="ns1:latitud" type="xsd:string"/>
+   <ns2:parameter qname="ns1:longitud" type="xsd:string"/>
+   <ns2:parameter qname="ns1:temperatura" type="xsd:string"/>
+   <ns2:parameter qname="ns1:bajaBateria" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:parameter name="allowedMethods" value="trackerService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="WebServiceTrackerImpl"/>
+  <ns1:parameter name="className" value="petline.service.WebServiceTrackerImpl"/>
+  <ns1:parameter name="wsdlServicePort" value="WebServiceTrackerImpl"/>
+  <ns1:parameter name="schemaQualified" value="http://service.petline"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.petline"/>
+  <ns1:parameter name="wsdlServiceElement" value="WebServiceTrackerImplService"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

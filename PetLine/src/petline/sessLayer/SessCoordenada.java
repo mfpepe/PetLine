@@ -19,4 +19,8 @@ public class SessCoordenada {
 		return entCoordenada.getUltimaCoordenada(idTracker);
 	}
 	
+	public void insertarCoordenada( Coordenada coordenada ) throws SQLException{
+		EntCoordenada entCoordenada = new EntCoordenada();
+		entCoordenada.insertCoordenada(coordenada);
+	}
 }

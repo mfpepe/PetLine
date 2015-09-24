@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -134,4 +135,40 @@ public class EntCoordenada {
 		return coordenada;
 	}	
 	
+	public void insertCoordenada( Coordenada coordenada ) throws SQLException{
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			con = ConnectionManager.getConnection();
+
+			StringBuffer query = new StringBuffer();
+
+			query.append( 	"	insert into coordenada(IdCoordenada, IdTracker, Latitud, Longitud, Fecha)" +
+							"	select IFNULL(max(IdCoordenada),0)+1 , ?, ?, ?, ? from coordenada" );
+
+			stmt = con.prepareStatement(query.toString());
+
+			stmt.setInt(1, coordenada.getIdTracker());
+			stmt.setString(2, coordenada.getLatitud());
+			stmt.setString(3, coordenada.getLongitud());
+			stmt.setTimestamp(4, new Timestamp(coordenada.getFechaHora().getTimeInMillis()) );
+			
+			stmt.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;			
+		} finally {
+		    if (stmt != null) {
+		        try {
+		        	stmt.close();
+		        } catch (SQLException e) {}
+		    }
+		    if (con != null) {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {}
+		    }
+		}
+	}	
 }

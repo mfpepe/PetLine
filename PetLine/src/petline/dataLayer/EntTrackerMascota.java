@@ -408,5 +408,37 @@ public class EntTrackerMascota {
 		        } catch (SQLException e) {}
 		    }
 		}
-	}		
+	}	
+	
+	public void updateTemperaturaActualTrackerMascota( int IdTrackerMascota, int tempActual ) throws SQLException{
+		Connection con = null;
+		PreparedStatement stmt = null;
+	
+		try {
+			con = ConnectionManager.getConnection();
+			
+			stmt = con.prepareStatement("	update trackermascota set TempActual = ? " +
+										" where IdTrackerMascota = ?");
+			
+			stmt.setInt(1, tempActual);
+			stmt.setInt(2, IdTrackerMascota);
+			
+			stmt.execute();
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;			
+		} finally {
+		    if (stmt != null) {
+		        try {
+		        	stmt.close();
+		        } catch (SQLException e) {}
+		    }
+		    if (con != null) {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {}
+		    }
+		}
+	}
 }

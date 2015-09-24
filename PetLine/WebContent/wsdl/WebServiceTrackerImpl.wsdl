@@ -7,10 +7,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="trackerService">
     <complexType>
      <sequence>
-      <element name="idTracker" type="xsd:string"/>
+      <element name="codigoTracker" type="xsd:string"/>
       <element name="latitud" type="xsd:string"/>
       <element name="longitud" type="xsd:string"/>
       <element name="temperatura" type="xsd:string"/>
+      <element name="bajaBateria" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -84,7 +85,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:WebServiceTrackerImplSoapBinding" name="WebServiceTrackerImpl">
 
-         <wsdlsoap:address location="http://localhost:8085/PetLine/services/WebServiceTrackerImpl"/>
+         <wsdlsoap:address location="http://localhost:8080/PetLine/services/WebServiceTrackerImpl"/>
 
       </wsdl:port>
 

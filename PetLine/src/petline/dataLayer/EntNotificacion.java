@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
@@ -83,5 +84,41 @@ public class EntNotificacion {
 		}
 		return notificaciones;
 	}
+	
+	public void insertNotificacion( Notificacion notificacion ) throws SQLException{
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			con = ConnectionManager.getConnection();
+
+			StringBuffer query = new StringBuffer();
+
+			query.append( 	"	insert into notificacion(IdNotificacion, IdTipoNot, FechaHora, IdTracker)" +
+							"	select IFNULL(max(IdNotificacion),0)+1 , ?, ?, ? from notificacion" );
+
+			stmt = con.prepareStatement(query.toString());
+
+			stmt.setInt(1, notificacion.getTipoNotificacion().getIdTipoNotificacion());
+			stmt.setTimestamp(2, new Timestamp(notificacion.getFechaHora().getTimeInMillis()) );
+			stmt.setInt(3, notificacion.getTracker().getIdTracker());
+			
+			stmt.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;			
+		} finally {
+		    if (stmt != null) {
+		        try {
+		        	stmt.close();
+		        } catch (SQLException e) {}
+		    }
+		    if (con != null) {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {}
+		    }
+		}
+	}		
 	
 }

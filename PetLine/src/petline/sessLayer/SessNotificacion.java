@@ -12,4 +12,9 @@ public class SessNotificacion {
 		EntNotificacion entNotificacion = new EntNotificacion();
 		return entNotificacion.getNotificacionesUltimaSemana(idTracker);
 	}
+	
+	public void insertarNotificacion( Notificacion notificacion ) throws SQLException{
+		EntNotificacion entNotificacion = new EntNotificacion();
+		entNotificacion.insertNotificacion(notificacion);
+	}
 }

@@ -11,10 +11,11 @@
       <parameter name="wsdlPortType" value="WebServiceTrackerImpl"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <operation xmlns:operNS="http://service.petline" xmlns:retNS="http://service.petline" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="trackerService" qname="operNS:trackerService" returnQName="retNS:trackerServiceReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://service.petline" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idTracker" type="tns:string"/>
+        <parameter xmlns:pns="http://service.petline" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:codigoTracker" type="tns:string"/>
         <parameter xmlns:pns="http://service.petline" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:latitud" type="tns:string"/>
         <parameter xmlns:pns="http://service.petline" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:longitud" type="tns:string"/>
         <parameter xmlns:pns="http://service.petline" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:temperatura" type="tns:string"/>
+        <parameter xmlns:pns="http://service.petline" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:bajaBateria" type="tns:string"/>
       </operation>
       <parameter name="allowedMethods" value="trackerService"/>
 
