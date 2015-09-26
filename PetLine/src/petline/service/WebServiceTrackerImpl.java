@@ -53,14 +53,14 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			Calendar fechaCall = Calendar.getInstance();
 			
 			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
 				//BATERIA BAJA
 				rpta.append(_verificarBateriaBaja(tracker.getIdTracker(), bajaBateria));				
 			}
 				
 
 			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
 				//OBJETIVO DIARIO
 				String objetivoDiario = _verificarObjetivoDiario(tracker.getIdTracker());
 				if(!StringUtils.isEmpty(objetivoDiario) && !StringUtils.isEmpty(rpta.toString())){
@@ -70,7 +70,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			}
 
 			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
 				//PERIMETRO
 				String perimetro = _verificarPerimetro(tracker.getIdTracker(), latitud, longitud);
 				if(!StringUtils.isEmpty(perimetro) && !StringUtils.isEmpty(rpta.toString())){
@@ -80,7 +80,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			}
 
 			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
 				//TEMPERATURA
 				String temp = _verificarTemperatura(tracker.getIdTracker(), temperatura);
 				if(!StringUtils.isEmpty(temp) && !StringUtils.isEmpty(rpta.toString())){

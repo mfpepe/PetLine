@@ -40,8 +40,8 @@ public class EntNotificacion {
 			
 			rs = stmt.executeQuery();
 
-			Calendar fecha = Calendar.getInstance();
 			while(rs.next()){
+				Calendar fecha = Calendar.getInstance();
 				fecha.clear();
 				fecha.setTimeInMillis(rs.getTimestamp(2).getTime());
 				
