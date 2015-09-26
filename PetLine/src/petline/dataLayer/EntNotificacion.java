@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.HashMap;
 
 import petline.util.ConnectionManager;
 import petline.valueObject.Notificacion;
@@ -20,6 +21,56 @@ import petline.valueObject.Tracker;
 
 public class EntNotificacion {
 
+	public HashMap<Integer, Calendar> getUltimasNotificacionesRealizadas( int idTracker ) throws SQLException{
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		HashMap<Integer, Calendar> ultimasNotificaciones = new HashMap<Integer, Calendar>();
+		try {
+			con = ConnectionManager.getConnection();
+				
+			StringBuffer query = new StringBuffer();
+			query.append( 	"	select n.IdTipoNot, max(n.FechaHora) from notificacion n " +
+							"	where n.IdTracker=? " + 
+							"	group by n.IdTipoNot " );
+
+			stmt = con.prepareStatement(query.toString());
+
+			stmt.setInt(1, idTracker);
+			
+			rs = stmt.executeQuery();
+
+			Calendar fecha = Calendar.getInstance();
+			while(rs.next()){
+				fecha.clear();
+				fecha.setTimeInMillis(rs.getTimestamp(2).getTime());
+				
+				ultimasNotificaciones.put(new Integer(rs.getInt(1)), fecha);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;			
+		} finally {
+		    if (rs != null) {
+		        try {
+		            rs.close();
+		        } catch (SQLException e) {}
+		    }
+		    if (stmt != null) {
+		        try {
+		        	stmt.close();
+		        } catch (SQLException e) {}
+		    }
+		    if (con != null) {
+		        try {
+		            con.close();
+		        } catch (SQLException e) {}
+		    }
+		}
+		return ultimasNotificaciones;
+	}	
+	
 	public Collection<Notificacion> getNotificacionesUltimaSemana( int idTracker ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

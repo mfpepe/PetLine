@@ -3,6 +3,7 @@ package petline.service;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.HashMap;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -27,6 +28,8 @@ import petline.valueObject.TrackerMascota;
 @WebService(targetNamespace = "http://service/", portName = "WebServiceTrackerImplPort", serviceName = "WebServiceTrackerImplService", endpointInterface = "service.WebServiceTracker")
 public class WebServiceTrackerImpl implements WebServiceTracker {
 
+	private static final long MAXIMA_ESPERA_ENTRE_NOTIFICACIONES = 3;
+	
 	@Override
 	@WebMethod(operationName = "trackerService", action = "urn:TrackerService")
 	public String trackerService(String codigoTracker, String latitud, String longitud, String temperatura, String bajaBateria) throws Exception {
@@ -44,30 +47,47 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			//ACTUALIZO TEMPERATURA ACTUAL
 			_actualizarTemperaturaActual(tracker.getIdTracker(), temperatura);
 			
-			//BATERIA BAJA
-			rpta.append(_verificarBateriaBaja(tracker.getIdTracker(), bajaBateria));
-
-			//OBJETIVO DIARIO
-			String objetivoDiario = _verificarObjetivoDiario(tracker.getIdTracker());
-			if(!StringUtils.isEmpty(objetivoDiario) && !StringUtils.isEmpty(rpta.toString())){
-				rpta.append("|");
-			}
-			rpta.append(objetivoDiario);
-
-			//PERIMETRO
-			String perimetro = _verificarPerimetro(tracker.getIdTracker(), latitud, longitud);
-			if(!StringUtils.isEmpty(perimetro) && !StringUtils.isEmpty(rpta.toString())){
-				rpta.append("|");
-			}
-			rpta.append(perimetro);
+			SessNotificacion sessNotificacion = new SessNotificacion();
+			HashMap<Integer, Calendar> ultimasNotificaciones = sessNotificacion.obtenerUltimasNotificacionesRealizadas(tracker.getIdTracker());
 			
-			//TEMPERATURA
-			String temp = _verificarTemperatura(tracker.getIdTracker(), temperatura);
-			if(!StringUtils.isEmpty(temp) && !StringUtils.isEmpty(rpta.toString())){
-				rpta.append("|");
-			}
-			rpta.append(temp);		
+			Calendar fechaCall = Calendar.getInstance();
 			
+			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) 
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+				//BATERIA BAJA
+				rpta.append(_verificarBateriaBaja(tracker.getIdTracker(), bajaBateria));				
+			}
+				
+
+			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) 
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+				//OBJETIVO DIARIO
+				String objetivoDiario = _verificarObjetivoDiario(tracker.getIdTracker());
+				if(!StringUtils.isEmpty(objetivoDiario) && !StringUtils.isEmpty(rpta.toString())){
+					rpta.append("|");
+				}
+				rpta.append(objetivoDiario);
+			}
+
+			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) 
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+				//PERIMETRO
+				String perimetro = _verificarPerimetro(tracker.getIdTracker(), latitud, longitud);
+				if(!StringUtils.isEmpty(perimetro) && !StringUtils.isEmpty(rpta.toString())){
+					rpta.append("|");
+				}
+				rpta.append(perimetro);
+			}
+
+			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) 
+					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) , fechaCall) > MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+				//TEMPERATURA
+				String temp = _verificarTemperatura(tracker.getIdTracker(), temperatura);
+				if(!StringUtils.isEmpty(temp) && !StringUtils.isEmpty(rpta.toString())){
+					rpta.append("|");
+				}
+				rpta.append(temp);		
+			}
 		}
 		
 		return rpta.toString();

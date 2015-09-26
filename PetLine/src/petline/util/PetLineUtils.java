@@ -71,4 +71,28 @@ public class PetLineUtils {
 
 	}
 	
+    public static long difenciaFechasHoras(Calendar cal1, Calendar cal2)
+    {
+        // conseguir la representacion de la fecha en milisegundos
+        long milis1 = cal1.getTimeInMillis();
+        long milis2 = cal2.getTimeInMillis();
+
+        // calcular la diferencia en milisengundos
+        long diff = milis2 - milis1;
+
+        // calcular la diferencia en segundos
+     //   long diffSeconds = diff / 1000;
+
+        // calcular la diferencia en minutos
+       // long diffMinutes = diff / (60 * 1000);
+
+        // calcular la diferencia en horas
+        long diffHours = diff / (60 * 60 * 1000);
+
+        // calcular la diferencia en dias
+        //long diffDays = diff / (24 * 60 * 60 * 1000);
+
+        return diffHours;
+    }	
+	
 }
