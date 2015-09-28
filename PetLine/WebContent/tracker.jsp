@@ -12,7 +12,10 @@
 			&& !StringUtils.isEmpty(temperatura) && !StringUtils.isEmpty(bajaBateria) ){
 		
 		WebServiceTrackerImpl webServiceTrackerImpl = new WebServiceTrackerImpl();
-		out.print(webServiceTrackerImpl.trackerService(codigoTracker, latitud, longitud, temperatura, bajaBateria));
+		String rpta = webServiceTrackerImpl.trackerService(codigoTracker, latitud, longitud, temperatura, bajaBateria); 
+		out.print("@@" + (StringUtils.isEmpty(rpta)?"NOMSG":rpta) + "@@");
 	}
-	
+	else{
+		out.print("@@NOMSG@@");
+	}
 %>
