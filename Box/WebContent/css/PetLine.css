@@ -43,37 +43,6 @@ select {
   width: 175px;
 }
 
-/*
-* input[type="text"] {
-	width: 150px;
-	border-left-width: 1px;
-	border-right-width: 1px;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-	border-left-style: solid;
-	border-right-style: solid;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-left-color: black;
-	border-right-color: grey;
-	border-top-color: black;
-	border-bottom-color: grey;
-}
-
-* input[type="password"] {
-	width: 150px;
-	background: #FFFFFF;
-	border-left-width: 1px;
-	border-right-width: 1px;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-	border-left-color: black;
-	border-right-color: grey;
-	border-top-color: black;
-	border-bottom-color: grey;
-}
-*/
-
 input[type="text"] {
 	width: 175px;
   -webkit-box-sizing: border-box;
@@ -107,7 +76,7 @@ input[type="password"] {
 .etiqueta {
 	height:25px;
 	width: 150px;
-	background-color: #006cff;
+	background-color: #8e3999;
 	font-family: Segoe UI, sans-serif;
 	text-align: left;
 	padding-left:5px;
@@ -151,7 +120,7 @@ input[type="password"] {
 }
 
 .header {
-	background-color: #006cff;
+	background-color: #8e3999;
 	font-family: Segoe UI, sans-serif;
 	text-align: center;
 	color: #FFFFFF;
@@ -160,7 +129,7 @@ input[type="password"] {
 }
 
 .title {
-	background-color: #555555;
+	background-color: #b56ebd;
 	font-family: Segoe UI, sans-serif;
 	text-align: left;
 	color: #FFFFFF;
@@ -173,7 +142,7 @@ input[type="password"] {
 .subtitle {
 	font-family: Segoe UI, sans-serif;
 	text-align: center;
-	color: #003366;
+	color: #870996;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -187,7 +156,7 @@ input[type="password"] {
 }
 
 .menufondo{
-	background-color: #006cff;
+	background-color: #8e3999;
 	background-position:left top;
 	background-repeat:repeat-y;
 	padding:0px;
@@ -203,11 +172,11 @@ input[type="password"] {
 	color: #FFFFFF;
 	font-size: 10px;
 	font-weight: bold;
-	background-color: #006cff;
+	background-color: #8e3999;
 }
 
 .tableTitle{
-	background-color: #006cff;
+	background-color: #8e3999;
 	font-family: Segoe UI, sans-serif;
 	text-align: center;
 	color: #FFFFFF;
