@@ -5,11 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Bienvenido</title>
+<title>PetLine</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
+<script type="text/javascript">
+function init(){
+	document.getElementById("FRAMEGRAL").style = "height:" + (screen.height-200) + "px;width:100%;";
+}
+</script>
 </head>
-<body style="height: 100%; padding: 0px; margin: 0px;">
+<body style="height: 100%; padding: 0px; margin: 0px;" onload="init();">
     <%
         String message = request.getParameter("message");
     %>    
@@ -18,8 +23,8 @@
          <td height="90px" width="210px" class="menufondo" align=center>
              <img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png">
          </td>
-         <td colspan=2 rowspan="14">
-             <iframe width="100%" frameborder="0" height="100%" name="FRAMEGRAL" id="FRAMEGRAL" src="./inicio.jsp?message=<%= message %>"></iframe>
+         <td colspan=2 rowspan="14" style="margin:0px;padding:0px;overflow:hidden">
+			    <iframe name="FRAMEGRAL" id="FRAMEGRAL" src="./inicio.jsp?message=<%= message %>" frameborder="0" ></iframe>
          </td>
      </tr>
      <tr>
@@ -88,7 +93,7 @@
 	<tr>
 		<td height=30px class="menufondo">        
 			<a target='FRAMEGRAL' href="inicio.jsp?message=<%= message %>"><img src="<%= PetLineUtils.getURL() %>img/menubutton.png"></a>
-			<a href=""><img src="<%= PetLineUtils.getURL() %>img/back.png" onClick="history.back();" ></a>
+			<img src="<%= PetLineUtils.getURL() %>img/back.png" onClick="history.back();" style="cursor:hand;">
 		</td>
 		<td align=right valign=middle class="menufondo">
 			<p>Usuario: <%= message.toUpperCase() %></p>
