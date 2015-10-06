@@ -10,7 +10,8 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
 <script type="text/javascript">
 function init(){
-	document.getElementById("FRAMEGRAL").style = "height:" + (screen.height-200) + "px;width:100%;";
+	document.getElementById("FRAMEGRAL").style.height = (screen.height-200) + "px";
+	document.getElementById("FRAMEGRAL").style.width = "100%";
 }
 </script>
 </head>
@@ -23,7 +24,7 @@ function init(){
          <td height="90px" width="210px" class="menufondo" align=center>
              <img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png">
          </td>
-         <td colspan=2 rowspan="14" style="margin:0px;padding:0px;overflow:hidden">
+         <td colspan=2 rowspan="14" style="width:100%;height:100%;">
 			    <iframe name="FRAMEGRAL" id="FRAMEGRAL" src="./inicio.jsp?message=<%= message %>" frameborder="0" ></iframe>
          </td>
      </tr>
