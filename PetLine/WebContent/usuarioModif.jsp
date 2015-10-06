@@ -25,7 +25,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
+<link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/jquery-ui.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery-ui.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.mask.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("#telefono").mask("(+54) 9 $#####-####");
+	<%
+	int cont = 0;
+	for(Telefono telefono : telefonos){
+		cont++;
+		out.print( "$(\"#tel" + cont + "\").mask(\"(+54) 9 $#####-####\");");
+	}
+%>	
+});
+</script>
 </head>
 <body style="background-image:url('./img/fondo.png');" onLoad="setTimeout(function(){ document.getElementById('message').innerHTML=''; }, 3000);">
 <form method="post" name="form1" id="form1" action="ModificacionUsuario.do">
@@ -35,12 +51,12 @@
 		<table class=table2 >
 			<tr>
 				<td class=etiqueta>Nombre</td>
-				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre" value="<%= usuario.getNombre() %>"/></td>
+				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre"  onkeypress="return soloLetras();" value="<%= usuario.getNombre() %>"/></td>
 				<td>&nbsp;</td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Apellido</td>
-				<td>&nbsp;<input type="text" name="apellido" id="apellido" value="<%= usuario.getApellido() %>"/></td>
+				<td>&nbsp;<input type="text" name="apellido" id="apellido" onkeypress="return soloLetras();" value="<%= usuario.getApellido() %>"/></td>
 				<td>&nbsp;</td>
 			<tr>
 			<tr>
@@ -53,7 +69,7 @@
 				<td valign=top>
 				<table id="telefonos" class="table2">
 					<%
-						int cont = 0;
+						cont = 0;
 						for(Telefono telefono : telefonos){
 							cont++;
 							out.print("<tr><td height=25px>&nbsp;<input type='tex' name='tel" + cont + "' id='tel" + cont + "' value='" + telefono.getNroTelefono() + "'/></td></tr>");

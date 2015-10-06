@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import petline.sessLayer.SessBox;
 import petline.sessLayer.SessUsuario;
 import petline.util.HashGenerator;
+import petline.util.PetLineUtils;
 import petline.valueObject.Box;
 import petline.valueObject.Usuario;
 
@@ -25,47 +26,55 @@ public class RegistrarUsuarioAction extends Action {
 		String telefono = request.getParameter("telefono");
 		String alias = request.getParameter("alias");
 		String clave = request.getParameter("clave");
+	
 		
-		SessBox sessBox = new SessBox();
-		
-		Box box = sessBox.obtenerBoxPorCodigo(codigoBox);
-
 		String target = null;
 		String message = null;
-		if(box != null){
+		if( PetLineUtils.isValidPhoneNumber(telefono) ){
+			SessBox sessBox = new SessBox();
 			
-			SessUsuario sessUsuario = new SessUsuario();
-			Usuario user = sessUsuario.obtenerUsuarioPorAlias(alias);
-			
-			if(user == null){
-				try {
-					Usuario usuario = new Usuario();
-					usuario.setApellido(apellido);
-					usuario.setNombre(nombre);
-					usuario.setMail(email);
-					usuario.setPass(HashGenerator.convert(clave));
-					usuario.setUserId(alias);
-					
-					sessUsuario.registrarUsuario(usuario, telefono, box.getIdBox());
-					
-					target = "success";
-					message = "El usuario fue modificado exitosamente";
-				} catch (Exception e) {
+			Box box = sessBox.obtenerBoxPorCodigo(codigoBox);
+
+			if(box != null){
+				
+				SessUsuario sessUsuario = new SessUsuario();
+				Usuario user = sessUsuario.obtenerUsuarioPorAlias(alias);
+				
+				if(user == null){
+					try {
+						Usuario usuario = new Usuario();
+						usuario.setApellido(apellido);
+						usuario.setNombre(nombre);
+						usuario.setMail(email);
+						usuario.setPass(HashGenerator.convert(clave));
+						usuario.setUserId(alias);
+						
+						sessUsuario.registrarUsuario(usuario, PetLineUtils.getNumericPhoneNumber(telefono), box.getIdBox());
+						
+						target = "success";
+						message = "El usuario fue modificado exitosamente";
+					} catch (Exception e) {
+						target = "failure";
+						message = "Ocurrio un error al modificar el usuario.\n" + e.getMessage();
+					}	
+				}
+				else{
 					target = "failure";
-					message = "Ocurrio un error al modificar el usuario.\n" + e.getMessage();
-				}	
+					message = "Alias existente.";	
+				}
+			
+				
 			}
 			else{
 				target = "failure";
-				message = "Alias existente.";	
-			}
-		
-			
+				message = "El codigo del box es incorrecto.";			
+			}			
 		}
 		else{
 			target = "failure";
-			message = "El codigo del box es incorrecto.";			
+			message = "Teléfono inválido.";			
 		}
+
 
 		StringBuffer path = new StringBuffer();
 		path.append(mapping.findForward(target).getPath());

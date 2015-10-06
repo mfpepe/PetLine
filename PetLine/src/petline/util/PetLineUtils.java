@@ -6,6 +6,11 @@ import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
+
 public class PetLineUtils {
 
 	public static String getURL() {
@@ -95,4 +100,133 @@ public class PetLineUtils {
         return diffHours;
     }	
 	
+	public static boolean isValidPhoneNumber( String nroTelefono ){
+
+		try {
+			PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+		    PhoneNumber numberProto = phoneUtil.parse(nroTelefono, "AR");
+			
+		    String nroTelFormateado = phoneUtil.format(numberProto, PhoneNumberFormat.NATIONAL); 
+		    
+			return nroTelFormateado.indexOf(" ") != -1 && (nroTelFormateado.substring(nroTelFormateado.indexOf(" ")+1).split("-").length == 2 || nroTelFormateado.substring(nroTelFormateado.indexOf(" ")+1).split("-").length == 3);
+		    
+		} catch (NumberParseException e) {
+			return false;
+		}				
+		
+	}	
+	
+	public static String getNumericPhone(String nroTelefono) {
+		try {
+			Integer.parseInt(nroTelefono);
+		} catch (NumberFormatException nfe) {
+			String newNroTelefono = "";
+			for (int i = 0; i < nroTelefono.length(); i++) {
+				if (Character.isDigit(nroTelefono.charAt(i))) {
+					newNroTelefono += nroTelefono.charAt(i);
+				}
+			}
+			nroTelefono = newNroTelefono;
+		}
+
+		return nroTelefono;
+	}	
+	
+	public static String getNumericPhoneNumber( String nroTelefono ) throws Exception{
+		if( isValidPhoneNumber(nroTelefono) ){
+			try {
+				PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+			    PhoneNumber numberProto = phoneUtil.parse(nroTelefono, "AR");
+				
+			    String nroTelFormateado = phoneUtil.format(numberProto, PhoneNumberFormat.NATIONAL); 
+			    
+			    nroTelFormateado = nroTelFormateado.replaceAll(" ", "").replaceAll("-", "");
+			    if( nroTelFormateado.startsWith("0") ){
+			    	nroTelFormateado = nroTelFormateado.substring(1);
+			    }
+				return nroTelFormateado;
+			} catch (NumberParseException e) {
+				throw new Exception("El Nro de Teléfono no es valido. " + e.getMessage());
+			}		
+		}
+		else{
+			throw new Exception("El Nro de Teléfono no es valido.");
+		}
+	}		
+	
+	public static String getNumericPhoneNumberWithoutAreaCode( String nroTelefono ) throws Exception{
+		if( isValidPhoneNumber(nroTelefono) ){
+			try {
+				PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+			    PhoneNumber numberProto = phoneUtil.parse(nroTelefono, "AR");
+				
+			    String nroTelFormateado = phoneUtil.format(numberProto, PhoneNumberFormat.NATIONAL); 
+
+				return nroTelFormateado.substring(nroTelFormateado.indexOf(" ")+1).replaceAll("-", "");
+			} catch (NumberParseException e) {
+				throw new Exception("El Nro de Teléfono no es valido. " + e.getMessage());
+			}		
+		}
+		else{
+			throw new Exception("El Nro de Teléfono no es valido.");
+		}
+	}	
+	
+	public static String getAreaCodeFromPhoneNumber( String nroTelefono ) throws Exception{
+		if( isValidPhoneNumber(nroTelefono) ){
+			try {
+				PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+			    PhoneNumber numberProto = phoneUtil.parse(nroTelefono, "AR");
+				
+			    String nroTelFormateado = phoneUtil.format(numberProto, PhoneNumberFormat.NATIONAL); 
+			    
+			    return nroTelFormateado.substring(0, nroTelFormateado.indexOf(" "));
+			    
+			} catch (NumberParseException e) {
+				throw new Exception("El Nro de Teléfono no es valido. " + e.getMessage());
+			}		
+		}
+		else{
+			throw new Exception("El Nro de Teléfono no es valido.");
+		}
+	}		
+	
+	public static String getPhoneNumberForMask( String nroTelefono ) throws Exception{
+		if( isValidPhoneNumber(nroTelefono) ){
+			try {
+				PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+			    PhoneNumber numberProto = phoneUtil.parse(nroTelefono, "AR");
+				
+			    String nroTelFormateado = phoneUtil.format(numberProto, PhoneNumberFormat.NATIONAL); 
+			    
+			    StringBuffer nTel = new StringBuffer();
+			    nTel.append("(+54) ");
+			    String[] particionadoTel = nroTelFormateado.substring(nroTelFormateado.indexOf(" ")+1).split("-");
+			    
+			    int codArea = Integer.parseInt(nroTelFormateado.substring(0, nroTelFormateado.indexOf(" ")));
+			    
+			    if( particionadoTel.length == 3 ){
+			    	nTel.append("9 ");
+			    	nTel.append(codArea);
+			    	nTel.append(particionadoTel[1]);
+			    	nTel.append("-");
+			    	nTel.append(particionadoTel[2]);
+			    }
+			    else{
+			    	nTel.append(codArea);
+			    	nTel.append(particionadoTel[0]);
+			    	nTel.append("-");
+			    	nTel.append(particionadoTel[1]);			    	
+			    }
+
+				return nTel.toString();
+			} catch (NumberParseException e) {
+				throw new Exception("El Nro de Teléfono no es valido. " + e.getMessage());
+			}		
+		}
+		else{
+			throw new Exception("El Nro de Teléfono no es valido.");
+		}
+	}	    
+    
 }

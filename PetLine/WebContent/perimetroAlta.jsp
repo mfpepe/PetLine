@@ -135,8 +135,8 @@
 				<td>&nbsp;<input type="text" name="descripcion" id="descripcion"/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Distancia</td>
-				<td>&nbsp;<input type="text" name="distancia" id="distancia" OnBlur="setearMarcador();"/></td>
+				<td class=etiqueta>Distancia (Mts)</td>
+				<td>&nbsp;<input type="text" name="distancia" id="distancia" OnBlur="setearMarcador();"  onkeypress="return soloNumeros();" maxlength=4/></td>
 			<tr>
 		</table>
 		<div id="mapa"><br></div>

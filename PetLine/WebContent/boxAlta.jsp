@@ -16,7 +16,7 @@
 		<table class=table2 >
 			<tr>
 				<td class=etiqueta>Código de Box</td>
-				<td>&nbsp;<input type="text" name="codigo" id="codigo"/></td>
+				<td>&nbsp;<input type="text" name="codigo" id="codigo"  onkeypress="return soloNumerosLetras();" /></td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Descripción</td>

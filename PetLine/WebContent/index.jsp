@@ -46,13 +46,13 @@ function ocultarMsg(){
 		<tr height=25px>
 			<td width=25px>&nbsp;&nbsp;</td>
 			<td class="etiqueta" width=175px>Usuario</td>
-			<td><input type="text" width=175px name="userName" id="userName" autocomplete="off"></td>
+			<td><input type="text" width=175px name="userName" id="userName" autocomplete="off" onkeypress="return soloLetras();" maxlength=10></td>
 			<td width=25px>&nbsp;</td>
 		</tr>
 		<tr height=25px>
 			<td>&nbsp;&nbsp;</td>
-			<td class="etiqueta">Password</td>
-			<td><input type="password" name="password" id="password" onFocus="ocultarMsg();" onkeydown="if(event.keyCode==13){validarForm();}" autocomplete="off"></td>
+			<td class="etiqueta">Clave</td>
+			<td><input type="password" name="password" id="password" onFocus="ocultarMsg();" onkeydown="if(event.keyCode==13){validarForm();}" autocomplete="off"  onkeypress="return soloNumerosLetras();" maxlength=10></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr height=25px>

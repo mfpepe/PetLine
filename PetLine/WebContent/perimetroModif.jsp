@@ -144,8 +144,8 @@
 				<td>&nbsp;<input type="text" name="descripcion" id="descripcion" value="<%= perimetro.getDescripcion() %>"/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Distancia</td>
-				<td>&nbsp;<input type="text" name="distancia" id="distancia" value="<%= perimetro.getDistancia() %>"  OnBlur="setearMarcador();"/></td>
+				<td class=etiqueta>Distancia (Mts)</td>
+				<td>&nbsp;<input type="text" name="distancia" id="distancia" value="<%= perimetro.getDistancia() %>"  OnBlur="setearMarcador();"  onkeypress="return soloNumeros();" maxlength=4/></td>
 			<tr>
 		</table>
 		<div id="mapa"><br></div>

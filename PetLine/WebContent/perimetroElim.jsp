@@ -107,7 +107,7 @@
 				<td>&nbsp;<input type="text" name="descripcion" id="descripcion" disabled value="<%= perimetro.getDescripcion() %>"/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Distancia</td>
+				<td class=etiqueta>Distancia (Mts)</td>
 				<td>&nbsp;<input type="text" name="distancia" id="distancia" disabled value="<%= perimetro.getDistancia() %>"/></td>
 			<tr>
 		</table>

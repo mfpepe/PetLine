@@ -19,9 +19,37 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
+<link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/jquery-ui.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery-ui.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.mask.js"></script>
+<script type="text/javascript">
+$.datepicker.regional['es'] = {
+		 closeText: 'Cerrar',
+		 prevText: '<Ant',
+		 nextText: 'Sig>',
+		 currentText: 'Hoy',
+		 monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		 monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+		 dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		 dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+		 dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+		 weekHeader: 'Sm',
+		 dateFormat: 'dd/mm/yy',
+		 firstDay: 1,
+		 isRTL: false,
+		 showMonthAfterYear: false,
+		 yearSuffix: ''
+		 };
+		 $.datepicker.setDefaults($.datepicker.regional['es']);  
+		  
+		  $(function() {
+		    $( "#fecha" ).datepicker();
+		  });
+</script>
 </head>
-<body  style="height: 100%; padding: 0px; margin: 0px;" >
+<body style="height: 100%; padding: 0px; margin: 0px;">
 		<p class="title">Recorrido</p>
 		<br>
 		<table class=table2>
@@ -42,7 +70,7 @@
 			<tr>
 				<td class=etiqueta>Fecha</td>
 				<td>&nbsp;
-					<input type="text" name="fecha" id="fecha" onBlur="onChangeMascotaRecorrido();" value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
+					<input type="text" name="fecha" id="fecha" onBlur="onChangeMascotaRecorrido();"  readonly maxlength=10 value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
 				</td>
 			</tr>
 			<tr height=700px>

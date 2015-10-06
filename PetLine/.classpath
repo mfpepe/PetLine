@@ -25,6 +25,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/saaj.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/libphonenumber-7.0.8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

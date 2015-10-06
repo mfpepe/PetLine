@@ -1,4 +1,63 @@
-﻿function trim(myString){
+﻿function soloNumeros()
+{
+	var evt = window.event;
+	var charCode = (evt.which) ? evt.which : event.keyCode
+	if (charCode > 31 && (charCode < 48 || charCode > 57))
+		return false;
+
+	return true;
+}
+
+function soloLetras() {
+	var e = window.event;
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla==8) 
+		return true;
+    patron =/[A-ZñÑáéíóúÁÉÍÓÚa-z ]/;
+    te = String.fromCharCode(tecla);
+    return patron.test(te);
+}
+
+function soloNumerosLetrasYPunto() {
+	var evt = window.event;
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	
+	patron =/[A-ZñÑáéíóúÁÉÍÓÚa-z ]/;
+    te = String.fromCharCode(charCode);
+	
+	if ( patron.test(te) //LETRAS
+			|| (charCode >= 48 && charCode <= 57) //NUMEROS
+			|| charCode == 46 ) //PUNTO
+		return true;
+
+	return false;
+}
+
+function soloNumerosLetras() {
+	var evt = window.event;
+	var charCode = (evt.which) ? evt.which : event.keyCode;
+	
+	patron =/[A-ZñÑáéíóúÁÉÍÓÚa-z ]/;
+    te = String.fromCharCode(charCode);
+	
+	if ( patron.test(te) //LETRAS
+			|| (charCode >= 48 && charCode <= 57) //NUMEROS
+			) //PUNTO
+		return true;
+
+	return false;
+}
+
+function validarMail(mail) {
+	mail = mail.toLowerCase();
+	if (/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/.test(mail)){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function trim(myString){
 	if( myString == null ){
 		return "";
 	}
@@ -35,7 +94,11 @@ function registrarUsuario(){
 		alert("Correo Electronico es obligatorio.");
 		return;
 	}	
-
+	else if(!validarMail(email)){
+		alert("Correo Electronico inválido.");
+		return;		
+	}
+	
 	if( trim(telefono) == "" ){
 		alert("Teléfono es obligatorio.");
 		return;
@@ -45,11 +108,19 @@ function registrarUsuario(){
 		alert("Alias es obligatorio.");
 		return;
 	}		
+	else if( alias.length < 5 ){
+		alert("Alias debe contener mas de 4 caracteres.");
+		return;		
+	}
 	
 	if( trim(clave) == "" ){
 		alert("Clave es obligatorio.");
 		return;
 	}	
+	else if( alias.length < 7 ){
+		alert("Clave debe contener mas de 6 caracteres.");
+		return;		
+	}
 	
 	if( trim(clave2) == "" ){
 		alert("Repetir la clave es obligatorio.");
@@ -140,6 +211,8 @@ function agregarTelefono(){
     element.id = "tel" + document.getElementById("cantTelefonos").value;
     element.name = "tel" + document.getElementById("cantTelefonos").value;
     cell.appendChild(element);
+    
+    $("#tel" + document.getElementById("cantTelefonos").value).mask("(+54) 9 $#####-####");
 }
 
 function eliminarTelefono(){
@@ -385,6 +458,10 @@ function validarModificacionUsuario(){
 		alert("El Correo Electronico es obligatorio.");
 		return false;
 	}		
+	else if(!validarMail(document.getElementById("email").value)){
+		alert("Correo Electronico inválido.");
+		return;		
+	}
 	
 	var cantTelefonos = document.getElementById("cantTelefonos").value;
 	if( cantTelefonos == 0 ){
@@ -448,7 +525,11 @@ function validarAltaPerimetro(){
 	else if( distancia<10 ){
 		alert("La distancia de un perimetro debe ser mayor o igual a 10.");
 		return false;
-	} 
+	}
+	else if( distancia>2000 ){
+		alert("La distancia de un perimetro debe ser menor o igual a 2000.");
+		return false;
+	} 	
 	document.form1.submit();
 	
 }
@@ -471,7 +552,11 @@ function validarModificacionPerimetro(){
 	else if( distancia<10 ){
 		alert("La distancia de un perimetro debe ser mayor o igual a 10.");
 		return false;
-	} 
+	}
+	else if( distancia>2000 ){
+		alert("La distancia de un perimetro debe ser menor o igual a 2000.");
+		return false;
+	} 		
 	document.form1.submit();
 	
 }
