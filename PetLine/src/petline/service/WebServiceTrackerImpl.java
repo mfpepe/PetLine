@@ -89,6 +89,13 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 				}
 				rpta.append(temp);		
 			}
+			
+			if(!StringUtils.isEmpty(rpta.toString())){
+				SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
+				TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(tracker.getIdTracker());
+				rpta.insert(0, trackerMascota.getMascota().getApodo() + "@");
+			}
+			
 		}
 		
 		return rpta.toString();
