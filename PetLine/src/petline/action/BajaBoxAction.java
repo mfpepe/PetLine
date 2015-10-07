@@ -26,7 +26,7 @@ public class BajaBoxAction extends Action {
 			message = "El box fue eliminado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
-			message = "Ocurrio un error al dar de alta la mascota.\n" + e.getMessage();
+			message = "Ocurrio un error al eliminar el box.\n" + e.getMessage();
 		}
 		
 		StringBuffer path = new StringBuffer();

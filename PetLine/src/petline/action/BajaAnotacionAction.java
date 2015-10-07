@@ -22,7 +22,7 @@ public class BajaAnotacionAction extends Action {
 			SessAnotacion sessAnotacion = new SessAnotacion();
 			sessAnotacion.eliminarAnotacion(Integer.parseInt(idAnotacion));
 			target = "success";
-			message = "Anotación fue eliminado exitosamente";
+			message = "Anotación fue eliminada exitosamente";
 		} catch (Exception e) {
 			target = "failure";
 			message = "Ocurrio un error al eliminar Anotación.\n" + e.getMessage();

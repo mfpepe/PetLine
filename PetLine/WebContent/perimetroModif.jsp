@@ -151,6 +151,7 @@
 		<div id="mapa"><br></div>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="validarModificacionPerimetro();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="latitud" name="latitud" value="<%= perimetro.getLatitud() %>"/>
 		<input type="hidden" id="longitud" name="longitud" value="<%= perimetro.getLongitud() %>"/>
 		<input type="hidden" id="idPerimetro" name="idPerimetro"  value="<%= perimetro.getIdPerimetro() %>"/>

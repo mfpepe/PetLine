@@ -21,6 +21,7 @@
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Agregar" onclick="validarAltaAnotacion();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 </form>
 </body>
 </html>    

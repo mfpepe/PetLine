@@ -338,10 +338,12 @@ function esHoraValida(hora)
 	a=hora.charAt(0) //<=2 
 	b=hora.charAt(1) //<4 
 	c=hora.charAt(2) //: 
-	d=hora.charAt(3) //<=5 
+	d=hora.charAt(3) //<=5
+	e=hora.charAt(4) 
 	if ((a==2 && b>3) || (a>2)) {return false;} 
 	if (d>5) {return false;}  
-	if (c!=':') {return false;} 
+	if (c!=':') {return false;}
+	if (e<0 || e>9) {return false;}
 	
 	return true;
 } 

@@ -51,7 +51,7 @@ public class ModificacionMascotaAction extends Action {
 			SessMascota sessMascota = new SessMascota();
 			sessMascota.actualizarMascota(mascota);
 			target = "success";
-			message = "Las mascota fue dada modificada exitosamente";
+			message = "Las mascota fue modificada exitosamente";
 		} catch (Exception e) {
 			target = "failure";
 			message = "Ocurrio un error al modificar la mascota.\n" + e.getMessage();

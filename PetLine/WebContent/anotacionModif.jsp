@@ -30,6 +30,7 @@
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="validarModificacionAnotacion();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="idAnotacion" name="idAnotacion"  value="<%= anotacion.getIdAnotacion() %>"/>
 </form>
 </body>

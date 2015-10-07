@@ -13,7 +13,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
+<link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/jquery-ui.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery-ui.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.mask.js"></script>
+<script type="text/javascript">
+$.datepicker.regional['es'] = {
+		 closeText: 'Cerrar',
+		 prevText: '<Ant',
+		 nextText: 'Sig>',
+		 currentText: 'Hoy',
+		 monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+		 monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+		 dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+		 dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+		 dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+		 weekHeader: 'Sm',
+		 dateFormat: 'dd/mm/yy',
+		 firstDay: 1,
+		 isRTL: false,
+		 showMonthAfterYear: false,
+		 yearSuffix: ''
+		 };
+		 $.datepicker.setDefaults($.datepicker.regional['es']);  
+		  
+		  $(function() {
+		    $( "#fecha" ).datepicker();
+		  });
+</script>
 </head>
 <body style="background-image:url('./img/fondo.png');">
 <form method="post" name="form1" id="form1" action="AltaRecordatorio.do">
@@ -26,11 +54,11 @@
 			<tr>
 			<tr>
 				<td class=etiqueta>Fecha</td>
-				<td>&nbsp;<input type="text" name="fecha" id="fecha"/></td>
+				<td>&nbsp;<input type="text" name="fecha" id="fecha" readonly maxlength=10/></td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Hora</td>
-				<td>&nbsp;<input type="text" name="hora" id="hora"/></td>
+				<td>&nbsp;<input type="text" name="hora" id="hora"  maxlength=5 /></td>
 			<tr>	
 			<tr>
 				<td class=etiqueta>Frecuencia</td>
@@ -51,6 +79,7 @@
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Agregar" onclick="validarAltaRecordatorio();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="idMascota" name="idMascota"  value="<%= idMascota %>"/>
 </form>
 </body>

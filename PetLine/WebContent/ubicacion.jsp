@@ -10,6 +10,8 @@
 	
 	SessCoordenada sessCoordenada = new SessCoordenada();
 	Coordenada coordenada = sessCoordenada.obtenerUltimaCoordenada(idTracker);
+	
+	if(coordenada != null){
 %>
 <html>
 <head>
@@ -29,7 +31,6 @@
 <script>
 	var mapa;
 	var marcador;
-	var circle;
 
     function localizame() {
         var punto = new google.maps.LatLng(<%= coordenada.getLatitud() %> , <%= coordenada.getLongitud() %>);
@@ -55,10 +56,14 @@
 		<table class=table2>
 			<tr>
 				<td width=200px><div id="mapa"><br></div></td>
-				<td valign=top height=30px class="textoLibre">Ubicación al <%= (new SimpleDateFormat("dd/MM/yyyy hh:mm")).format(coordenada.getFechaHora().getTime()) %></td>
+				<td valign=top height=30px class="textoLibre">Ubicación al <%= (new SimpleDateFormat("dd/MM/yyyy HH:mm")).format(coordenada.getFechaHora().getTime()) %></td>
 			<tr>	
 		</table>		
 </body>
 </html>    
-
-    
+<%
+	}
+	else{
+    	response.sendRedirect("empty.jsp?message=No existen datos para los valores seleccionados");
+	}
+%>

@@ -62,7 +62,7 @@ public class PetLineUtils {
 		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		float dist = (float) (earthRadius * c);
 
-		return dist;
+		return dist*1000;
 	}
 
 	public static double caloriasQuemadas(int peso, Calendar fechaInicio, Calendar fechaFin) {
@@ -162,7 +162,11 @@ public class PetLineUtils {
 				
 			    String nroTelFormateado = phoneUtil.format(numberProto, PhoneNumberFormat.NATIONAL); 
 
-				return nroTelFormateado.substring(nroTelFormateado.indexOf(" ")+1).replaceAll("-", "");
+				nroTelFormateado = nroTelFormateado.substring(nroTelFormateado.indexOf(" ")+1).replaceAll("-", "");
+				if(nroTelFormateado.startsWith("15")){
+					nroTelFormateado = "11" + nroTelFormateado.substring(2);
+				}
+				return nroTelFormateado;
 			} catch (NumberParseException e) {
 				throw new Exception("El Nro de Teléfono no es valido. " + e.getMessage());
 			}		

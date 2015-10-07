@@ -142,6 +142,7 @@
 		<div id="mapa"><br></div>
 		<br>
 		<input type="button" class="buttons" value="Agregar" onclick="validarAltaPerimetro();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="latitud" name="latitud" />
 		<input type="hidden" id="longitud" name="longitud" />
 </form>

@@ -23,7 +23,7 @@ public class BajaTrackerMascotaAction extends Action {
 			sessTrackerMascota.eliminarTrackerMascota(Integer.parseInt(idTrackerMascota));
 			
 			target = "success";
-			message = "El Tracker Mascota fue eliminado exitosamente";
+			message = "Tracker Mascota fue eliminado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
 			message = "Ocurrio un error al eliminar Tracker Mascota.\n" + e.getMessage();

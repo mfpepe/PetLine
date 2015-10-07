@@ -49,13 +49,13 @@ public class RegistrarUsuarioAction extends Action {
 						usuario.setPass(HashGenerator.convert(clave));
 						usuario.setUserId(alias);
 						
-						sessUsuario.registrarUsuario(usuario, PetLineUtils.getNumericPhoneNumber(telefono), box.getIdBox());
+						sessUsuario.registrarUsuario(usuario, PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono), box.getIdBox());
 						
 						target = "success";
-						message = "El usuario fue modificado exitosamente";
+						message = "El usuario fue registrado exitosamente";
 					} catch (Exception e) {
 						target = "failure";
-						message = "Ocurrio un error al modificar el usuario.\n" + e.getMessage();
+						message = "Ocurrio un error al registrar el usuario.\n" + e.getMessage();
 					}	
 				}
 				else{

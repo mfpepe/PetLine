@@ -58,6 +58,7 @@
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Eliminar" onclick="document.form1.submit()">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="idTrackerMascota" name="idTrackerMascota"  value="<%= idTrackerMascota %>"/>
 </form>
 </body>

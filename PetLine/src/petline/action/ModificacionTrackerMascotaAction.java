@@ -31,10 +31,10 @@ public class ModificacionTrackerMascotaAction extends Action {
 			sessTrackerMascota.modificarTrackerMascota(trackerMascota);
 			
 			target = "success";
-			message = "El Tracker Mascota fue modificado exitosamente";
+			message = "Tracker Mascota fue modificado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
-			message = "Ocurrio un error al modificar el Tracker Mascota.\n" + e.getMessage();
+			message = "Ocurrio un error al modificar Tracker Mascota.\n" + e.getMessage();
 		}
 		
 		StringBuffer path = new StringBuffer();

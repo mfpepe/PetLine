@@ -22,7 +22,7 @@ $(function() {
 <form method="post" name="form1" id="form1" action="RegistrarUsuario.do">
 		<p class="title">Registrar Usuario</p>
 		<br>
-		<table id="userTable" name="userTable" class=table2 >
+		<table id="userTable" class=table2 >
 			<tr>
 				<td class=etiqueta>Código de Box</td>
 				<td width=150px>&nbsp;<input type="text" name="box" id="box" value="" onkeypress="return soloNumerosLetras();" /></td>

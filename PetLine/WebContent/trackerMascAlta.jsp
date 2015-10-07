@@ -47,19 +47,20 @@
 			<tr>
 			<tr>
 				<td class=etiqueta>Código de Tracker</td>
-				<td>&nbsp;<input type="text" name="tracker" id="tracker"/></td>
+				<td>&nbsp;<input type="text" name="tracker" id="tracker"  onkeypress="return soloNumerosLetras();"/></td>
 			<tr>				
 			<tr>
 				<td class=etiqueta>Temperatura Minima</td>
-				<td>&nbsp;<input type="text" name="tempMin" id="tempMin"/></td>
+				<td>&nbsp;<input type="text" name="tempMin" id="tempMin" maxlength=3/></td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Temperatura Maxima</td>
-				<td>&nbsp;<input type="text" name="tempMax" id="tempMax"/></td>
+				<td>&nbsp;<input type="text" name="tempMax" id="tempMax" maxlength=3/></td>
 			<tr>			
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Agregar" onclick="validarAltaTrackerMascota();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 </form>
 </body>
 </html>    

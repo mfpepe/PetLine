@@ -42,7 +42,7 @@ public class AltaBoxAction extends Action {
 				message = "El box fue dado de alta exitosamente";
 			} catch (Exception e) {
 				target = "failure";
-				message = "Ocurrio un error al dar de alta la mascota.\n" + e.getMessage();
+				message = "Ocurrio un error al dar de alta el box.\n" + e.getMessage();
 			}
 		}
 		else{

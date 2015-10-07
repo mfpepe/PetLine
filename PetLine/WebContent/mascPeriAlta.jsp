@@ -62,6 +62,7 @@
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Agregar" onclick="validarAltaMascotaPerimetro();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 </form>
 </body>
 </html>    

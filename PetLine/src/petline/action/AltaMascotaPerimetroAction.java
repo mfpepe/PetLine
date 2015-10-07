@@ -27,10 +27,10 @@ public class AltaMascotaPerimetroAction extends Action {
 			
 			sessMascota.actualizarMascota(mascota);
 			target = "success";
-			message = "El perímetro fue asignado exitosamente";
+			message = "Mascota Perímetro fue asignado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
-			message = "Ocurrio un error al asignar el perímetro.\n" + e.getMessage();
+			message = "Ocurrio un error al asignar Mascota Perímetro.\n" + e.getMessage();
 		}
 
 		StringBuffer path = new StringBuffer();

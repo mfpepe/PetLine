@@ -114,6 +114,7 @@ $.datepicker.regional['es'] = {
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="validarModificacionMascota()">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="idMascota" name="idMascota"  value="<%= mascota.getIdMascota() %>"/>
 </form>
 </body>

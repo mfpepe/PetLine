@@ -21,6 +21,7 @@ import petline.valueObject.Coordenada;
 import petline.valueObject.Notificacion;
 import petline.valueObject.Perimetro;
 import petline.valueObject.TelefonoTipoNotificacion;
+import petline.valueObject.TipoNotificacion;
 import petline.valueObject.TipoNotificacionConst;
 import petline.valueObject.Tracker;
 import petline.valueObject.TrackerMascota;
@@ -113,7 +114,13 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 		try {
 			StringBuffer rpta = new StringBuffer();
 			SessTelefonoTipoNotificacion sessTelefonoTipoNotificacion = new SessTelefonoTipoNotificacion();
-			TelefonoTipoNotificacion ttn = sessTelefonoTipoNotificacion.obtenerTelefonoTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA, idTracker);		
+			TelefonoTipoNotificacion ttn = sessTelefonoTipoNotificacion.obtenerTelefonoTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA, idTracker);
+			if( ttn == null ){
+				TipoNotificacion tn = new TipoNotificacion();
+				tn.setIdTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA);
+				ttn = new TelefonoTipoNotificacion();
+				ttn.setTipoNotificacion(tn);
+			}
 			if( "S".equalsIgnoreCase(bajaBateria)  ){
 				Notificacion notificacion = new Notificacion();
 				notificacion.setFechaHora(Calendar.getInstance());
@@ -127,7 +134,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 				if(!ttn.getNroTelefonos().isEmpty()){
 					rpta.append(StringUtils.join(ttn.getNroTelefonos().iterator(), ","));
 					rpta.append(":");
-					rpta.append(ttn.getTipoNotificacion().getMensaje());					
+					rpta.append(ttn.getTipoNotificacion().getIdTipoNotificacion());					
 				}
 			
 			}
@@ -144,6 +151,12 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			
 			SessTelefonoTipoNotificacion sessTelefonoTipoNotificacion = new SessTelefonoTipoNotificacion();
 			TelefonoTipoNotificacion ttn = sessTelefonoTipoNotificacion.obtenerTelefonoTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO, idTracker);
+			if( ttn == null ){
+				TipoNotificacion tn = new TipoNotificacion();
+				tn.setIdTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO);
+				ttn = new TelefonoTipoNotificacion();
+				ttn.setTipoNotificacion(tn);
+			}
 			
 			Calendar fHoy = Calendar.getInstance();
 			SessCoordenada sessCoordenada = new SessCoordenada();
@@ -177,7 +190,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 				if( !ttn.getNroTelefonos().isEmpty() ){						
 					rpta.append(StringUtils.join(ttn.getNroTelefonos().iterator(), ","));
 					rpta.append(":");
-					rpta.append(ttn.getTipoNotificacion().getMensaje());
+					rpta.append(ttn.getTipoNotificacion().getIdTipoNotificacion());
 				}
 			}
 			
@@ -194,6 +207,12 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			
 			SessTelefonoTipoNotificacion sessTelefonoTipoNotificacion = new SessTelefonoTipoNotificacion();
 			TelefonoTipoNotificacion ttn = sessTelefonoTipoNotificacion.obtenerTelefonoTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO, idTracker);
+			if( ttn == null ){
+				TipoNotificacion tn = new TipoNotificacion();
+				tn.setIdTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO);
+				ttn = new TelefonoTipoNotificacion();
+				ttn.setTipoNotificacion(tn);
+			}
 			
 			SessPerimetro sessPerimetro = new SessPerimetro();
 			SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
@@ -216,7 +235,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 					if( !ttn.getNroTelefonos().isEmpty() ){
 						rpta.append(StringUtils.join(ttn.getNroTelefonos().iterator(), ","));
 						rpta.append(":");
-						rpta.append(ttn.getTipoNotificacion().getMensaje());
+						rpta.append(ttn.getTipoNotificacion().getIdTipoNotificacion());
 					}
 				}
 			}
@@ -234,6 +253,12 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			
 			SessTelefonoTipoNotificacion sessTelefonoTipoNotificacion = new SessTelefonoTipoNotificacion();
 			TelefonoTipoNotificacion ttn = sessTelefonoTipoNotificacion.obtenerTelefonoTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA, idTracker);
+			if( ttn == null ){
+				TipoNotificacion tn = new TipoNotificacion();
+				tn.setIdTipoNotificacion(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA);
+				ttn = new TelefonoTipoNotificacion();
+				ttn.setTipoNotificacion(tn);
+			}
 			
 			SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
 			TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(idTracker);
@@ -251,7 +276,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 				if( !ttn.getNroTelefonos().isEmpty() ){					
 					rpta.append(StringUtils.join(ttn.getNroTelefonos().iterator(), ","));
 					rpta.append(":");
-					rpta.append(ttn.getTipoNotificacion().getMensaje());
+					rpta.append(ttn.getTipoNotificacion().getIdTipoNotificacion());
 				}
 			}
 			

@@ -49,15 +49,16 @@
 			<tr>						
 			<tr>
 				<td class=etiqueta>Temperatura Minima</td>
-				<td>&nbsp;<input type="text" name="tempMin" id="tempMin" value="<%= trackerMascota.getTempMinima() %>"/></td>
+				<td>&nbsp;<input type="text" name="tempMin" id="tempMin" value="<%= trackerMascota.getTempMinima() %>" maxlength=3/></td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Temperatura Maxima</td>
-				<td>&nbsp;<input type="text" name="tempMax" id="tempMax" value="<%= trackerMascota.getTempMaxima() %>"/></td>
+				<td>&nbsp;<input type="text" name="tempMax" id="tempMax" value="<%= trackerMascota.getTempMaxima() %>" maxlength=3/></td>
 			<tr>			
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="validarModificacionTrackerMascota();">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="idTrackerMascota" name="idTrackerMascota"  value="<%= idTrackerMascota %>"/>
 </form>
 </body>

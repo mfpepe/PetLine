@@ -26,10 +26,10 @@ public class BajaMascotaPerimetroAction extends Action {
 			
 			sessMascota.actualizarMascota(mascota);
 			target = "success";
-			message = "El perímetro fue desasignado exitosamente";
+			message = "Mascota Perímetro fue desasignado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
-			message = "Ocurrio un error al desasignar el perímetro.\n" + e.getMessage();
+			message = "Ocurrio un error al desasignar Mascota Perímetro.\n" + e.getMessage();
 		}
 
 		StringBuffer path = new StringBuffer();

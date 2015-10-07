@@ -56,7 +56,7 @@ $.datepicker.regional['es'] = {
 			<tr>
 				<td class=etiqueta>Mascota</td>
 				<td>&nbsp;
-					<select class="chosen-select" name="tracker" id="tracker" onchange="onChangeMascotaRecorrido();" >
+					<select class="chosen-select" name="tracker" id="tracker">
 						<option value=""></option>
 						<%
 
@@ -70,7 +70,12 @@ $.datepicker.regional['es'] = {
 			<tr>
 				<td class=etiqueta>Fecha</td>
 				<td>&nbsp;
-					<input type="text" name="fecha" id="fecha" onBlur="onChangeMascotaRecorrido();"  readonly maxlength=10 value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
+					<input type="text" name="fecha" id="fecha" readonly maxlength=10 value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()) %>"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 align=left>
+					<input type="button" class="buttons" value="Buscar" onclick="onChangeMascotaRecorrido();">
 				</td>
 			</tr>
 			<tr height=700px>

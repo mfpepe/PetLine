@@ -114,6 +114,7 @@
 		<div id="mapa"><br></div>
 		<br>
 		<input type="button" class="buttons" value="Eliminar" onclick="document.form1.submit()">
+		&nbsp;<input type="button" class="buttons" value="Cancelar" onclick="history.back();">
 		<input type="hidden" id="idPerimetro" name="idPerimetro"  value="<%= perimetro.getIdPerimetro() %>"/>
 </form>
 </body>

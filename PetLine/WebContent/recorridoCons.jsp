@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="petline.sessLayer.SessTrackerMascota"%>
 <%@page import="petline.valueObject.TrackerMascota"%>
 <%@page import="org.apache.axis.utils.StringUtils"%>
@@ -45,35 +46,20 @@
 <script>
 function initialize() {
 	
-	
-
-    var myOptions = {
-    	zoom: 14,
-<%
-		Coordenada praCoordenada = coordenadas.iterator().next();
-    
-		Calendar fechaInicia = Calendar.getInstance();
-		fechaInicia.clear();
-    	fechaInicia.setTime( praCoordenada.getFechaHora().getTime() );
-		
-		out.print("center: new google.maps.LatLng(" + praCoordenada.getLatitud() + ", " + praCoordenada.getLongitud() + "),");
-%>
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-        
-    var map = new google.maps.Map(document.getElementById("mapa"), myOptions);     
-  	
     var ruta = [
 <%
 		float totalMtsRecorridos = 0;
 		String latOri = "";
 		String lngOri = "";
 		
+		Calendar fechaInicia = Calendar.getInstance();
+		fechaInicia.clear();
+
 		Calendar fechaFin = Calendar.getInstance();
 		
 		for (Iterator<Coordenada> iterator = coordenadas.iterator(); iterator.hasNext();) {
 			Coordenada coordenada = iterator.next();
-			out.print("new google.maps.LatLng(" + coordenada.getLatitud() + ", " + coordenada.getLongitud() + ")");
+			out.print("{ lat: " + coordenada.getLatitud() + ", lng: " + coordenada.getLongitud() + "}");
 			if( iterator.hasNext() ){
 				out.print(",");
 			}
@@ -85,6 +71,9 @@ function initialize() {
 			if( !StringUtils.isEmpty(latOri) && !StringUtils.isEmpty(lngOri) ){
 				totalMtsRecorridos += PetLineUtils.distanciaMts(latOri, lngOri, coordenada.getLatitud(), coordenada.getLongitud());
 			}
+			else{
+				fechaInicia.setTime( coordenada.getFechaHora().getTime() );
+			}
 
 			latOri = coordenada.getLatitud();
 			lngOri = coordenada.getLongitud();
@@ -92,6 +81,15 @@ function initialize() {
 		}
 %>
 	];
+	
+
+    var myOptions = {
+		zoom: 14, 
+		center: ruta[0], 
+		mapTypeId: google.maps.MapTypeId.ROADMAP  
+    };
+        
+    var map = new google.maps.Map(document.getElementById("mapa"), myOptions);     
 
 	var lineas = new google.maps.Polyline({
     	path: ruta,
@@ -101,6 +99,11 @@ function initialize() {
      	strokeOpacity: 0.6,
      	clickable: false
 	});
+	
+    var marcador = new google.maps.Marker({
+   		position: ruta[ruta.length-1],
+    	map: map 
+   	});	
 }
     </script>
 </head>
@@ -108,13 +111,13 @@ function initialize() {
 		<table class=table2>
 			<tr>
 				<td rowspan=5 width=200px><div id="mapa"><br></div></td>
-				<td valign=top height=30px class="textoLibre">Kms Recorridos: <%= totalMtsRecorridos %> Kms</td>
+				<td valign=top height=30px class="textoLibre">Kms Recorridos: <%= new DecimalFormat("#.00").format(totalMtsRecorridos/1000) %> Kms</td>
 			<tr>
 			<tr>
 				<td  valign=top height=30px class="textoLibre">Kms Faltantes para Cumplir Objetivo Diario: <%
 					if( trackerMascota.getMascota().getKmDiarios()>0 ){
 						if( trackerMascota.getMascota().getKmDiarios()>(totalMtsRecorridos/1000) ){
-							out.print( (trackerMascota.getMascota().getKmDiarios() - (totalMtsRecorridos/1000)) + " Kms" );	
+							out.print( new DecimalFormat("#.00").format((trackerMascota.getMascota().getKmDiarios() - (totalMtsRecorridos/1000)))  + " Kms" );	
 						}
 						else{
 							out.print("<font color=#00C600>Objetivo cumplido</font>");	

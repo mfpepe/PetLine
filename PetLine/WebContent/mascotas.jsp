@@ -20,7 +20,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
+<link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/jquery.dataTables.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery-ui.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.mask.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.dataTables.nightly.js"></script>
+<script type="text/javascript" >
+$(document).ready(function(){
+	$('#table').dataTable({
+		"bPaginate": false,
+		"aaSorting": [],
+		"bJQueryUI": true,
+		"oLanguage": {
+			"sZeroRecords": "No se han encontrado datos",
+			"sInfo": "",
+			"sInfoEmpty": "",
+			"sInfoFiltered": "(filtrado sobre un total de _MAX_ registros)",
+			"sSearch": "Filtrar"
+		}
+	});
+});
+</script>
 </head>
 <body style="background-image:url('./img/fondo.png');" onLoad="setTimeout(function(){ document.getElementById('message').innerHTML=''; }, 3000);">
 		<p class="title">Mascotas</p>
@@ -28,15 +50,18 @@
 		<br>
 		<a href="./mascotasAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
 		<br>
-		<table class=table2>
-			<tr class="tableTitle">
-				<td>Apodo</td>
-				<td>Edad</td>
-				<td>Peso</td>
-				<td>Objetivo Diario</td>
-				<td>Actualizar</td>
-				<td>Eliminar</td>
-			<tr>
+		<table id="table" class=table2>
+			<thead>
+				<tr class="tableTitle">
+					<th>Apodo</th>
+					<th>Edad</th>
+					<th>Peso</th>
+					<th>Objetivo Diario</th>
+					<th>Actualizar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
 			<%
 				if( mascotas.isEmpty() ){
 					out.println("<tr class='tableImpar'><td colspan=6 align=Center>NO HAY DATOS A MOSTRAR</td></tr>");
@@ -51,11 +76,12 @@
 						out.println("<td>" + (mascota.getKmDiarios()!=0?mascota.getKmDiarios() + " Kms":"") + "</td>");
 						out.println("<td><a href='./mascotasModif.jsp?idMascota=" + mascota.getIdMascota() + "'><img src='" + PetLineUtils.getURL() + "img/upd.png'></a></td>");
 						out.println("<td><a href='./mascotasElim.jsp?idMascota=" + mascota.getIdMascota() + "'><img src='" + PetLineUtils.getURL() + "img/del.png'></a></td>");
-						out.println("<tr>");
+						out.println("</tr>");
 						esImpar = !esImpar;													
 					}
 				}
 			%>
+			</tbody>
 		</table>
 </body>
 </html>    

@@ -22,7 +22,7 @@ public class BajaRecordatorioAction extends Action {
 			SessRecordatorio sessRecordatorio = new SessRecordatorio();
 			sessRecordatorio.eliminarRecordatorio(Integer.parseInt(idRecordatorio));
 			target = "success";
-			message = "Recordatorio fue eliminada exitosamente";
+			message = "Recordatorio fue eliminado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
 			message = "Ocurrio un error al eliminar Recordatorio.\n" + e.getMessage();

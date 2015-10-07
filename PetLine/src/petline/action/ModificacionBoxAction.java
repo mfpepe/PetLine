@@ -26,7 +26,7 @@ public class ModificacionBoxAction extends Action {
 			message = "El box fue modificado exitosamente";
 		} catch (Exception e) {
 			target = "failure";
-			message = "Ocurrio un error al dar de alta la mascota.\n" + e.getMessage();
+			message = "Ocurrio un error al modificar el box.\n" + e.getMessage();
 		}
 		
 		StringBuffer path = new StringBuffer();
