@@ -68,11 +68,12 @@ public class PetLineUtils {
 	public static double caloriasQuemadas(int peso, Calendar fechaInicio, Calendar fechaFin) {
 		//http://www.realfitness.es/calculadoras/aprende-utilizar-tablas-met-calcular-calorias-quemadas/
 
-		long diff = fechaFin.getTimeInMillis() - fechaInicio.getTimeInMillis();
+		double diff = fechaFin.getTimeInMillis() - fechaInicio.getTimeInMillis();
 
-		long diffHours = diff / (60 * 60 * 1000);				
+		double diffHours = diff / (60 * 60 * 1000);				
 				
-		return (((3*0.0175*peso)*60)*diffHours); // Kcal/hs
+		//return (((3*0.0175*peso)*60)*diffHours); // Kcal/hs
+		return (((3*0.1225*peso)*60)*diffHours); // Kcal/hs
 
 	}
 	
