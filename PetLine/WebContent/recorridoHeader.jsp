@@ -49,6 +49,9 @@ $.datepicker.regional['es'] = {
 		  
 		  $(function() {
 		    $( "#fecha" ).datepicker();
+		    
+		    document.getElementById("FRAMESEC").style.height = (screen.height-200) + "px";
+		    document.getElementById("FRAMESEC").style.width = "100%";
 		  });
 </script>
 </head>
@@ -82,7 +85,7 @@ $.datepicker.regional['es'] = {
 				</td>
 			</tr>
 			<tr height=700px>
-				<td colspan=2><iframe width="100%" frameborder="0" height="100%" name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message="></iframe></td>
+				<td colspan=2><iframe name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message=" frameborder="0"></iframe></td>
 			</tr>			
 		</table>		
 </body>

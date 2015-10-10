@@ -17,7 +17,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Box's</title>
 <link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/PetLine.css">
+<link rel="stylesheet" type="text/css" href="<%= PetLineUtils.getURL() %>css/jquery-ui.css">
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/main.js" ></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery-ui.js"></script>
+<script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.mask.js"></script>
+<script type="text/javascript">
+		  $(function() {
+		    document.getElementById("FRAMESEC").style.height = (screen.height-200) + "px";
+		    document.getElementById("FRAMESEC").style.width = "100%";
+		  });
+</script>
 </head>
 <body  style="height: 100%; padding: 0px; margin: 0px;" >
 		<p class="title">Notificacion</p>
@@ -38,7 +48,7 @@
 				</td>
 			</tr>			
 			<tr height=700px>
-				<td colspan=2><iframe width="100%" frameborder="0" height="100%" name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message="></iframe></td>
+				<td colspan=2><iframe name="FRAMESEC" id="FRAMESEC" src="./empty.jsp?message=" frameborder="0"></iframe></td>
 			</tr>			
 		</table>		
 </body>
