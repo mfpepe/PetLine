@@ -184,7 +184,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
 			TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(idTracker);
 			
-			if( trackerMascota.getMascota().getKmDiarios() > 0 && (totalMtsRecorridos/1000) > trackerMascota.getMascota().getKmDiarios() ){
+			if( trackerMascota.getMascota().getKmDiarios() > 0.0 && (totalMtsRecorridos/1000) > trackerMascota.getMascota().getKmDiarios() ){
 				
 				Notificacion notificacion = new Notificacion();
 				notificacion.setFechaHora(Calendar.getInstance());

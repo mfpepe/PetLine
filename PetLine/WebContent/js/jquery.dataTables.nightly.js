@@ -4702,6 +4702,7 @@
 		 */
 		function _fnLog( oSettings, iLevel, sMesg )
 		{
+			/*TODO: comentado por que daba errro cuando no tenia valores
 			var sAlert = (oSettings===null) ?
 				"DataTables warning: "+sMesg :
 				"DataTables warning (table id = '"+oSettings.sTableId+"'): "+sMesg;
@@ -4721,7 +4722,7 @@
 			else if ( window.console && console.log )
 			{
 				console.log( sAlert );
-			}
+			}*/
 		}
 		
 		

@@ -46,8 +46,8 @@ public class EntMascota {
 				fechaNac.clear();
 				fechaNac.setTime(rs.getDate(3));
 				mascota.setFechaNacimiento(fechaNac);
-				mascota.setPeso(rs.getInt(4));
-				mascota.setKmDiarios(rs.getInt(5));
+				mascota.setPeso(rs.getDouble(4));
+				mascota.setKmDiarios(rs.getDouble(5));
 				mascota.setIdTamaño(rs.getInt(6));
 				mascota.setIdUsuario(rs.getInt(7));
 				mascota.setIdPerimetro(rs.getInt(8));
@@ -106,8 +106,8 @@ public class EntMascota {
 				fechaNac.clear();
 				fechaNac.setTime(rs.getDate(3));
 				mascota.setFechaNacimiento(fechaNac);
-				mascota.setPeso(rs.getInt(4));
-				mascota.setKmDiarios(rs.getInt(5));
+				mascota.setPeso(rs.getDouble(4));
+				mascota.setKmDiarios(rs.getDouble(5));
 				mascota.setIdTamaño(rs.getInt(6));
 				mascota.setIdUsuario(rs.getInt(7));
 				mascota.setIdPerimetro(rs.getInt(8));
@@ -152,8 +152,8 @@ public class EntMascota {
 
 			stmt.setString(1, mascota.getApodo());
 			stmt.setDate(2, new java.sql.Date(mascota.getFechaNacimiento().getTimeInMillis()));
-			stmt.setInt(3, mascota.getPeso());
-			stmt.setInt(4, mascota.getKmDiarios());
+			stmt.setDouble(3, mascota.getPeso());
+			stmt.setDouble(4, mascota.getKmDiarios());
 			stmt.setInt(5, mascota.getIdTamaño());
 			stmt.setInt(6, mascota.getIdUsuario());
 			if(mascota.getIdPerimetro() == 0){
@@ -198,8 +198,8 @@ public class EntMascota {
 
 			stmt.setString(1, mascota.getApodo());
 			stmt.setDate(2, new java.sql.Date(mascota.getFechaNacimiento().getTimeInMillis()));
-			stmt.setInt(3, mascota.getPeso());
-			stmt.setInt(4, mascota.getKmDiarios());
+			stmt.setDouble(3, mascota.getPeso());
+			stmt.setDouble(4, mascota.getKmDiarios());
 			stmt.setInt(5, mascota.getIdTamaño());
 			stmt.setInt(6, mascota.getIdUsuario());
 			if(mascota.getIdPerimetro() == 0){

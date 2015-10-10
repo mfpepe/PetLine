@@ -54,8 +54,6 @@ $(document).ready(function(){
 			<thead>
 				<tr class="tableTitle">
 				<td>Descripcion</td>
-				<td>Latitud</td>
-				<td>Longitud</td>
 				<td>Distancia</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>
@@ -64,15 +62,13 @@ $(document).ready(function(){
 			<tbody>
 			<%
 				if( perimetros.isEmpty() ){
-					out.println("<tr class='tableImpar'><td colspan=6 align=Center>NO HAY DATOS A MOSTRAR</td></tr>");
+					out.println("<tr class='tableImpar'><td colspan=4 align=Center>NO HAY DATOS A MOSTRAR</td></tr>");
 				}
 				else{
 					boolean esImpar = true;
 					for (Perimetro perimetro : perimetros) {
 						out.println("<tr class='" + (esImpar?"tableImpar":"tablePar") + "'>");
 						out.println("<td>" + perimetro.getDescripcion() + "</td>");
-						out.println("<td>" + perimetro.getLatitud() + "</td>");
-						out.println("<td>" + perimetro.getLongitud() + "</td>");
 						out.println("<td>" + perimetro.getDistancia() + " mts</td>");
 						out.println("<td><a href='./perimetroModif.jsp?idPerimetro=" + perimetro.getIdPerimetro() + "'><img src='" + PetLineUtils.getURL() + "img/upd.png'></a></td>");
 						out.println("<td><a href='./perimetroElim.jsp?idPerimetro=" + perimetro.getIdPerimetro() + "'><img src='" + PetLineUtils.getURL() + "img/del.png'></a></td>");

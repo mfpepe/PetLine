@@ -7,8 +7,8 @@ public class Mascota {
 	private int idMascota;
 	private String apodo;
 	private Calendar fechaNacimiento;
-	private int peso;
-	private int kmDiarios;
+	private double peso;
+	private double kmDiarios;
 	private int idTamaño;
 	private int idUsuario;
 	private int idPerimetro;
@@ -46,19 +46,19 @@ public class Mascota {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public int getPeso() {
+	public double getPeso() {
 		return peso;
 	}
 
-	public void setPeso(int peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 
-	public int getKmDiarios() {
+	public double getKmDiarios() {
 		return kmDiarios;
 	}
 
-	public void setKmDiarios(int kmDiarios) {
+	public void setKmDiarios(double kmDiarios) {
 		this.kmDiarios = kmDiarios;
 	}
 

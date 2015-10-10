@@ -1,4 +1,22 @@
-﻿function soloNumeros()
+﻿function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function esFechaMayorQue(fechaInicial, fechaFinal){
+    valuesStart=fechaInicial.split("/");
+    valuesEnd=fechaFinal.split("/");
+ 
+    // Verificamos que la fecha no sea posterior a la actual
+    var dateStart=valuesStart[2] + valuesStart[1] + valuesStart[0];
+    var dateEnd=valuesEnd[2] + valuesEnd[1] + valuesEnd[0];
+    
+    if(dateStart>dateEnd){
+        return 1;
+    }
+    return 0;
+}
+
+function soloNumeros()
 {
 	var evt = window.event;
 	var charCode = (evt.which) ? evt.which : event.keyCode
@@ -217,13 +235,15 @@ function agregarTelefono(){
 
 function eliminarTelefono(){
 	
-	document.getElementById("cantTelefonos").value--;
+	if(document.getElementById("cantTelefonos").value>1){
+		document.getElementById("cantTelefonos").value--;
+		
+		var tableID = 'telefonos';
+	    var table = document.getElementById(tableID);
+	    var rowCount = table.rows.length;
 	
-	var tableID = 'telefonos';
-    var table = document.getElementById(tableID);
-    var rowCount = table.rows.length;
-
-    table.deleteRow(rowCount-1);
+	    table.deleteRow(rowCount-1);
+	}
 }
 
 function getCurrentDate(){
@@ -356,7 +376,9 @@ function validarAltaMascota(){
 	}
 	
 	var fechaNac = document.getElementById("edad").value;
-	
+	var f = new Date();
+	fechaHoy = (f.getDate()<10?"0":"") + f.getDate() + "/" + ((f.getMonth() +1)<10?"0":"") + (f.getMonth() +1) + "/" + f.getFullYear();
+		
 	if(trim(fechaNac) == ""){
 		alert("La Fecha de Nacimiento de la Mascota es obligatoria.");
 		return false;
@@ -365,20 +387,24 @@ function validarAltaMascota(){
 		alert("La Fecha de Nacimiento es inválida.");
 		return false;		
 	}
+	else if( esFechaMayorQue(fechaNac, fechaHoy) ){
+		alert("La Fecha de Nacimiento no puede ser mayor a la fecha actual.");
+		return false;	
+	}
 	
 	var peso = document.getElementById("peso").value; 
 	
 	if(trim(peso) == ""){
 		alert("El Peso de la Mascota es obligatorio.");
 		return false;
-	} else if( !esEntero(peso) ){
-		alert("El Peso de la Mascota debe ser un numero entero.");
+	} else if( !isNumeric(peso) ){
+		alert("El Peso de la Mascota debe ser un numero.");
 		return false;
 	} 
 
 	var objetivo = document.getElementById("objetivo").value; 
-	if(trim(peso) != "" && !esEntero(peso)){
-		alert("El Objetivo diario de la Mascota debe ser un numero entero.");
+	if(trim(peso) != "" && !isNumeric(peso)){
+		alert("El Objetivo diario de la Mascota debe ser un numero.");
 		return false;	
 	}
 	
@@ -404,6 +430,8 @@ function validarModificacionMascota(){
 	}
 	
 	var fechaNac = document.getElementById("edad").value;
+	var f = new Date();
+	fechaHoy = (f.getDate()<10?"0":"") + f.getDate() + "/" + ((f.getMonth() +1)<10?"0":"") + (f.getMonth() +1) + "/" + f.getFullYear();
 	
 	if(trim(fechaNac) == ""){
 		alert("La Fecha de Nacimiento de la Mascota es obligatoria.");
@@ -413,19 +441,23 @@ function validarModificacionMascota(){
 		alert("La Fecha de Nacimiento es inválida.");
 		return false;		
 	}
+	else if( esFechaMayorQue(fechaNac, fechaHoy) ){
+		alert("La Fecha de Nacimiento no puede ser mayor a la fecha actual.");
+		return false;	
+	}
 	
 	var peso = document.getElementById("peso").value; 
 	
 	if(trim(peso) == ""){
 		alert("El Peso de la Mascota es obligatorio.");
 		return false;
-	} else if( !esEntero(peso) ){
+	} else if( !isNumeric(peso) ){
 		alert("El Peso de la Mascota debe ser un numero entero.");
 		return false;
 	} 
 
 	var objetivo = document.getElementById("objetivo").value; 
-	if(trim(peso) != "" && !esEntero(peso)){
+	if(trim(peso) != "" && !isNumeric(peso)){
 		alert("El Objetivo diario de la Mascota debe ser un numero entero.");
 		return false;	
 	}

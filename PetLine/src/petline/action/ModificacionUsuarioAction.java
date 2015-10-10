@@ -32,7 +32,7 @@ public class ModificacionUsuarioAction extends Action {
 		Collection<String> telefonos = new ArrayList<String>();
 		for (int i = 1; i <= cantTelefonos; i++) {
 			String telefono = request.getParameter("tel" + i);
-			if( PetLineUtils.isValidPhoneNumber(telefono) ){
+			if( PetLineUtils.isValidPhoneNumber(telefono) && PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono).length() == 10 ){
 				telefonos.add(PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono));	
 			}
 			else{

@@ -37,8 +37,8 @@ public class ModificacionMascotaAction extends Action {
 		fechaNac.setTime(new SimpleDateFormat("dd/MM/yyyy").parse(edad));
 		mascota.setFechaNacimiento(fechaNac);
 
-		mascota.setPeso(Integer.parseInt(peso));
-		mascota.setKmDiarios((StringUtils.isEmpty(objetivo)) ? 0 : Integer.parseInt(objetivo));
+		mascota.setPeso(Double.parseDouble(peso.replaceAll(",", ".")));
+		mascota.setKmDiarios((StringUtils.isEmpty(objetivo)) ? 0.0 : Double.parseDouble(objetivo.replaceAll(",", ".")));
 		mascota.setIdUsuario(Integer.parseInt((String) request.getSession().getAttribute("SESSION_IDUSER")));
 
 		mascota.setIdPerimetro((StringUtils.isEmpty(perimetro)) ? 0 : Integer.parseInt(perimetro));

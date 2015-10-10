@@ -137,6 +137,6 @@ function initialize() {
 <%
 	}
 	else{
-    	response.sendRedirect("empty.jsp?message=No existen datos para los valores seleccionados");
+    	response.sendRedirect("empty.jsp?message=No hay información disponible.");
 	}
 %>

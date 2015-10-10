@@ -42,12 +42,16 @@ $.datepicker.regional['es'] = {
 		 firstDay: 1,
 		 isRTL: false,
 		 showMonthAfterYear: false,
-		 yearSuffix: ''
+		 yearSuffix: '',
+         changeMonth: true,
+         changeYear: true,
+         showButtonPanel: true
 		 };
 		 $.datepicker.setDefaults($.datepicker.regional['es']);  
 		  
 		  $(function() {
 		    $( "#fecha" ).datepicker();
+		    $("#hora").mask("##:##");
 		  });
 </script>
 </head>

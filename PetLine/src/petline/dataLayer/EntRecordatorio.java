@@ -38,11 +38,12 @@ public class EntRecordatorio {
 			
 			rs = stmt.executeQuery();
 
-			Calendar fecha = Calendar.getInstance();
+			
 			while(rs.next()){
 				Recordatorio recordatorio = new Recordatorio();
 				recordatorio.setIdRecordatorio(rs.getInt(1));
 				recordatorio.setDescripcion(rs.getString(2));
+				Calendar fecha = Calendar.getInstance();
 				fecha.clear();
 				fecha.setTimeInMillis(rs.getTimestamp(3).getTime());
 				recordatorio.setFechaHora(fecha);

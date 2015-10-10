@@ -73,7 +73,7 @@ $(document).ready(function(){
 						out.println("<td>" + mascota.getApodo() + "</td>");
 						out.println("<td>" + PetLineUtils.calcularEdad(mascota.getFechaNacimiento()) + " Años</td>");
 						out.println("<td>" + mascota.getPeso() + " Kg</td>");
-						out.println("<td>" + (mascota.getKmDiarios()!=0?mascota.getKmDiarios() + " Kms":"") + "</td>");
+						out.println("<td>" + (mascota.getKmDiarios()!=0.0?mascota.getKmDiarios() + " Kms":"") + "</td>");
 						out.println("<td><a href='./mascotasModif.jsp?idMascota=" + mascota.getIdMascota() + "'><img src='" + PetLineUtils.getURL() + "img/upd.png'></a></td>");
 						out.println("<td><a href='./mascotasElim.jsp?idMascota=" + mascota.getIdMascota() + "'><img src='" + PetLineUtils.getURL() + "img/del.png'></a></td>");
 						out.println("</tr>");

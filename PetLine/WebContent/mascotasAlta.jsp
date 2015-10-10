@@ -35,7 +35,10 @@ $.datepicker.regional['es'] = {
 		 firstDay: 1,
 		 isRTL: false,
 		 showMonthAfterYear: false,
-		 yearSuffix: ''
+		 yearSuffix: '',
+         changeMonth: true,
+         changeYear: true,
+         showButtonPanel: true
 		 };
 		 $.datepicker.setDefaults($.datepicker.regional['es']);  
 		  
@@ -59,11 +62,11 @@ $.datepicker.regional['es'] = {
 			</tr>
 			<tr>
 				<td class=etiqueta>Peso (Kg)</td>
-				<td>&nbsp;<input type="text" name="peso" id="peso" onkeypress="return soloNumeros();" maxlength=3/></td>
+				<td>&nbsp;<input type="text" name="peso" id="peso"/></td>
 			</tr>
 			<tr>
 				<td class=etiqueta>Objetivo Diario (Kms)</td>
-				<td>&nbsp;<input type="text" name="objetivo" id="objetivo" onkeypress="return soloNumeros();" maxlength=2/></td>
+				<td>&nbsp;<input type="text" name="objetivo" id="objetivo" /></td>
 			</tr>
 			<tr>
 				<td class=etiqueta>Perímetro</td>

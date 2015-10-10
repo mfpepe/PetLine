@@ -22,7 +22,7 @@ function init(){
  	<table width="100%" height="99%" cellspacing="0" cellpadding="0">
      <tr>
          <td height="90px" width="210px" class="menufondo" align=center>
-             <img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png">
+             <a target='FRAMEGRAL' href="inicio.jsp?message=<%= message %>"><img name="logo" id="log" alt="PetLine" src="<%= PetLineUtils.getURL() %>img/petLineLogo.png"></a>
          </td>
          <td colspan=2 rowspan="14" style="width:100%;height:100%;">
 			    <iframe name="FRAMEGRAL" id="FRAMEGRAL" src="./inicio.jsp?message=<%= message %>" frameborder="0" ></iframe>

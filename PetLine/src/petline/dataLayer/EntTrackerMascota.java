@@ -51,8 +51,8 @@ public class EntTrackerMascota {
 				fechaNac.clear();
 				fechaNac.setTime(rs.getDate(7));
 				trackerMascota.getMascota().setFechaNacimiento(fechaNac);
-				trackerMascota.getMascota().setPeso(rs.getInt(8));
-				trackerMascota.getMascota().setKmDiarios(rs.getInt(9));
+				trackerMascota.getMascota().setPeso(rs.getDouble(8));
+				trackerMascota.getMascota().setKmDiarios(rs.getDouble(9));
 				trackerMascota.getMascota().setIdTamaño(rs.getInt(10));
 				trackerMascota.getMascota().setIdUsuario(rs.getInt(11));
 				trackerMascota.getMascota().setIdPerimetro(rs.getInt(12));
@@ -127,8 +127,8 @@ public class EntTrackerMascota {
 				fechaNac.clear();
 				fechaNac.setTime(rs.getDate(7));
 				trackerMascota.getMascota().setFechaNacimiento(fechaNac);
-				trackerMascota.getMascota().setPeso(rs.getInt(8));
-				trackerMascota.getMascota().setKmDiarios(rs.getInt(9));
+				trackerMascota.getMascota().setPeso(rs.getDouble(8));
+				trackerMascota.getMascota().setKmDiarios(rs.getDouble(9));
 				trackerMascota.getMascota().setIdTamaño(rs.getInt(10));
 				trackerMascota.getMascota().setIdUsuario(rs.getInt(11));
 				trackerMascota.getMascota().setIdPerimetro(rs.getInt(12));
@@ -201,8 +201,8 @@ public class EntTrackerMascota {
 				fechaNac.clear();
 				fechaNac.setTime(rs.getDate(7));
 				trackerMascota.getMascota().setFechaNacimiento(fechaNac);
-				trackerMascota.getMascota().setPeso(rs.getInt(8));
-				trackerMascota.getMascota().setKmDiarios(rs.getInt(9));
+				trackerMascota.getMascota().setPeso(rs.getDouble(8));
+				trackerMascota.getMascota().setKmDiarios(rs.getDouble(9));
 				trackerMascota.getMascota().setIdTamaño(rs.getInt(10));
 				trackerMascota.getMascota().setIdUsuario(rs.getInt(11));
 				trackerMascota.getMascota().setIdPerimetro(rs.getInt(12));
@@ -275,8 +275,8 @@ public class EntTrackerMascota {
 				fechaNac.clear();
 				fechaNac.setTime(rs.getDate(7));
 				trackerMascota.getMascota().setFechaNacimiento(fechaNac);
-				trackerMascota.getMascota().setPeso(rs.getInt(8));
-				trackerMascota.getMascota().setKmDiarios(rs.getInt(9));
+				trackerMascota.getMascota().setPeso(rs.getDouble(8));
+				trackerMascota.getMascota().setKmDiarios(rs.getDouble(9));
 				trackerMascota.getMascota().setIdTamaño(rs.getInt(10));
 				trackerMascota.getMascota().setIdUsuario(rs.getInt(11));
 				trackerMascota.getMascota().setIdPerimetro(rs.getInt(12));
