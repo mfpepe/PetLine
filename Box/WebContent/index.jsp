@@ -22,6 +22,8 @@ var timeoutRecord;
 var puedeGrabar = false;
 var initRecord = true;
 
+var tomoFoto = false;
+
 function init(){
  	try {
 
@@ -69,6 +71,10 @@ function openSocket(){
 function recordAudio(){
 	if(puedeGrabar){
 		if(initRecord){
+			if(tomoFoto){
+				openSocket();
+				tomoFoto = false;
+			}
 			startRecording();
 			initRecord = false;
 		}
@@ -138,7 +144,7 @@ function createDownloadLink() {
 				<td  valign=top height=30px><img id="audioRecord" src="<%= BoxUtils.getURL() %>img/norecord.png" onclick="javascript:recordAudio();" style="cursor: pointer;"></td>
 			<tr>
 			<tr>
-				<td  valign=top ><img src="<%= BoxUtils.getURL() %>img/picture.png" onclick="document.form.submit();" style="cursor: pointer;"></td>
+				<td  valign=top ><img src="<%= BoxUtils.getURL() %>img/picture.png" onclick="tomoFoto=true;document.form.submit();" style="cursor: pointer;"></td>
 			<tr>			
 		</table>
 	</form>

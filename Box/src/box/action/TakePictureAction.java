@@ -20,17 +20,18 @@ public class TakePictureAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		PropertiesConfiguration config = new PropertiesConfiguration("box/config.properties");
-
-		Process p = Runtime.getRuntime().exec("sudo ffmpeg -i " + config.getString("URLCAMERA") + " -vframes 1 -an -ss 1 " + config.getString("PATHAUDIOFILE") + "img.jpg");
-		p.waitFor();
-
-		// return an application file instead of html page
-		response.setContentType("application/octet-stream");
-		response.setHeader("Content-Disposition", "attachment;filename=img_" + (new SimpleDateFormat("yyyyMMddhhmmss").format(new Date())) + ".jpg");
-
+		Process p = null;
 		try {
 
+			PropertiesConfiguration config = new PropertiesConfiguration("box/config.properties");
+
+			p = Runtime.getRuntime().exec("sudo ffmpeg -i " + config.getString("URLCAMERA") + " -vframes 1 -an -ss 1 " + config.getString("PATHAUDIOFILE") + "img.jpg");
+			p.waitFor();
+
+			// return an application file instead of html page
+			response.setContentType("application/octet-stream");
+			response.setHeader("Content-Disposition", "attachment;filename=img_" + (new SimpleDateFormat("yyyyMMddhhmmss").format(new Date())) + ".jpg");			
+			
 			File file = new File(config.getString("PATHAUDIOFILE") + "img.jpg");
 			
 //			File file = new File("C:\\Users\\Mauro\\Desktop\\img.jpg");
@@ -54,7 +55,12 @@ public class TakePictureAction extends Action {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		finally{
+			if(p!=null){
+				p.destroy();
+			}
+		}
+		
 		return null;
 	}
 }
