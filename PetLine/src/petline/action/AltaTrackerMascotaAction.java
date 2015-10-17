@@ -26,7 +26,7 @@ public class AltaTrackerMascotaAction extends Action {
 
 		SessTracker sessTracker = new SessTracker();
 
-		Tracker tracker = sessTracker.obtenerTrackerPorCodigo(codTracker);
+		Tracker tracker = sessTracker.obtenerTrackerValidoPorCodigo(codTracker);
 
 		String target = null;
 		String message = null;

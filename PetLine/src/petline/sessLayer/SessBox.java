@@ -17,4 +17,9 @@ public class SessBox {
 		return entBox.getBoxPorCodigo(codigo);
 	}
 	
+	public Box obtenerBoxValidoPorCodigo(String codigo) throws SQLException{
+		EntBox entBox = new EntBox();
+		return entBox.getBoxValidoPorCodigo(codigo);
+	}	
+	
 }

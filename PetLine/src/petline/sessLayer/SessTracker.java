@@ -12,4 +12,8 @@ public class SessTracker {
 		return entTracker.getTrackerPorCodigo(codigo);
 	}
 	
+	public Tracker obtenerTrackerValidoPorCodigo(String codigo) throws SQLException{
+		EntTracker entTracker = new EntTracker();
+		return entTracker.getTrackerValidoPorCodigo(codigo);
+	}	
 }

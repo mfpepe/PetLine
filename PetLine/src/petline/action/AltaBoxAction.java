@@ -23,7 +23,7 @@ public class AltaBoxAction extends Action {
 
 		SessBox sessBox = new SessBox();
 
-		Box box = sessBox.obtenerBoxPorCodigo(codigo);
+		Box box = sessBox.obtenerBoxValidoPorCodigo(codigo);
 
 		String target = null;
 		String message = null;
