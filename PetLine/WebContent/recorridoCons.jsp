@@ -107,7 +107,7 @@ function initialize() {
 }
     </script>
 </head>
-<body style="background-image:url('./img/fondo.png');"  onload="initialize();">
+<body style="background-image:url('./img/fondo.png');"  onload="initialize();setTimeout(function(){ location.reload(); }, 60000);">
 		<table class=table2>
 			<tr>
 				<td rowspan=5 width=200px><div id="mapa"><br></div></td>
