@@ -33,7 +33,7 @@ public class RegistrarUsuarioAction extends Action {
 		if( PetLineUtils.isValidPhoneNumber(telefono) ){
 			SessBox sessBox = new SessBox();
 			
-			Box box = sessBox.obtenerBoxPorCodigo(codigoBox);
+			Box box = sessBox.obtenerBoxValidoPorCodigo(codigoBox);
 
 			if(box != null){
 				

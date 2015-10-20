@@ -24,20 +24,22 @@ public class ModificacionUsuarioAction extends Action {
 		String nombre = request.getParameter("nombre"); 
 		String apellido = request.getParameter("apellido");
 		String email = request.getParameter("email");
-		int cantTelefonos = Integer.parseInt(request.getParameter("cantTelefonos"));
 
 		String target = null;
 		String message = null;		
 		
 		Collection<String> telefonos = new ArrayList<String>();
-		for (int i = 1; i <= cantTelefonos; i++) {
-			String telefono = request.getParameter("tel" + i);
+		
+		String[] tels = request.getParameterValues("tel");
+		
+		for (int i = 1; i <= tels.length; i++) {
+			String telefono = tels[i-1];
 			if( PetLineUtils.isValidPhoneNumber(telefono) && PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono).length() == 10 ){
 				telefonos.add(PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono));	
 			}
 			else{
 				target = "failure";
-				message = "Teléfono inválido.";
+				message = "Teléfono inválido: " + telefono;
 				break;
 			}
 		}
@@ -48,8 +50,6 @@ public class ModificacionUsuarioAction extends Action {
 			usuario.setApellido(apellido);
 			usuario.setNombre(nombre);
 			usuario.setMail(email);
-			
-			
 
 			try {
 				SessUsuario sessUsuario = new SessUsuario();

@@ -32,14 +32,13 @@
 <script type="text/javascript" src="<%= PetLineUtils.getURL() %>js/jquery.mask.js"></script>
 <script type="text/javascript">
 $(function() {
-	$("#telefono").mask("(+54) 9 $#####-####");
 	<%
 	int cont = 0;
 	for(Telefono telefono : telefonos){
 		cont++;
 		out.print( "$(\"#tel" + cont + "\").mask(\"(+54) 9 $#####-####\");");
 	}
-%>	
+	%>	
 });
 </script>
 </head>
@@ -72,7 +71,7 @@ $(function() {
 						cont = 0;
 						for(Telefono telefono : telefonos){
 							cont++;
-							out.print("<tr><td height=25px>&nbsp;<input type='tex' name='tel" + cont + "' id='tel" + cont + "' value='" + telefono.getNroTelefono() + "'/></td></tr>");
+							out.print("<tr><td height=25px>&nbsp;<input type='tex' name='tel' id='tel" + cont + "' value='" + telefono.getNroTelefono() + "'/></td></tr>");
 						}
 					%>
 				</table>
@@ -85,7 +84,6 @@ $(function() {
 		</table>
 		<br>
 		<input type="button" class="buttons" value="Modificar" onclick="validarModificacionUsuario();">
-		<input type="hidden" id="cantTelefonos" name="cantTelefonos" value="<%= cont %>">
 </form>
 </body>
 </html>    

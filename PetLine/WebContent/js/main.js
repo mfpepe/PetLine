@@ -216,33 +216,39 @@ function onChangeMascotaUbicacion(){
 
 function agregarTelefono(){
 
-	document.getElementById("cantTelefonos").value++;
-	
-	var tableID = 'telefonos';
-    var table = document.getElementById(tableID);
-    var rowCount = table.rows.length;
-    var row = table.insertRow(rowCount);
+	if(document.getElementsByName("tel").length < 4){
+		
+		var tableID = 'telefonos';
+	    var table = document.getElementById(tableID);
+	    var rowCount = table.rows.length;
+	    var row = table.insertRow(rowCount);
 
-    var cell = row.insertCell(0);
-    var element = document.createElement("input");
-    element.type = "text";
-    element.id = "tel" + document.getElementById("cantTelefonos").value;
-    element.name = "tel" + document.getElementById("cantTelefonos").value;
-    cell.appendChild(element);
-    
-    $("#tel" + document.getElementById("cantTelefonos").value).mask("(+54) 9 $#####-####");
+	    var cell = row.insertCell(0);
+	    var element = document.createElement("input");
+	    element.type = "text";
+	    element.id = "tel" + (document.getElementsByName("tel").length + 1);
+	    element.name = "tel";
+	    cell.appendChild(element);
+	    
+	    $("#tel" + document.getElementsByName("tel").length).mask("(+54) 9 $#####-####");		
+	}
+	else{
+		alert("Ya alcanzó el máximo número de teléfonos a cargar.");
+	}
 }
 
 function eliminarTelefono(){
 	
-	if(document.getElementById("cantTelefonos").value>1){
-		document.getElementById("cantTelefonos").value--;
+	if(document.getElementsByName("tel").length>1){
 		
 		var tableID = 'telefonos';
 	    var table = document.getElementById(tableID);
 	    var rowCount = table.rows.length;
 	
 	    table.deleteRow(rowCount-1);
+	}
+	else{
+		alert("Al menos un teléfono es obligatorio.");
 	}
 }
 
@@ -497,7 +503,8 @@ function validarModificacionUsuario(){
 		return;		
 	}
 	
-	var cantTelefonos = document.getElementById("cantTelefonos").value;
+	
+	var cantTelefonos = document.getElementsByName("tel").length;
 	if( cantTelefonos == 0 ){
 		alert("Debe informar al menos un telefono.");
 		return false;
