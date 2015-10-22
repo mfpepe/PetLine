@@ -104,7 +104,9 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 	private void _actualizarTemperaturaActual(int idTracker, String temperatura) throws SQLException {
 		SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
 		TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(idTracker);
-		sessTrackerMascota.modificarTemperaturaActualTrackerMascota(trackerMascota.getIdTrackerMascota(), Integer.parseInt(temperatura));
+		if( trackerMascota != null ){
+			sessTrackerMascota.modificarTemperaturaActualTrackerMascota(trackerMascota.getIdTrackerMascota(), Integer.parseInt(temperatura));	
+		}
 	}
 
 	private void _insertarCoordenadas(int idTracker, String latitud, String longitud) throws SQLException {
