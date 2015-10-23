@@ -45,68 +45,67 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			//GUARDA COORDENADAS
 			_insertarCoordenadas(tracker.getIdTracker(), latitud, longitud);
 			
-			//ACTUALIZO TEMPERATURA ACTUAL
-			_actualizarTemperaturaActual(tracker.getIdTracker(), temperatura);
+			SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
+			TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(tracker.getIdTracker());
 			
-			SessNotificacion sessNotificacion = new SessNotificacion();
-			HashMap<Integer, Calendar> ultimasNotificaciones = sessNotificacion.obtenerUltimasNotificacionesRealizadas(tracker.getIdTracker());
+			if( trackerMascota != null ){
+				//ACTUALIZO TEMPERATURA ACTUAL
+				_actualizarTemperaturaActual(tracker.getIdTracker(), temperatura);
 			
-			Calendar fechaCall = Calendar.getInstance();
-			
-			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
-				//BATERIA BAJA
-				rpta.append(_verificarBateriaBaja(tracker.getIdTracker(), bajaBateria));				
-			}
+				SessNotificacion sessNotificacion = new SessNotificacion();
+				HashMap<Integer, Calendar> ultimasNotificaciones = sessNotificacion.obtenerUltimasNotificacionesRealizadas(tracker.getIdTracker());
 				
-
-			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
-				//OBJETIVO DIARIO
-				String objetivoDiario = _verificarObjetivoDiario(tracker.getIdTracker());
-				if(!StringUtils.isEmpty(objetivoDiario) && !StringUtils.isEmpty(rpta.toString())){
-					rpta.append("|");
+				Calendar fechaCall = Calendar.getInstance();
+				
+				if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) 
+						|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_BATERIA)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					//BATERIA BAJA
+					rpta.append(_verificarBateriaBaja(tracker.getIdTracker(), bajaBateria));				
 				}
-				rpta.append(objetivoDiario);
-			}
+					
 
-			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
-				//PERIMETRO
-				String perimetro = _verificarPerimetro(tracker.getIdTracker(), latitud, longitud);
-				if(!StringUtils.isEmpty(perimetro) && !StringUtils.isEmpty(rpta.toString())){
-					rpta.append("|");
+				if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) 
+						|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_OBJETIVO)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					//OBJETIVO DIARIO
+					String objetivoDiario = _verificarObjetivoDiario(tracker.getIdTracker());
+					if(!StringUtils.isEmpty(objetivoDiario) && !StringUtils.isEmpty(rpta.toString())){
+						rpta.append("|");
+					}
+					rpta.append(objetivoDiario);
 				}
-				rpta.append(perimetro);
-			}
 
-			if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) 
-					|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
-				//TEMPERATURA
-				String temp = _verificarTemperatura(tracker.getIdTracker(), temperatura);
-				if(!StringUtils.isEmpty(temp) && !StringUtils.isEmpty(rpta.toString())){
-					rpta.append("|");
+				if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) 
+						|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_PERIMETRO)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					//PERIMETRO
+					String perimetro = _verificarPerimetro(tracker.getIdTracker(), latitud, longitud);
+					if(!StringUtils.isEmpty(perimetro) && !StringUtils.isEmpty(rpta.toString())){
+						rpta.append("|");
+					}
+					rpta.append(perimetro);
 				}
-				rpta.append(temp);		
-			}
-			
-			if(!StringUtils.isEmpty(rpta.toString())){
-				SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
-				TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(tracker.getIdTracker());
-				rpta.insert(0, trackerMascota.getMascota().getApodo() + "@");
-			}
-			
+
+				if( !ultimasNotificaciones.containsKey(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) 
+						|| PetLineUtils.difenciaFechasHoras( ultimasNotificaciones.get(new Integer(TipoNotificacionConst.TIPO_NOTIFICACION_TEMPERATURA)) , fechaCall) >= MAXIMA_ESPERA_ENTRE_NOTIFICACIONES){
+					//TEMPERATURA
+					String temp = _verificarTemperatura(tracker.getIdTracker(), temperatura);
+					if(!StringUtils.isEmpty(temp) && !StringUtils.isEmpty(rpta.toString())){
+						rpta.append("|");
+					}
+					rpta.append(temp);		
+				}
+				
+				if(!StringUtils.isEmpty(rpta.toString())){
+					rpta.insert(0, trackerMascota.getMascota().getApodo() + "@");
+				}				
+			}			
 		}
 		
 		return rpta.toString();
 	}
 
-	private void _actualizarTemperaturaActual(int idTracker, String temperatura) throws SQLException {
+	private void _actualizarTemperaturaActual(int idTrackerMascota, String temperatura) throws SQLException {
 		SessTrackerMascota sessTrackerMascota = new SessTrackerMascota();
-		TrackerMascota trackerMascota = sessTrackerMascota.obtenerTrackerMascotaPorTracker(idTracker);
-		if( trackerMascota != null ){
-			sessTrackerMascota.modificarTemperaturaActualTrackerMascota(trackerMascota.getIdTrackerMascota(), Integer.parseInt(temperatura));	
-		}
+		sessTrackerMascota.modificarTemperaturaActualTrackerMascota(idTrackerMascota, Integer.parseInt(temperatura));	
 	}
 
 	private void _insertarCoordenadas(int idTracker, String latitud, String longitud) throws SQLException {

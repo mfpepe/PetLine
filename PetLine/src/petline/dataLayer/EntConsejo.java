@@ -26,7 +26,7 @@ public class EntConsejo {
 
 			StringBuffer query = new StringBuffer();
 			query.append( 	
-							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza, c.NombreImagen " +
 							" from consejo c " +
 							" inner join mascota m on m.IdRaza=m.IdRaza " +
 							" where m.idmascota=? " +
@@ -35,7 +35,7 @@ public class EntConsejo {
 							" and m.Peso>c.PesoDesde " +
 							" and m.Peso<=c.PesoHasta " +
 							" union " +
-							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza, c.NombreImagen " +
 							" from consejo c " +
 							" inner join mascota m on m.IdRaza=m.IdRaza " +
 							" where m.idmascota=? " +
@@ -44,7 +44,7 @@ public class EntConsejo {
 							" and m.Peso>c.PesoDesde " +
 							" and m.Peso<=c.PesoHasta " +
 							" union " +
-							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza, c.NombreImagen " +
 							" from consejo c " +
 							" inner join mascota m on m.IdRaza=m.IdRaza " +
 							" where m.idmascota=? " +
@@ -53,7 +53,7 @@ public class EntConsejo {
 							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)>c.EdadDesde " +
 							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)<=c.EdadHasta " +
 							" union " +
-							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza, c.NombreImagen " +
 							" from consejo c " +
 							" inner join mascota m on m.IdRaza=m.IdRaza " +
 							" where m.idmascota=? " +
@@ -62,7 +62,7 @@ public class EntConsejo {
 							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)>c.EdadDesde " +
 							" and YEAR(CURDATE())-YEAR(m.fecha_nac) + IF(DATE_FORMAT(CURDATE(),'%m-%d') > DATE_FORMAT(m.fecha_nac,'%m-%d'), 0, -1)<=c.EdadHasta " +
 							" union " +
-							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza, c.NombreImagen " +
 							" from consejo c " +
 							" inner join mascota m on m.IdRaza=m.IdRaza " +
 							" where m.idmascota=? " +
@@ -73,7 +73,7 @@ public class EntConsejo {
 							" and c.PesoDesde is null " +
 							" and c.PesoHasta is null " +
 							" union " +
-							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza " +
+							" select c.IdConsejo, c.Titulo, c.Texto, c.EdadDesde, c.EdadHasta, c.PesoDesde, c.PesoHasta, c.IdTamaño, c.IdRaza, c.NombreImagen " +
 							" from consejo c " +
 							" inner join mascota m on m.IdRaza=m.IdRaza " +
 							" where m.idmascota=? " +
@@ -106,6 +106,7 @@ public class EntConsejo {
 				consejo.setPesoHasta(rs.getInt(7));
 				consejo.setIdTamaño(rs.getInt(8));
 				consejo.setIdRaza(rs.getInt(9));
+				consejo.setNombreImagen(rs.getString(10));
 				
 				consejos.add(consejo);
 			}

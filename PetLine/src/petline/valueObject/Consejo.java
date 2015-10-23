@@ -11,6 +11,7 @@ public class Consejo {
 	private int pesoHasta;
 	private int idTamaño;
 	private int idRaza;
+	private String nombreImagen;
 
 	public int getIdConsejo() {
 		return idConsejo;
@@ -82,6 +83,14 @@ public class Consejo {
 
 	public void setIdRaza(int idRaza) {
 		this.idRaza = idRaza;
+	}
+
+	public String getNombreImagen() {
+		return nombreImagen;
+	}
+
+	public void setNombreImagen(String nombreImagen) {
+		this.nombreImagen = nombreImagen;
 	}
 
 }

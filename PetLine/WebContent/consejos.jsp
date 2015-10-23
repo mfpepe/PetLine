@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.lang.StringUtils"%>
 <%@page import="petline.valueObject.Consejo"%>
 <%@page import="java.util.Collection"%>
 <%@page import="petline.sessLayer.SessConsejo"%>
@@ -56,7 +57,11 @@ $(document).ready(function(){
 					boolean esImpar = true;
 					for (Consejo consejo : consejos) {
 						out.println("<tr class='" + (esImpar?"tableImpar":"tablePar") + "'>");
-						out.println("<td>" + consejo.getTitulo() + "</td>");
+						out.println("<td>");
+						if(!StringUtils.isEmpty(consejo.getNombreImagen())){
+							out.println("<img src='" + PetLineUtils.getURL() + "img/" + consejo.getNombreImagen() + "'>");
+						}
+						out.println(consejo.getTitulo() + "</td>");
 						out.println("<td>" + consejo.getTexto() + "</td>");
 						out.println("</tr>");
 						esImpar = !esImpar;													
