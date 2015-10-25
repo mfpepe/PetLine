@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMapping;
 import petline.sessLayer.SessTelefono;
 import petline.sessLayer.SessUsuario;
 import petline.util.PetLineUtils;
+import petline.valueObject.Telefono;
 import petline.valueObject.Usuario;
 
 public class ModificacionUsuarioAction extends Action {
@@ -28,14 +29,20 @@ public class ModificacionUsuarioAction extends Action {
 		String target = null;
 		String message = null;		
 		
-		Collection<String> telefonos = new ArrayList<String>();
+		Collection<Telefono> telefonos = new ArrayList<Telefono>();
 		
 		String[] tels = request.getParameterValues("tel");
+		String[] descs = request.getParameterValues("desc");
 		
+		Telefono tel = null;
 		for (int i = 1; i <= tels.length; i++) {
 			String telefono = tels[i-1];
+			String descripcion = descs[i-1];
 			if( PetLineUtils.isValidPhoneNumber(telefono) && PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono).length() == 10 ){
-				telefonos.add(PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono));	
+				tel = new Telefono();
+				tel.setNroTelefono(PetLineUtils.getNumericPhoneNumberWithoutAreaCode(telefono));
+				tel.setDescripcion(descripcion);
+				telefonos.add(tel);
 			}
 			else{
 				target = "failure";

@@ -13,7 +13,7 @@ public class SessTelefono {
 		return entTelefono.getTelefonosPorUsuario(idUsuario);
 	}
 
-	public void actualizarTelefonos( int idUsuario, Collection<String> telefonos ) throws SQLException{
+	public void actualizarTelefonos( int idUsuario, Collection<Telefono> telefonos ) throws SQLException{
 		EntTelefono entTelefono = new EntTelefono();
 		entTelefono.updateTelefonos(idUsuario, telefonos);
 	}

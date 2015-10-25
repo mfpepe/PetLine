@@ -21,7 +21,7 @@ public class EntTelefono {
 			con = ConnectionManager.getConnection();
 
 			StringBuffer query = new StringBuffer();
-			query.append("	select Nro, IdUsuario from telefono where IdUsuario=?");
+			query.append("	select Nro, IdUsuario, Descripcion from telefono where IdUsuario=?");
 
 			stmt = con.prepareStatement(query.toString());
 
@@ -33,7 +33,8 @@ public class EntTelefono {
 				Telefono telefono = new Telefono();
 				telefono.setNroTelefono(rs.getString(1));
 				telefono.setIdUsuario(rs.getInt(2));
-
+				telefono.setDescripcion(rs.getString(3));
+				
 				telefonos.add(telefono);
 			}
 
@@ -63,7 +64,7 @@ public class EntTelefono {
 		return telefonos;
 	}
 	
-	public void updateTelefonos( int idUsuario, Collection<String> telefonos ) throws SQLException{
+	public void updateTelefonos( int idUsuario, Collection<Telefono> telefonos ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
 	
@@ -80,8 +81,8 @@ public class EntTelefono {
 			
 			stmt.clearParameters();
 			
-			for (String telefono : telefonos) {
-				stmt = con.prepareStatement("	insert into telefono values ('" + telefono + "', " + idUsuario + ")");
+			for (Telefono telefono : telefonos) {
+				stmt = con.prepareStatement("	insert into telefono (Nro, IdUsuario, Descripcion) values ('" + telefono.getNroTelefono() + "', " + idUsuario + ",'" + telefono.getDescripcion() + "')");
 				stmt.execute();
 			}
 

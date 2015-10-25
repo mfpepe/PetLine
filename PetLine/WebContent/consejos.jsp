@@ -48,6 +48,7 @@ $(document).ready(function(){
 				<tr class="tableTitle">
 				<td>Tip</td>
 				<td>Descripción</td>
+				<td>&nbsp;</td>
 			</tr></thead><tbody>
 			<%
 				if( consejos.isEmpty() ){
@@ -57,12 +58,16 @@ $(document).ready(function(){
 					boolean esImpar = true;
 					for (Consejo consejo : consejos) {
 						out.println("<tr class='" + (esImpar?"tableImpar":"tablePar") + "'>");
+						out.println("<td>" + consejo.getTitulo() + "</td>");
+						out.println("<td>" + consejo.getTexto() + "</td>");
 						out.println("<td>");
 						if(!StringUtils.isEmpty(consejo.getNombreImagen())){
 							out.println("<img src='" + PetLineUtils.getURL() + "img/" + consejo.getNombreImagen() + "'>");
 						}
-						out.println(consejo.getTitulo() + "</td>");
-						out.println("<td>" + consejo.getTexto() + "</td>");
+						else{
+							out.println("&nbsp;");
+						}
+						out.println("</td>");
 						out.println("</tr>");
 						esImpar = !esImpar;													
 					}

@@ -111,13 +111,13 @@ function initialize() {
 		<table class=table2>
 			<tr>
 				<td rowspan=5 width=200px><div id="mapa"><br></div></td>
-				<td valign=top height=30px class="textoLibre">Kms Recorridos: <%= new DecimalFormat("#.00").format(totalMtsRecorridos/1000) %> Kms</td>
+				<td valign=top height=30px class="textoLibre">Kms Recorridos: <%= new DecimalFormat("##.##").format(totalMtsRecorridos/1000) %> Kms</td>
 			<tr>
 			<tr>
 				<td  valign=top height=30px class="textoLibre">Kms Faltantes para Cumplir Objetivo Diario: <%
 					if( trackerMascota.getMascota().getKmDiarios()>0 ){
 						if( trackerMascota.getMascota().getKmDiarios()>(totalMtsRecorridos/1000) ){
-							out.print( new DecimalFormat("#.00").format((trackerMascota.getMascota().getKmDiarios() - (totalMtsRecorridos/1000)))  + " Kms" );	
+							out.print( new DecimalFormat("##.##").format((trackerMascota.getMascota().getKmDiarios() - (totalMtsRecorridos/1000)))  + " Kms" );	
 						}
 						else{
 							out.print("<font color=#00C600>Objetivo cumplido</font>");	
@@ -129,7 +129,7 @@ function initialize() {
 				%></td>
 			<tr>								
 			<tr>
-				<td  valign=top class="textoLibre">Calorias Consumidas: <%= new DecimalFormat("#.00").format(PetLineUtils.caloriasQuemadas(trackerMascota.getMascota().getPeso(), fechaInicia, fechaFin)) %> Kcal</td>
+				<td  valign=top class="textoLibre">Calorias Consumidas: <%= new DecimalFormat("##.##").format(PetLineUtils.caloriasQuemadas(trackerMascota.getMascota().getPeso(), fechaInicia, fechaFin)) %> Kcal</td>
 			<tr>	
 		</table>			
 </body>

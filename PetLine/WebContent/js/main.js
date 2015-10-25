@@ -135,7 +135,7 @@ function registrarUsuario(){
 		alert("Clave es obligatorio.");
 		return;
 	}	
-	else if( alias.length < 7 ){
+	else if( clave.length < 7 ){
 		alert("Clave debe contener mas de 6 caracteres.");
 		return;		
 	}
@@ -223,14 +223,27 @@ function agregarTelefono(){
 	    var rowCount = table.rows.length;
 	    var row = table.insertRow(rowCount);
 
+	    var cant = (document.getElementsByName("tel").length + 1);
+	    
 	    var cell = row.insertCell(0);
 	    var element = document.createElement("input");
 	    element.type = "text";
-	    element.id = "tel" + (document.getElementsByName("tel").length + 1);
+	    element.id = "tel" + cant;
 	    element.name = "tel";
 	    cell.appendChild(element);
+
+	    $("#tel" + cant).mask("(+54) 9 $#####-####");
 	    
-	    $("#tel" + document.getElementsByName("tel").length).mask("(+54) 9 $#####-####");		
+	    cell = row.insertCell(1);
+	    element = document.createElement("input");
+	    element.type = "text";
+	    element.id = "desc" + cant;
+	    element.name = "desc";
+	    cell.appendChild(element);
+	    
+	    document.getElementById("desc" + cant).maxLength=50;
+	    document.getElementById("desc" + cant).onkeypress=function(){return soloLetras();};
+	    
 	}
 	else{
 		alert("Ya alcanzó el máximo número de teléfonos a cargar.");
@@ -513,6 +526,10 @@ function validarModificacionUsuario(){
 	for (i = 1; i <= cantTelefonos; i++) { 
 		if( trim(document.getElementById("tel" + i).value) == "" ){
 			alert("El telefono es obligatorio.");
+			return false;
+		}
+		else if( trim(document.getElementById("desc" + i).value) == "" ){
+			alert("La Descripción del telefono es obligatoria.");
 			return false;
 		}
 	}

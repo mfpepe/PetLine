@@ -50,12 +50,12 @@ $(function() {
 		<table class=table2 >
 			<tr>
 				<td class=etiqueta>Nombre</td>
-				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre"  onkeypress="return soloLetras();" value="<%= usuario.getNombre() %>"/></td>
+				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre" maxlength=50 onkeypress="return soloLetras();" value="<%= usuario.getNombre() %>"/></td>
 				<td>&nbsp;</td>
 			<tr>
 			<tr>
 				<td class=etiqueta>Apellido</td>
-				<td>&nbsp;<input type="text" name="apellido" id="apellido" onkeypress="return soloLetras();" value="<%= usuario.getApellido() %>"/></td>
+				<td>&nbsp;<input type="text" name="apellido" id="apellido" maxlength=50 onkeypress="return soloLetras();" value="<%= usuario.getApellido() %>"/></td>
 				<td>&nbsp;</td>
 			<tr>
 			<tr>
@@ -64,14 +64,15 @@ $(function() {
 				<td>&nbsp;</td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Telefono</td>
+				<td class=etiqueta>Teléfono y Descripción</td>
 				<td valign=top>
 				<table id="telefonos" class="table2">
 					<%
 						cont = 0;
 						for(Telefono telefono : telefonos){
 							cont++;
-							out.print("<tr><td height=25px>&nbsp;<input type='tex' name='tel' id='tel" + cont + "' value='" + telefono.getNroTelefono() + "'/></td></tr>");
+							out.print("<tr><td height=25px>&nbsp;<input type='text' name='tel' id='tel" + cont + "' value='" + telefono.getNroTelefono() + "'/></td>");
+							out.print("<td height=25px>&nbsp;<input type='text' name='desc' id='desc" + cont + "' value='" + telefono.getDescripcion() + "' maxlength=50 onkeypress='return soloLetras();'/></td></tr>");
 						}
 					%>
 				</table>

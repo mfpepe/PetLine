@@ -283,10 +283,11 @@ public class EntUsuario {
 			
 			stmt.close();
 			
-			stmt = con.prepareStatement(" insert into telefono (Nro, IdUsuario) values (?, ?); ");
+			stmt = con.prepareStatement(" insert into telefono (Nro, IdUsuario, Descripcion) values (?, ?, ?); ");
 			
 			stmt.setString(1, telefono);
 			stmt.setInt(2, idUsuario);
+			stmt.setString(3, usuario.getNombre());
 				
 			stmt.execute();
 			

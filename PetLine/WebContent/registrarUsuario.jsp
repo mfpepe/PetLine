@@ -30,12 +30,12 @@ $(function() {
 			</tr>		
 			<tr>
 				<td class=etiqueta>Nombre</td>
-				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre" value="" onkeypress="return soloLetras();"/></td>
+				<td width=150px>&nbsp;<input type="text" name="nombre" id="nombre" value="" maxlength=50 onkeypress="return soloLetras();"/></td>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
 				<td class=etiqueta>Apellido</td>
-				<td>&nbsp;<input type="text" name="apellido" id="apellido" value="" onkeypress="return soloLetras();"/></td>
+				<td>&nbsp;<input type="text" name="apellido" id="apellido" value="" maxlength=50 onkeypress="return soloLetras();"/></td>
 				<td>&nbsp;</td>
 			</tr>
 			<tr>

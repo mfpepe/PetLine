@@ -63,7 +63,7 @@
 						
 						out.println("<td><select name='tel" + tn.getIdTipoNotificacion() + "' id='tel" + tn.getIdTipoNotificacion() + "' multiple>");
 						for( Telefono telefono : telefonos ){
-							out.println("<option value='" + telefono.getNroTelefono() + "' " + ( ttn != null && ttn.getNroTelefonos().contains(telefono.getNroTelefono())?"selected":"" ) + ">" + telefono.getNroTelefono() + "</option>");	
+							out.println("<option value='" + telefono.getNroTelefono() + "' " + ( ttn != null && ttn.getNroTelefonos().contains(telefono.getNroTelefono())?"selected":"" ) + ">" + telefono.getDescripcion() + "</option>");	
 						}
 						out.println("</select></td>");
 						out.println("<tr>");
