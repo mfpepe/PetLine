@@ -50,7 +50,7 @@ public class WebServiceTrackerImpl implements WebServiceTracker {
 			
 			if( trackerMascota != null ){
 				//ACTUALIZO TEMPERATURA ACTUAL
-				_actualizarTemperaturaActual(tracker.getIdTracker(), temperatura);
+				_actualizarTemperaturaActual(trackerMascota.getIdTrackerMascota(), temperatura);
 			
 				SessNotificacion sessNotificacion = new SessNotificacion();
 				HashMap<Integer, Calendar> ultimasNotificaciones = sessNotificacion.obtenerUltimasNotificacionesRealizadas(tracker.getIdTracker());
