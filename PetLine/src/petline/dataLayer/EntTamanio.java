@@ -11,7 +11,11 @@ import petline.util.ConnectionManager;
 import petline.valueObject.Tamanio;
 
 public class EntTamanio {
-
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Tamanio> getTamaños() throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;

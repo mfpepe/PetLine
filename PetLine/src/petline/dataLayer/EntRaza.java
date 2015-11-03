@@ -15,7 +15,11 @@ import petline.valueObject.Raza;
 
 
 public class EntRaza {
-
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Raza> getRazas() throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

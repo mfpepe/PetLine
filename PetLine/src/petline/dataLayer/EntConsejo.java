@@ -15,7 +15,12 @@ import petline.valueObject.Consejo;
 
 
 public class EntConsejo {
-
+	/**
+	 * 
+	 * @param idMascota
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Consejo> getConsejos(int idMascota) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

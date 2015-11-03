@@ -20,7 +20,12 @@ import petline.valueObject.Tracker;
 
 
 public class EntNotificacion {
-
+	/**
+	 * 
+	 * @param idTracker
+	 * @return
+	 * @throws SQLException
+	 */
 	public HashMap<Integer, Calendar> getUltimasNotificacionesRealizadas( int idTracker ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -70,7 +75,12 @@ public class EntNotificacion {
 		}
 		return ultimasNotificaciones;
 	}	
-	
+	/**
+	 * 
+	 * @param idTracker
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Notificacion> getNotificacionesUltimaSemana( int idTracker ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -135,7 +145,11 @@ public class EntNotificacion {
 		}
 		return notificaciones;
 	}
-	
+	/**
+	 * 
+	 * @param notificacion
+	 * @throws SQLException
+	 */
 	public void insertNotificacion( Notificacion notificacion ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

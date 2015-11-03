@@ -14,7 +14,12 @@ import petline.valueObject.Usuario;
 
 
 public class EntUsuario {
-
+	/**
+	 * 
+	 * @param user
+	 * @param pass
+	 * @return
+	 */
 	public boolean isUserValid(String user, String pass) {
 
 		Connection con = null;
@@ -57,7 +62,12 @@ public class EntUsuario {
 		}
 		return isValidUser;
 	}
-
+	/**
+	 * 
+	 * @param user
+	 * @param pass
+	 * @return
+	 */
 	public Usuario getUsuario(String user, String pass) {
 
 		Connection con = null;
@@ -108,7 +118,11 @@ public class EntUsuario {
 		}
 		return usuario;
 	}
-	
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 */
 	public Usuario getUsuarioPorId(int idUsuario) {
 
 		Connection con = null;
@@ -158,7 +172,11 @@ public class EntUsuario {
 		}
 		return usuario;
 	}	
-	
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	public Usuario getUsuarioPorAlias(String userId) {
 
 		Connection con = null;
@@ -208,7 +226,11 @@ public class EntUsuario {
 		}
 		return usuario;
 	}		
-	
+	/**
+	 * 
+	 * @param usuario
+	 * @throws SQLException
+	 */
 	public void updateUsuario( Usuario usuario ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -245,7 +267,13 @@ public class EntUsuario {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param usuario
+	 * @param telefono
+	 * @param idBox
+	 * @throws SQLException
+	 */
 	public void registerUsuario( Usuario usuario, String telefono, int idBox ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

@@ -16,7 +16,13 @@ import petline.valueObject.Tracker;
 
 
 public class EntTelefonoTipoNotificacion {
-
+	/**
+	 * 
+	 * @param idTipoNotificacion
+	 * @param idTracker
+	 * @return
+	 * @throws SQLException
+	 */
 	public TelefonoTipoNotificacion getTelefonoTipoNotificacion(int idTipoNotificacion, int idTracker) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -81,7 +87,11 @@ public class EntTelefonoTipoNotificacion {
 		}
 		return ttn;
 	}
-	
+	/**
+	 * 
+	 * @param telefonoTipoNotificaciones
+	 * @throws SQLException
+	 */
 	public void insertTelefonoTipoNotificacion(Collection<TelefonoTipoNotificacion> telefonoTipoNotificaciones) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

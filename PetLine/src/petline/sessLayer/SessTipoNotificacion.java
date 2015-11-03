@@ -7,7 +7,11 @@ import petline.dataLayer.EntTipoNotificacion;
 import petline.valueObject.TipoNotificacion;
 
 public class SessTipoNotificacion {
-
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<TipoNotificacion> obtenerTipoNotificaciones() throws SQLException{
 		EntTipoNotificacion entTipoNotificacion = new EntTipoNotificacion();
 		return entTipoNotificacion.getTipoNotificaciones();

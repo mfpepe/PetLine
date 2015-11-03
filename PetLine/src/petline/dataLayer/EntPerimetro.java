@@ -15,7 +15,12 @@ import petline.valueObject.Perimetro;
 
 
 public class EntPerimetro {
-
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Perimetro> getPerimetrosPorUsuario( int idUsuario ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -69,7 +74,12 @@ public class EntPerimetro {
 		}
 		return perimetros;
 	}
-
+	/**
+	 * 
+	 * @param idPerimetro
+	 * @return
+	 * @throws SQLException
+	 */
 	public Perimetro getPerimetro( int idPerimetro ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -121,7 +131,11 @@ public class EntPerimetro {
 		}
 		return perimetro;
 	}	
-	
+	/**
+	 * 
+	 * @param perimetro
+	 * @throws SQLException
+	 */
 	public void insertPerimetro( Perimetro perimetro ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -159,7 +173,11 @@ public class EntPerimetro {
 		    }
 		}
 	}
-	
+	/**
+	 * 
+	 * @param perimetro
+	 * @throws SQLException
+	 */
 	public void updatePerimetro( Perimetro perimetro ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -197,7 +215,11 @@ public class EntPerimetro {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param IdPerimetro
+	 * @throws SQLException
+	 */
 	public void deletePerimetro( int IdPerimetro ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

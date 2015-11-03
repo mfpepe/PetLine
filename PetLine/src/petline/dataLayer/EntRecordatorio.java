@@ -18,7 +18,12 @@ import petline.valueObject.Recordatorio;
 
 
 public class EntRecordatorio {
-
+	/**
+	 * 
+	 * @param idMascota
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Recordatorio> getRecordatorios(int idMascota) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -77,7 +82,12 @@ public class EntRecordatorio {
 		}
 		return recordatorios;
 	}
-	
+	/**
+	 * 
+	 * @param idRecordatorio
+	 * @return
+	 * @throws SQLException
+	 */
 	public Recordatorio getRecordatorio( int idRecordatorio ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -134,7 +144,11 @@ public class EntRecordatorio {
 		}
 		return recordatorio;
 	}	
-	
+	/**
+	 * 
+	 * @param recordatorio
+	 * @throws SQLException
+	 */
 	public void insertRecordatorio( Recordatorio recordatorio ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -171,7 +185,11 @@ public class EntRecordatorio {
 		    }
 		}
 	}
-	
+	/**
+	 * 
+	 * @param recordatorio
+	 * @throws SQLException
+	 */
 	public void updateRecordatorio( Recordatorio recordatorio ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -209,7 +227,11 @@ public class EntRecordatorio {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param idRecordatorio
+	 * @throws SQLException
+	 */
 	public void deleteRecordatorio( int idRecordatorio ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

@@ -15,7 +15,11 @@ import petline.valueObject.Frecuencia;
 
 
 public class EntFrecuencia {
-
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Frecuencia> getFrecuencias() throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

@@ -11,7 +11,12 @@ import petline.util.ConnectionManager;
 import petline.valueObject.Telefono;
 
 public class EntTelefono {
-
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Telefono> getTelefonosPorUsuario(int idUsuario) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -63,7 +68,12 @@ public class EntTelefono {
 		}
 		return telefonos;
 	}
-	
+	/**
+	 * 
+	 * @param idUsuario
+	 * @param telefonos
+	 * @throws SQLException
+	 */
 	public void updateTelefonos( int idUsuario, Collection<Telefono> telefonos ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

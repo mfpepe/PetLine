@@ -69,6 +69,8 @@ function ocultarMsg(){
 	</table>
 	<br>
 	<p align=center ><a href="./registrarUsuario.jsp">Registrarse</a></p>
+	<br>
+	<p align=center ><a target="_blank" href="<%= PetLineUtils.getURL() %>doc/ManualUsuario.pdf">Ayuda</a>&nbsp;<a target="_blank" href="https://www.facebook.com/PetLineSystem">Contactenos</a></p>
 </form>
 </body>
 </html>

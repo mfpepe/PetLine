@@ -18,7 +18,13 @@ import petline.valueObject.Coordenada;
 
 
 public class EntCoordenada {
-
+	/**
+	 * 
+	 * @param idTracker
+	 * @param fecha
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Coordenada> getCoordenadas(int idTracker, Calendar fecha) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -77,7 +83,12 @@ public class EntCoordenada {
 		}
 		return coordenadas;
 	}
-	
+	/**
+	 * 
+	 * @param idTracker
+	 * @return
+	 * @throws SQLException
+	 */
 	public Coordenada getUltimaCoordenada(int idTracker) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -90,7 +101,7 @@ public class EntCoordenada {
 			query.append( 	"	select IdCoordenada, IdTracker, Latitud, Longitud, Fecha  " +
 							"	from coordenada c " +
 							"	where IdTracker=? " +
-							"	and fecha = ( select max(Fecha) from coordenada where IdTracker=c.IdTracker ) " +
+							//"	and fecha = ( select max(Fecha) from coordenada where IdTracker=c.IdTracker ) " +
 							"	and IdCoordenada = ( select max(IdCoordenada) from coordenada where IdTracker=c.IdTracker )" );
 
 			stmt = con.prepareStatement(query.toString());
@@ -134,7 +145,11 @@ public class EntCoordenada {
 		}
 		return coordenada;
 	}	
-	
+	/**
+	 * 
+	 * @param coordenada
+	 * @throws SQLException
+	 */
 	public void insertCoordenada( Coordenada coordenada ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

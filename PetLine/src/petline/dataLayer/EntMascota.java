@@ -17,7 +17,12 @@ import petline.valueObject.Mascota;
 
 
 public class EntMascota {
-
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Mascota> getMascotasPorUsuario( int idUsuario ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -78,7 +83,12 @@ public class EntMascota {
 		}
 		return mascotas;
 	}
-
+	/**
+	 * 
+	 * @param idMascota
+	 * @return
+	 * @throws SQLException
+	 */
 	public Mascota getMascota( int idMascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -136,7 +146,11 @@ public class EntMascota {
 		}
 		return mascota;
 	}	
-	
+	/**
+	 * 
+	 * @param mascota
+	 * @throws SQLException
+	 */
 	public void insertMascota( Mascota mascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -182,7 +196,11 @@ public class EntMascota {
 		    }
 		}
 	}
-	
+	/**
+	 * 
+	 * @param mascota
+	 * @throws SQLException
+	 */
 	public void updateMascota( Mascota mascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -229,7 +247,11 @@ public class EntMascota {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param IdMascota
+	 * @throws SQLException
+	 */
 	public void deleteMascota( int IdMascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

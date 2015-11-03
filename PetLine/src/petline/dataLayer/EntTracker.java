@@ -13,7 +13,12 @@ import petline.valueObject.Tracker;
 
 
 public class EntTracker {
-
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 * @throws SQLException
+	 */
 	public Tracker getTrackerPorCodigo( String codigo ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -60,7 +65,12 @@ public class EntTracker {
 		}
 		return tracker;
 	}		
-	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 * @throws SQLException
+	 */
 	public Tracker getTrackerValidoPorCodigo( String codigo ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

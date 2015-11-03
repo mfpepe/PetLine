@@ -15,7 +15,12 @@ import petline.valueObject.Anotacion;
 
 
 public class EntAnotacion {
-
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Anotacion> getAnotacionesPorUsuario( int idUsuario ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -65,7 +70,12 @@ public class EntAnotacion {
 		}
 		return anotaciones;
 	}
-
+	/**
+	 * 
+	 * @param idAnotacion
+	 * @return
+	 * @throws SQLException
+	 */
 	public Anotacion getAnotacion( int idAnotacion ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -113,7 +123,11 @@ public class EntAnotacion {
 		}
 		return anotacion;
 	}	
-	
+	/**
+	 * 
+	 * @param anotacion
+	 * @throws SQLException
+	 */
 	public void insertAnotacion( Anotacion anotacion ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -148,7 +162,11 @@ public class EntAnotacion {
 		    }
 		}
 	}
-	
+	/**
+	 * 
+	 * @param anotacion
+	 * @throws SQLException
+	 */
 	public void updateAnotacion( Anotacion anotacion ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -184,7 +202,11 @@ public class EntAnotacion {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param IdAnotacion
+	 * @throws SQLException
+	 */
 	public void deleteAnotacion( int IdAnotacion ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

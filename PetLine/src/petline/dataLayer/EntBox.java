@@ -13,7 +13,12 @@ import petline.valueObject.Box;
 
 
 public class EntBox {
-
+	/**
+	 * 
+	 * @param idBox
+	 * @return
+	 * @throws SQLException
+	 */
 	public Box getBox( int idBox ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -61,7 +66,12 @@ public class EntBox {
 		}
 		return box;
 	}	
-	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 * @throws SQLException
+	 */
 	public Box getBoxPorCodigo( String codigo ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -109,7 +119,12 @@ public class EntBox {
 		}
 		return box;
 	}	
-	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 * @throws SQLException
+	 */
 	public Box getBoxValidoPorCodigo( String codigo ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

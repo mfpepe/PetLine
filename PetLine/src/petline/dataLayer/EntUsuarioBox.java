@@ -13,7 +13,12 @@ import petline.valueObject.Usuario;
 import petline.valueObject.UsuarioBox;
 
 public class EntUsuarioBox {
-
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<UsuarioBox> getBoxPorUsuario( int idUsuario ) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -80,7 +85,11 @@ public class EntUsuarioBox {
 		}
 		return usuarioBoxs;
 	}
-	
+	/**
+	 * 
+	 * @param usuarioBox
+	 * @throws SQLException
+	 */
 	public void insertUsuarioBox( UsuarioBox usuarioBox ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -125,7 +134,12 @@ public class EntUsuarioBox {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param idUsuarioBox
+	 * @return
+	 * @throws SQLException
+	 */
 	public UsuarioBox getUsuarioBox( int idUsuarioBox ) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -190,7 +204,12 @@ public class EntUsuarioBox {
 		}
 		return usuarioBox;
 	}
-
+	/**
+	 * 
+	 * @param idUsuarioBox
+	 * @param descripcion
+	 * @throws SQLException
+	 */
 	public void updateUsuarioBox(int idUsuarioBox, String descripcion) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -226,7 +245,11 @@ public class EntUsuarioBox {
 		    }
 		}
 	}
-
+	/**
+	 * 
+	 * @param idUsuarioBox
+	 * @throws SQLException
+	 */
 	public void deleteUsuarioBox(int idUsuarioBox) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;

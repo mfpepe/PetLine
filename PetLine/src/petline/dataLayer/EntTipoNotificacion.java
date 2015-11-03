@@ -15,7 +15,11 @@ import petline.valueObject.TipoNotificacion;
 
 
 public class EntTipoNotificacion {
-
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<TipoNotificacion> getTipoNotificaciones() throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

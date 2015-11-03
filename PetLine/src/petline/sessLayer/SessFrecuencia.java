@@ -7,7 +7,11 @@ import petline.dataLayer.EntFrecuencia;
 import petline.valueObject.Frecuencia;
 
 public class SessFrecuencia {
-
+	/**
+	 * 
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<Frecuencia> obtenerFrecuencias() throws SQLException{
 		EntFrecuencia entFrecuencia = new EntFrecuencia();
 		return entFrecuencia.getFrecuencias();

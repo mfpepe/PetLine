@@ -14,7 +14,12 @@ import petline.valueObject.Tracker;
 import petline.valueObject.TrackerMascota;
 
 public class EntTrackerMascota {
-
+	/**
+	 * 
+	 * @param idUsuario
+	 * @return
+	 * @throws SQLException
+	 */
 	public Collection<TrackerMascota> getTrackerMascotaPorUsuario( int idUsuario ) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -90,7 +95,12 @@ public class EntTrackerMascota {
 		}
 		return trackerMascotas;
 	}
-	
+	/**
+	 * 
+	 * @param idMascota
+	 * @return
+	 * @throws SQLException
+	 */
 	public TrackerMascota getTrackerMascotaPorMascota( int idMascota ) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -164,7 +174,12 @@ public class EntTrackerMascota {
 		}
 		return trackerMascota;
 	}
-	
+	/**
+	 * 
+	 * @param idTracker
+	 * @return
+	 * @throws SQLException
+	 */
 	public TrackerMascota getTrackerMascotaPorTracker( int idTracker ) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -238,7 +253,12 @@ public class EntTrackerMascota {
 		}
 		return trackerMascota;
 	}	
-	
+	/**
+	 * 
+	 * @param idTrackerMascota
+	 * @return
+	 * @throws SQLException
+	 */
 	public TrackerMascota getTrackerMascota( int idTrackerMascota ) throws SQLException {
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -312,7 +332,11 @@ public class EntTrackerMascota {
 		}
 		return trackerMascota;
 	}	
-	
+	/**
+	 * 
+	 * @param trackerMascota
+	 * @throws SQLException
+	 */
 	public void insertTrackerMascota( TrackerMascota trackerMascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -346,7 +370,11 @@ public class EntTrackerMascota {
 		    }
 		}
 	}		
-	
+	/**
+	 * 
+	 * @param trackerMascota
+	 * @throws SQLException
+	 */
 	public void updateTrackerMascota( TrackerMascota trackerMascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -379,7 +407,11 @@ public class EntTrackerMascota {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param idTrackerMascota
+	 * @throws SQLException
+	 */
 	public void deleteTrackerMascota( int idTrackerMascota ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -409,7 +441,12 @@ public class EntTrackerMascota {
 		    }
 		}
 	}	
-	
+	/**
+	 * 
+	 * @param IdTrackerMascota
+	 * @param tempActual
+	 * @throws SQLException
+	 */
 	public void updateTemperaturaActualTrackerMascota( int IdTrackerMascota, int tempActual ) throws SQLException{
 		Connection con = null;
 		PreparedStatement stmt = null;

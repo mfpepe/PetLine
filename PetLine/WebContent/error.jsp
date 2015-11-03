@@ -12,5 +12,7 @@
 	<p class="title">Error</p>
 	<br>
 	<p class="error"><%= request.getParameter("message") %></p>
+	<br>
+	<input type="button" class="buttons" value="Volver" onclick="history.back();">
 </body>
 </html>    

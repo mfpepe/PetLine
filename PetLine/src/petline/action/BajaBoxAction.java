@@ -15,15 +15,24 @@ public class BajaBoxAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String idUsuarioBox = request.getParameter("idUsuarioBox");
+		int idUsuario = Integer.parseInt((String) request.getSession().getAttribute("SESSION_IDUSER"));
 		
 		String target = null;
 		String message = null;
 		try {
 			SessUsuarioBox sessUsuarioBox = new SessUsuarioBox();
-			sessUsuarioBox.eliminarUsuarioBox(Integer.parseInt(idUsuarioBox));
 			
-			target = "success";
-			message = "El box fue eliminado exitosamente";
+			if(sessUsuarioBox.obtenerBoxPorUsuario(idUsuario).size() > 1){
+				sessUsuarioBox.eliminarUsuarioBox(Integer.parseInt(idUsuarioBox));
+				
+				target = "success";
+				message = "El box fue eliminado exitosamente";				
+			}
+			else{
+				target = "failure";
+				message = "No puede eliminar, debe tener al menos un box asociado.";				
+			}
+
 		} catch (Exception e) {
 			target = "failure";
 			message = "Ocurrio un error al eliminar el box.\n" + e.getMessage();
