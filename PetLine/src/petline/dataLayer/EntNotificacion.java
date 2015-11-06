@@ -104,10 +104,10 @@ public class EntNotificacion {
 			
 			rs = stmt.executeQuery();
 
-			Calendar fecha = Calendar.getInstance();
 			while(rs.next()){
 				Notificacion notificacion = new Notificacion();
 				notificacion.setIdNotificacion(rs.getInt(1));
+				Calendar fecha = Calendar.getInstance();
 				fecha.clear();
 				fecha.setTimeInMillis(rs.getTimestamp(2).getTime());
 				notificacion.setFechaHora(fecha);

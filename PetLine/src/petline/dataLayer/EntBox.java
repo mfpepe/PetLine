@@ -134,7 +134,7 @@ public class EntBox {
 			con = ConnectionManager.getConnection();
 
 			StringBuffer query = new StringBuffer();
-			query.append( 	"	select b.IdBox, b.Descripcion, b.Codigo, b.URL from box b inner join usuariobox ub ON ub.IdBox!=b.idbox where b.Codigo=?" );
+			query.append( 	"	select b.IdBox, b.Descripcion, b.Codigo, b.URL from box b where b.Codigo=? and b.IdBox not in (select ub.IdBox from usuariobox ub) " );
 
 			stmt = con.prepareStatement(query.toString());
 

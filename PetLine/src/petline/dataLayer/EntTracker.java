@@ -80,7 +80,7 @@ public class EntTracker {
 			con = ConnectionManager.getConnection();
 
 			StringBuffer query = new StringBuffer();
-			query.append( 	"	select t.IdTracker, t.Codigo, t.Descripcion from tracker t inner join trackermascota tm on tm.idtracker!=t.idtracker where t.Codigo=?" );
+			query.append( 	"	select t.IdTracker, t.Codigo, t.Descripcion from tracker t where t.Codigo=? and t.IdTracker not in ( select t2.IdTracker from trackermascota t2 )" );
 
 			stmt = con.prepareStatement(query.toString());
 
