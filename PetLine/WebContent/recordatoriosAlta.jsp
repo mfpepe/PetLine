@@ -53,7 +53,7 @@ $.datepicker.regional['es'] = {
 		<br>
 		<table class=table2 >
 			<tr>
-				<td class=etiqueta>Descripcion</td>
+				<td class=etiqueta>Descripción</td>
 				<td>&nbsp;<input type="text" name="descripcion" id="descripcion"/></td>
 			<tr>
 			<tr>

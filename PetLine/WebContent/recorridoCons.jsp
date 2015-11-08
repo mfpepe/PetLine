@@ -129,7 +129,7 @@ function initialize() {
 				%></td>
 			<tr>								
 			<tr>
-				<td  valign=top class="textoLibre">Calorias Consumidas: <%= new DecimalFormat("##.##").format(PetLineUtils.caloriasQuemadas(trackerMascota.getMascota().getPeso(), fechaInicia, fechaFin)) %> Kcal</td>
+				<td  valign=top class="textoLibre">Calorías Consumidas: <%= new DecimalFormat("##.##").format(PetLineUtils.caloriasQuemadas(trackerMascota.getMascota().getPeso(), fechaInicia, fechaFin)) %> Kcal</td>
 			<tr>	
 		</table>			
 </body>

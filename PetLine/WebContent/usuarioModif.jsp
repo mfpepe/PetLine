@@ -59,7 +59,7 @@ $(function() {
 				<td>&nbsp;</td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Correo Electronico</td>
+				<td class=etiqueta>Correo Electrónico</td>
 				<td>&nbsp;<input type="text" name="email" id="email" value="<%= usuario.getMail() %>"/></td>
 				<td>&nbsp;</td>
 			<tr>

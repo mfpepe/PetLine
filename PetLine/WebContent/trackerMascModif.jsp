@@ -23,7 +23,7 @@
 </head>
 <body style="background-image:url('./img/fondo.png');">
 <form method="post" name="form1" id="form1" action="ModificacionTrackerMascota.do">
-		<p class="title">Modificacion de Tracker-Mascota</p>
+		<p class="title">Modificación de Tracker-Mascota</p>
 		<br>
 		<table class=table2 >
 			<tr>
@@ -48,11 +48,11 @@
 				<td>&nbsp;<input type="text" name="tracker" id="tracker" disabled value="<%= trackerMascota.getTracker().getCodigo() %>"/></td>
 			<tr>						
 			<tr>
-				<td class=etiqueta>Temperatura Minima</td>
+				<td class=etiqueta>Temperatura Mínima</td>
 				<td>&nbsp;<input type="text" name="tempMin" id="tempMin" value="<%= trackerMascota.getTempMinima() %>" maxlength=3/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Temperatura Maxima</td>
+				<td class=etiqueta>Temperatura Máxima</td>
 				<td>&nbsp;<input type="text" name="tempMax" id="tempMax" value="<%= trackerMascota.getTempMaxima() %>" maxlength=3/></td>
 			<tr>			
 		</table>

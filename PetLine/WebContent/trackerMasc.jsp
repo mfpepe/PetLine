@@ -54,9 +54,9 @@ $(document).ready(function(){
 			<thead>
 				<tr class="tableTitle">
 				<td>Mascota</td>
-				<td>Codigo Tracker</td>
-				<td>Temperatura Minima</td>
-				<td>Temperatura Maxima</td>
+				<td>Código Tracker</td>
+				<td>Temperatura Mínima</td>
+				<td>Temperatura Máxima</td>
 				<td>Temperatura Actual</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>

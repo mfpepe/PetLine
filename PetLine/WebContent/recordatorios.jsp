@@ -52,7 +52,7 @@ $(document).ready(function(){
 		<table id="table" class=table2>
 			<thead>
 				<tr class="tableTitle">
-				<td>Descripcion</td>
+				<td>Descripción</td>
 				<td>Fecha Hora</td>
 				<td>Frecuencia</td>
 				<td>Actualizar</td>

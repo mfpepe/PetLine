@@ -32,7 +32,7 @@
 			<tr class="tableTitle">
 				<td>Notificación</td>
 				<td>Activa</td>
-				<td>Telefono</td>
+				<td>Teléfono</td>
 			<tr>
 			<%
 				SessTipoNotificacion sessTipoNotificacion = new SessTipoNotificacion();

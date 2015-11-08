@@ -43,7 +43,7 @@
 				out.print("<tr class=\"tableTitle\"><td colspan=3>" + mascota.getApodo() + "</td><tr>");
 				SessRecordatorio sessRecordatorio = new SessRecordatorio();
 				Collection<Recordatorio> recordatorios = sessRecordatorio.obtenerRecordatorios(mascota.getIdMascota());
-				out.print("<tr class=\"tableTitle\"><td>Descripcion</td><td>Fecha</td><td>Frecuencia</td><tr>");
+				out.print("<tr class=\"tableTitle\"><td>Descripción</td><td>Fecha</td><td>Frecuencia</td><tr>");
 				if(!recordatorios.isEmpty()){
 					boolean esImpar = true;
 					SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy HH:mm");

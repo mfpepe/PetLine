@@ -37,7 +37,7 @@
 				<td>&nbsp;<input type="text" name="apodo" id="apodo" disabled value="<%= mascota.getApodo() %>"/></td>
 			</tr>
 			<tr>
-				<td class=etiqueta>Edad</td>
+				<td class=etiqueta>Fecha de Nacimiento</td>
 				<td>&nbsp;<input type="text" name="edad" id="edad" disabled value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(mascota.getFechaNacimiento().getTime()) %>"/></td>
 			</tr>
 			<tr>

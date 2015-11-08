@@ -67,7 +67,7 @@ $.datepicker.regional['es'] = {
 				<td>&nbsp;<input type="text" name="apodo" id="apodo" onkeypress="return soloLetras();" maxlength=50 value="<%= mascota.getApodo() %>"/></td>
 			</tr>
 			<tr>
-				<td class=etiqueta>Edad</td>
+				<td class=etiqueta>Fecha de Nacimiento</td>
 				<td>&nbsp;<input type="text" name="edad" id="edad" readonly maxlength=10 value="<%= (new SimpleDateFormat("dd/MM/yyyy")).format(mascota.getFechaNacimiento().getTime()) %>"/></td>
 			</tr>
 			<tr>

@@ -45,7 +45,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body style="background-image:url('./img/fondo.png');" onLoad="setTimeout(function(){ document.getElementById('message').innerHTML=''; }, 3000);">
-		<p class="title">Perimetros</p>
+		<p class="title">Perímetros</p>
 		<p id=message class="msgExitoso"><%= (StringUtils.isEmpty(message)?"":message) %></p>
 		<br>
 		<a href="./perimetroAlta.jsp"><img src="<%= PetLineUtils.getURL() %>img/alta.png"></a>
@@ -53,7 +53,7 @@ $(document).ready(function(){
 		<table id="table" class=table2>
 			<thead>
 				<tr class="tableTitle">
-				<td>Descripcion</td>
+				<td>Descripción</td>
 				<td>Distancia</td>
 				<td>Actualizar</td>
 				<td>Eliminar</td>

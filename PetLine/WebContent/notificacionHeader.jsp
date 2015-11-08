@@ -30,7 +30,7 @@
 </script>
 </head>
 <body  style="height: 100%; padding: 0px; margin: 0px;" >
-		<p class="title">Notificacion</p>
+		<p class="title">Notificación</p>
 		<br>
 		<table class=table2>
 			<tr>

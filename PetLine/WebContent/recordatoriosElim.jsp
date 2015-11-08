@@ -29,7 +29,7 @@
 		<br>
 		<table class=table2 >
 			<tr>
-				<td class=etiqueta>Descripcion</td>
+				<td class=etiqueta>Descripción</td>
 				<td>&nbsp;<input type="text" name="descripcion" id="descripcion" value="<%= recordatorio.getDescripcion() %>" disabled/></td>
 			<tr>
 			<tr>

@@ -24,7 +24,7 @@
 </head>
 <body style="background-image:url('./img/fondo.png');">
 <form method="post" name="form1" id="form1" action="BajaMascotaPerimetro.do">
-		<p class="title">Eliminar Asignación de Perimetro-Mascota</p>
+		<p class="title">Eliminar Asignación de Perímetro-Mascota</p>
 		<br>
 		<table class=table2 >
 			<tr>
@@ -37,7 +37,7 @@
 				</td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Perimetro</td>
+				<td class=etiqueta>Perímetro</td>
 				<td>&nbsp;
 					<select name="perimetro" id="perimetro" disabled>
 						<option value=""></option>

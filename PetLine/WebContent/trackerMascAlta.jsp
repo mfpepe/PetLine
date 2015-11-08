@@ -50,11 +50,11 @@
 				<td>&nbsp;<input type="text" name="tracker" id="tracker"  onkeypress="return soloNumerosLetras();"/></td>
 			<tr>				
 			<tr>
-				<td class=etiqueta>Temperatura Minima</td>
+				<td class=etiqueta>Temperatura Mínima</td>
 				<td>&nbsp;<input type="text" name="tempMin" id="tempMin" maxlength=3/></td>
 			<tr>
 			<tr>
-				<td class=etiqueta>Temperatura Maxima</td>
+				<td class=etiqueta>Temperatura Máxima</td>
 				<td>&nbsp;<input type="text" name="tempMax" id="tempMax" maxlength=3/></td>
 			<tr>			
 		</table>
